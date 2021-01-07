@@ -22,39 +22,50 @@
     <!-- Styles -->
     {{-- Laravel標準で用意されているCSSを読み込みます --}}
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-  </head>
-  
-  <body>  
-    <style>
-      body{
-        background: linear-gradient(to right, #0E1D55, #0000CC 20%, #3333CC 35%, #0000CC 80%, #0E1D55);
-      }
-    </style>
+    {{-- オリジナルで作成したCSSを読み込みます --}}
+    <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
 
     <nav class="navbar navbar-dark justify-content-center" style="background-color:#0E1D55">
       <form class="form-inline">
         <div class="text-center">
-          <button type="button" class="btn btn-dark font-weight-bold">　　ホーム　　</button>
-          <button type="button" class="btn btn-dark font-weight-bold">ユーザーホーム</button>
-          <button type="button" class="btn btn-dark font-weight-bold">　対戦組合せ　</button>
+          <button type="button" class="btn btn-header font-weight-bold">　　ホーム　　</button>
+          <button type="button" class="btn btn-header font-weight-bold">ユーザーホーム</button>
+          <button type="button" class="btn btn-header font-weight-bold">　対戦組合せ　</button>
         </div>
-        
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
-        <span class="sr-only">メニュー</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <div id="gnavi" class="collapse navbar-collapse">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="">Link1</a></li>
-            <li><a href="">Link2</a></li>
-            <li><a href="">Link3</a></li>
+            <li><a href="">遊び方</a></li>
+            <li><a href="">問い合わせ</a></li>
+            <li><a href="">利用規約</a></li>
           </ul>
         </div>
       </form>
     </nav>
+  </head>
+  
+  <body>
+    <div class= "bg-base">
+    <div class="container-fluid">
+      <div class="row">
+        {{-- /<div class="col-sm-3 bg-base">col-sm-3</div> --}}
+        <div class="col-sm-6 offset-sm-3 bg-main">col-sm-6</div>
+        {{-- <div class="col-sm-3 bg-base">col-sm-3</div>--}}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+    </div>
   </body>
+  
+  <footer class="footer text-center">2021</footer>
     
 </html>  

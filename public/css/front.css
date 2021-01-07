@@ -1,0 +1,57 @@
+.btn-header {
+  color: #fff;
+  background-color: #152C7F;
+  border-color: #FFFFFF;
+  margin-right: 20px;
+}
+
+.btn-header:hover {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.btn-header:focus,
+.btn-header.focus {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-header.disabled,
+.btn-header:disabled {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-header:not(:disabled):not(.disabled):active,
+.btn-header:not(:disabled):not(.disabled).active,
+.show > .btn-header.dropdown-toggle {
+  color: #fff;
+  background-color: #1d2124;
+  border-color: #171a1d;
+}
+
+.btn-header:not(:disabled):not(.disabled):active:focus,
+.btn-header:not(:disabled):not(.disabled).active:focus,
+.show > .btn-header.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.bg-base {
+  background-color: #000000 !important;
+}
+
+a.bg-base:hover,
+a.bg-base:focus,
+button.bg-base:hover,
+button.bg-base:focus {
+  background-color: #2176bd !important;
+}
+
+.bg-main {
+  background: linear-gradient(to top left, #000000, #0000CC 20%, #3333CC 35%, #0000CC 80%, #000000);
+}
+
