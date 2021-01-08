@@ -24,27 +24,18 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- オリジナルで作成したCSSを読み込みます --}}
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
-    
-    <div class= "bg-primary">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3 text-white">
-            <nav class="navbar navbar-dark2 justify-content-center" style="background-color:#0E1D55">
-              <form class="form-inline">
-                <div class="text-center">
-                  <button type="button" class="btn btn-header font-weight-bold">　ホーム　</button>
-                  <button type="button" class="btn btn-header font-weight-bold">ユーザーホーム</button>
-                  <button type="button" class="btn btn-header font-weight-bold">対戦組合せ</button>
-                </div>
-              </form>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
   </head>
   
   <body>
+    <nav class="navbar fixed-top navbar-dark justify-content-center" style="background-color:#0E1D55">
+      <a class="navbar-brand" href="#"> <img src="../images/logo_transparent_4.png" width="74" height="40"></a>
+        <div class="text-center">
+          <button type="button" class="btn btn-header font-weight-bold">　ホーム　</button>
+          <button type="button" class="btn btn-header font-weight-bold">ユーザーホーム</button>
+          <button type="button" class="btn btn-header font-weight-bold">対戦組合せ</button>
+        </div>
+    </nav>
+      
     <div class= "bg-base">
       <div class="container-fluid">
         <div class="row">
@@ -57,11 +48,29 @@
           <br>
           <br>
           <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
     </div>
+  
+    <footer class="footer text-center text-white" style="background-color:#0E1D55; padding:10px 0px 1px 0px">
+      <ul style="list-style:none; padding-left: 0;">
+        <li style="display:inline; padding: 0px 50px; text-decoration: underline"><a href="#"><font color="#FFFFFF">遊び方</font></a></li>
+        <li style="display:inline; padding: 0px 50px; text-decoration: underline"><a href="#"><font color="#FFFFFF">利用規約</font></a></li>
+        <li style="display:inline; padding: 0px 50px; text-decoration: underline"><a href="#"><font color="#FFFFFF">問い合わせ</font></a></li>
+      </ul>
+    </footer>
   </body>
   
-  <footer class="footer text-center">遊び方　利用規約　問い合わせ</footer>
-    
 </html>  
