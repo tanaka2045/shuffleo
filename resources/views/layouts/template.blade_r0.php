@@ -26,7 +26,7 @@
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
     
     <div class= "bg-primary">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-lg-6 offset-lg-3 text-white">
             <nav class="navbar navbar-dark2 justify-content-center" style="background-color:#0E1D55">
@@ -35,6 +35,16 @@
                   <button type="button" class="btn btn-header font-weight-bold">　ホーム　</button>
                   <button type="button" class="btn btn-header font-weight-bold">ユーザーホーム</button>
                   <button type="button" class="btn btn-header font-weight-bold">対戦組合せ</button>
+                </div>
+                <button type="button" class="navbar-toggler2 collapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="">遊び方</a></li>
+                    <li><a href="">問い合わせ</a></li>
+                    <li><a href="">利用規約</a></li>
+                  </ul>
                 </div>
               </form>
             </nav>
@@ -46,9 +56,9 @@
   
   <body>
     <div class= "bg-base">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-6 offset-lg-3 bg-main text-white">comment</div>
+          <div class="col-lg-6 offset-lg-3 bg-main text-white">col-lg-6</div>
           <br>
           <br>
           <br>
