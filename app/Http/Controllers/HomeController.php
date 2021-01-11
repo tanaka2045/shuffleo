@@ -15,4 +15,9 @@ class HomeController extends Controller
   {
     return view('shuffleout.user_edit');
   }
+  
+   public function test2()
+  {
+    return view('shuffleout.announce');
+  }
 }
