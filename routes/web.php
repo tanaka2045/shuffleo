@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('shuffleo', 'HomeController@test');
+Route::get('shuffleo/user_edit', 'HomeController@test1');

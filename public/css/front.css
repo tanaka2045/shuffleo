@@ -58,6 +58,7 @@ button.bg-base:focus {
 
 .bg-main {
   background: linear-gradient(to top left, #000000, #0000CC 20%, #3333CC 35%, #0000CC 80%, #000000);
+  padding: 0px;
 }
 
 .navbar-toggler2 {
@@ -124,5 +125,11 @@ button.bg-base:focus {
 .navbar-dark2 .navbar-text a:hover,
 .navbar-dark2 .navbar-text a:focus {
   color: #fff;
+}
+
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 

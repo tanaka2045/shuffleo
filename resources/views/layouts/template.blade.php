@@ -28,7 +28,7 @@
   
   <body style="display: flex; flex-flow: column; min-height: 100vh;">
     <nav class="navbar fixed-top navbar-dark justify-content-center" style="background-color:#0E1D55">
-      <a class="navbar-brand" href="#"> <img src="../images/logo_transparent_4.png" width="74" height="40"></a>
+      {{--<a class="navbar-brand" href="#"> <img src="../images/logo_transparent_4.png" width="74" height="40"></a>--}}
         <div class="text-center">
           <button type="button" class="btn btn-header font-weight-bold">　ホーム　</button>
           <button type="button" class="btn btn-header font-weight-bold">ユーザーホーム</button>
@@ -39,8 +39,15 @@
     <div class= "bg-base" style="flex:1;">
       <div class="container-fluid">
         <div class="row">
-            {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
-          <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 93vh;">comment</div>
+          {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
+          <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 93vh;">
+
+            <div style="text-align: center; padding: 50px 0px;"> 
+              <a href="#"> <img src="../images/title_shuffleout_r3.png" width="4000" height="880" class="img-responsive"></a>
+              @yield('content')
+            </div>
+            
+          </div>  
         </div>
       </div>
     </div>

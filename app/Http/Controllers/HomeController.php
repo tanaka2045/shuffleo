@@ -10,4 +10,9 @@ class HomeController extends Controller
   {
     return view('layouts.template');
   }
+  
+   public function test1()
+  {
+    return view('shuffleout.user_edit');
+  }
 }
