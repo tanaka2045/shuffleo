@@ -20,4 +20,9 @@ class HomeController extends Controller
   {
     return view('shuffleout.announce');
   }
+  
+   public function test3()
+  {
+    return view('shuffleout.home');
+  }
 }

@@ -3,14 +3,18 @@
 @section('content')
 
  <div class="container">
-  <div class="col-6 offset-4 font-weight-bold" style="text-align: left; padding: 50px 0px 0px 0px;">
+  <div class="col-6 offset-3 font-weight-bold" style="padding: 50px 0px 0px 0px;">
     <div class="card text-black border-0" style="background-color: transparent;">
       <h3 class="font-weight-bold txt-shadow" style="text-align: center; margin-bottom: 50px;">ユーザー情報編集</h3>
-      
+    </div>
+  </div>
+  
+  <div class="col-8 offset-3 font-weight-bold" style="text-align: left; padding-left: 25px;">
+    <div class="card text-black border-0" style="background-color: transparent;">    
       <form action="">
         <div class="form-group">
           <label for="name">【ユーザー名】</label>
-          <span style="margin: 0px 0px 10px 10px;">サンプル　ネーム</span>
+          <span style="margin: 0px 0px 10px 10px;">あいうえおかきくけこ</span>
         </div>
       </form>
       
