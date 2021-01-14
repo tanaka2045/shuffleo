@@ -2,13 +2,15 @@
 
 @section('content')
     
-  <div class="card text-black border-0 mt-5" style="background-color: transparent;">
-    <h2 class="font-weight-bold txt-shadow" style="text-align: center; margin-bottom: 50px;">ゲーム概要紹介を１～２行で記載する</h2>
+  <div class="container-fluid text-black border-0 mt-5">
+    <h2 class="font-weight-bold" style="color: #C1CDD7; font-family: "メイリオ"; line-height: 1.5em; margin: 0px 12px 50px 10px;">
+      <span>中期的戦略が必要な<br>オンライン対戦型<br>ハイアンドローゲームです</span>
+    </h2>
   </div>
   
   <div class="container">
     <div class="row">
-      <div class="col-6 offset-3 font-weight-bold" style="text-align: left; padding: 50px 0px 0px 0px;">
+      <div class="col-xs-12 col-lg-6 offset-lg-3 font-weight-bold" style="text-align: left; padding: 50px 0px 0px 0px;">
         <h3 class="font-weight-bold txt-shadow" style="text-align: center; margin-bottom: 20px;">お知らせ</h3>
         <div class="cardtext-black border-0" style="background-color: transparent;">
           <h5 class="font-weight-bold" style="text-align: center;">21/1/13　　作成中　まだ遊べません</h5>

@@ -9,12 +9,12 @@
     </div>
   </div>
   
-  <div class="col-8 offset-3 font-weight-bold" style="text-align: left; padding-left: 25px;">
+  <div class="col-xs-12 col-lg-9 offset-lg-3 font-weight-bold" style="text-align: left; padding-left: 20px; padding-right: 5px;">
     <div class="card text-black border-0" style="background-color: transparent;">    
       <form action="">
         <div class="form-group">
           <label for="name">【ユーザー名】</label>
-          <span style="margin: 0px 0px 10px 10px;">あいうえおかきくけこ</span>
+          <span style="margin-left: 10px;">あいうえおかきくけこ</span>
         </div>
       </form>
       
@@ -72,7 +72,7 @@
       </form>
     </div>
   </div>
-  <button type="button" class="btn-shadow btn btn-blue font-weight-bold" style="text-align: center; margin-top: 30px;">更新</button>
+  <button type="button" class="btn-shadow btn btn-blue font-weight-bold" style="text-align: center; margin-top: 30px; margin-bottom: 20px;">更新</button>
  </div>
     
                 
