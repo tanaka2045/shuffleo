@@ -39,12 +39,8 @@
         <div class= "bg-base" style="flex:1;">
           {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
           <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 87vh;">
-            <div style="text-align: center;">
-              <a href="#"> <img src="../images/title_shuffleout_r3.png" width="4000" height="880" class="img-responsive">
-              </a>
               @yield('content')
-            </div>
-          </div>
+          </div>  
         </div>
       </div>
       <div class="row">

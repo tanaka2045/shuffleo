@@ -25,4 +25,23 @@ class HomeController extends Controller
   {
     return view('shuffleout.home');
   }
+  
+   public function test4()
+  {
+    return view('shuffleout.user_home');
+  }
+  
+   public function test5()
+  {
+    return view('shuffleout.ranking');
+  }
+  
+   public function test6()
+  {
+    return view('shuffleout.ranking_term');
+  }
+   public function test7()
+  {
+    return view('shuffleout.ranking_rate');
+  }
 }
