@@ -24,12 +24,9 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- オリジナルで作成したCSSを読み込みます --}}
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
-    {{-- font Awesome --}}
-    <script src="https://kit.fontawesome.com/5d2c323c74.js" crossorigin="anonymous">
-    </script>
   </head>
   
-  <body>
+  <body style="display: flex; flex-flow: column; min-height: 100vh;">
   <nav class="navbar fixed-top navbar-dark justify-content-center">
         <button type="button" class="btn btn-header">ホーム</button>
         <button type="button" class="btn btn-header">ユーザーホーム</button>
@@ -38,7 +35,7 @@
   </nav>
     <div class="container-fluid" style="padding-top:50px;">
       <div class="row">
-        <div class= "col bg-base px-0">
+        <div class= "bg-base" style="flex:1;">
           {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
           <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 87vh;">
             <div style="text-align: center;">

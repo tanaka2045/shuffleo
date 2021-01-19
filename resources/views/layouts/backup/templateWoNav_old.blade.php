@@ -27,21 +27,13 @@
   </head>
   
   <body style="display: flex; flex-flow: column; min-height: 100vh;">
-    <nav class="navbar fixed-top navbar-dark justify-content-center">
-          <button type="button" class="btn btn-header">ホーム</button>
-          <button type="button" class="btn btn-header">ユーザーホーム</button>
-          <button type="button" class="btn btn-header">対戦組合せ</button>
-        </div>
-    </nav>
-      
-    <div class="container-fluid" style="padding-top:50px;">
+    <div class="container-fluid">
       <div class="row">
         <div class= "bg-base" style="flex:1;">
           {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
-          <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 87vh;">
+          <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 100vh;">
             <div style="text-align: center;">
-              <a href="#"> <img src="../images/title_shuffleout_r3.png" width="4000" height="880" class="img-responsive">
-              </a>
+              @yield('titleImage')
               @yield('content')
             </div>
           </div>

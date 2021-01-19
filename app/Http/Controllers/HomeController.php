@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
   public function test()
   {
-    return view('layouts.template');
+    return view('layouts.template_test');
   }
   
    public function test1()
@@ -43,5 +43,25 @@ class HomeController extends Controller
    public function test7()
   {
     return view('shuffleout.ranking_rate');
+  }
+   public function test8()
+  {
+    return view('layouts.templateWoNav');
+  }
+   public function test9()
+  {
+    return view('shuffleout.home_bef_login');
+  }
+   public function test10()
+  {
+    return view('shuffleout.user_register_1');
+  }
+   public function test11()
+  {
+    return view('shuffleout.user_register_2');
+  }
+   public function test12()
+  {
+    return view('shuffleout.login');
   }
 }

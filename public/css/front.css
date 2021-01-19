@@ -18,6 +18,11 @@ button.bg-base:focus {
   background-color: #0E1D55;
 }
 
+.bg-status {
+  background-color: #C4CBD3;
+  color: #000000;
+}
+
 .btn {
   font-size: 13px;
   font-weight: bold;
@@ -63,6 +68,49 @@ button.bg-base:focus {
 
 .btn-blue:not(:disabled):not(.disabled):active:focus,
 .btn-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-green.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-gray-blue {
+  color: #FFF;
+  background-color: #425667;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 0.1rem;
+}
+
+.btn-gray-blue:hover {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.btn-gray-blue:focus,
+.btn-gray-blue.focus {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-gray-blue.disabled,
+.btn-gray-blue:disabled {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-gray-blue:not(:disabled):not(.disabled):active,
+.btn-gray-blue:not(:disabled):not(.disabled).active,
+.show > .btn-gray-blue.dropdown-toggle {
+  color: #fff;
+  background-color: #1d2124;
+  border-color: #171a1d;
+}
+
+.btn-gray-blue:not(:disabled):not(.disabled):active:focus,
+.btn-gray-blue:not(:disabled):not(.disabled).active:focus,
 .show > .btn-green.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
@@ -164,21 +212,21 @@ button.bg-base:focus {
 }
 
 .color-gold {
-  background: linear-gradient(to top, #CAA846, #F7F2E5 50%, #CAA846);
-  color: #000000;
-  font-size: 1.2em;
+  background: linear-gradient(to top, #68551E, #DFCB99 50%, #68551E);
+  color: #FFFFFF;
+  font-size: 1em;
 }
 
 .color-silver {
-  background: linear-gradient(to top, #BDC3C9, #FFFFFF 50%, #BDC3C9);
-  color: #000000;
-  font-size: 1.2em;
+  background: linear-gradient(to top, #3E454C, #C0C0C0 50%, #3E454C);
+  color: #FFFFFF;
+  font-size: 1em;
 }
 
 .color-blonze {
-  background: linear-gradient(to top, #976B2F, #ECDAC2 50%, #976B2F);
-  color: #000000;
-  font-size: 1.2em;
+  background: linear-gradient(to top, #4F3819, #DCBB90 50%, #4F3819);
+  color: #FFFFFF;
+  font-size: 1em;
 }
 
 .font-o-elg {
@@ -251,6 +299,20 @@ button.bg-base:focus {
 .table-green thead th,
 .table-green tbody + tbody {
   border-color: #dee2e6;
+}
+
+.table-transparent {
+  background-color: transparent;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-transparent th,
+.table-transparent td,
+.table-transparent thead th,
+.table-transparent tbody + tbody {
+  border-color: #FFFFFF;
 }
 
 .title_comment {

@@ -1,4 +1,4 @@
-@extends('layouts.templateWoImage')
+@extends('layouts.template')
 
 @section('content')
     
@@ -7,7 +7,7 @@
       <div class="col font-o-lg txt-shadow text-center my-3">ランキング</div>
     </div>
     <div class="row">
-      <div class="col-md-6 offset-md-3 font-o-md px-0">
+      <div class="col-md-8 offset-md-2 font-o-md px-0">
         <div class="d-flex justify-content-start">
           <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 offset-md-3 px-0">
+      <div class="col-md-8 offset-md-2 px-0">
         <table class="table btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
           <thead class="thead-dark text-center">
             <tr>
@@ -35,17 +35,17 @@
           </thead>
           <tbody>
             <tr class="table-green">
-              <th scope="row" class="color-gold">１</th>
+              <th scope="row" class="color-gold txt-shadow">１</th>
               <td >あいうえおかきくけこ</td>
               <td>54.5%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-silver">２</th>
+              <th scope="row" class="color-silver txt-shadow">２</th>
               <td >Jacob</td>
               <td>54.2%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-blonze">３</th>
+              <th scope="row" class="color-blonze txt-shadow">３</th>
               <td >Larry</td>
               <td>53.8%</td>
             </tr>

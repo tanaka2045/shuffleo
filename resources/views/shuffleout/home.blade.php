@@ -1,5 +1,7 @@
 @extends('layouts.template')
 
+@include('layouts.titleImage')
+
 @section('content')
     
   <div class="container-fluid">

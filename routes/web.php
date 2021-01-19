@@ -23,3 +23,8 @@ Route::get('shuffleo/user_home', 'HomeController@test4');
 Route::get('shuffleo/ranking', 'HomeController@test5');
 Route::get('shuffleo/ranking_term', 'HomeController@test6');
 Route::get('shuffleo/ranking_rate', 'HomeController@test7');
+Route::get('shuffleoWoNav/', 'HomeController@test8');
+Route::get('shuffleo/home_bef_login', 'HomeController@test9');
+Route::get('shuffleo/user_register_1', 'HomeController@test10');
+Route::get('shuffleo/user_register_2', 'HomeController@test11');
+Route::get('shuffleo/login', 'HomeController@test12');

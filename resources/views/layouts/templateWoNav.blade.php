@@ -30,17 +30,11 @@
   </head>
   
   <body>
-  <nav class="navbar fixed-top navbar-dark justify-content-center">
-        <button type="button" class="btn btn-header">ホーム</button>
-        <button type="button" class="btn btn-header">ユーザーホーム</button>
-        <button type="button" class="btn btn-header">対戦組合せ</button>
-      </div>
-  </nav>
-    <div class="container-fluid" style="padding-top:50px;">
+    <div class="container-fluid">
       <div class="row">
         <div class= "col bg-base px-0">
           {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
-          <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 87vh;">
+          <div class="col-md-6 offset-md-3 bg-main text-white" style="min-height: 94vh;">
             <div style="text-align: center;">
               @yield('titleImage')
               @yield('content')
