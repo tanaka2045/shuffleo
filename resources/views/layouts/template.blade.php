@@ -24,9 +24,6 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- オリジナルで作成したCSSを読み込みます --}}
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
-    {{-- font Awesome --}}
-    <script src="https://kit.fontawesome.com/5d2c323c74.js" crossorigin="anonymous">
-    </script>
   </head>
   
   <body>

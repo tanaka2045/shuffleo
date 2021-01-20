@@ -64,4 +64,16 @@ class HomeController extends Controller
   {
     return view('shuffleout.login');
   }
+   public function test13()
+  {
+    return view('shuffleout.match_result');
+  }
+   public function test14()
+  {
+    return view('shuffleout.match_diffence');
+  }
+   public function test15()
+  {
+    return view('shuffleout.user_home_test');
+  }
 }

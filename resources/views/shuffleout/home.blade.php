@@ -13,7 +13,7 @@
     </div>
   
     <div class="row">
-      <div class="col-xs-12 col-lg-6 offset-lg-3 text-center mt-5">
+      <div class="col-lg-6 offset-lg-3 text-center mt-5">
         <h3 class="font-o-md txt-shadow" style="margin-bottom: 20px;">インフォメーション</h3>
         <div class="cardtext-black border-0" style="background-color: transparent;">
           <h5 class="font-o-sm">21/1/13　　作成中　まだ遊べません</h5>
