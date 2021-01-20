@@ -30,4 +30,6 @@ Route::get('shuffleo/user_register_2', 'HomeController@test11');
 Route::get('shuffleo/login', 'HomeController@test12');
 Route::get('shuffleo/match_result', 'HomeController@test13');
 Route::get('shuffleo/match_diffence', 'HomeController@test14');
-Route::get('shuffleo/user_home_test', 'HomeController@test15');
+Route::get('shuffleo/match_make', 'HomeController@test15');
+
+Route::get('shuffleo/user_home_test', 'HomeController@test99');

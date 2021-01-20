@@ -15,8 +15,8 @@
         <div class="row">
           {{-- 攻撃カードのレイアウト開始--}}
           <div class="col-4 offset-2 px-0">
-            <div class="font-o-sm txt-shadow mt-2 mb-1" style="color:#FFCADC;">攻撃カード
-            </div>
+            <div class="font-o-sm txt-shadow mt-2 mb-1" style="color: #FFCADC;">攻撃カード
+             </div>
             <div class="row mx-0">
               <div class="col-9 px-0">
                 <div class="font-o-sm">攻No1</div>
@@ -118,7 +118,7 @@
           
           {{-- 守備カードのレイアウト開始--}}
           <div class="col-4 px-0">
-            <div class="font-o-sm txt-shadow mt-2 mb-1" style="color: #C9D3F6;">守備カード
+            <div  style="color: C9D3F6;" class="font-o-sm txt-shadow mt-2 mb-1">守備カード
             </div>
             <div class="row mx-0">
               <div class="col-9 px-0">
