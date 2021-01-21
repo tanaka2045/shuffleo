@@ -76,7 +76,11 @@ class HomeController extends Controller
   {
     return view('shuffleout.match_make');
   }  
-  
+   public function test16()
+  {
+    return view('shuffleout.match_offence');
+  }  
+    
   
   
   
