@@ -12,7 +12,8 @@
           <div class="col-6">
            <a class="border-bottom font-o-sm txt-shadow" href="#!">ユーザー0103
            </a>
-           <div class="mt-2"><img src="../images/back_red.png" style="max-width: 50%; height:auto;"></div>
+           <div class="mt-2"><img src="../images/back_red.png" style="max-width: 100%; height:auto;"></div>
+           <div class="mt-2"><img src="../images/10_red.png" style="max-width: 100%; height:auto;"></div>
            <div><img src="../images/back_red.png" style="max-width: 50%; height:auto;"></div>
            <div><img src="../images/back_red.png" style="max-width: 50%; height:auto;"></div>
            <div><img src="../images/back_red.png" style="max-width: 50%; height:auto;"></div>
@@ -34,7 +35,7 @@
         
         </div>
         
-        <div class="font-o-elg mt-2" style="background-color: #004C00;">
+        <div class="font-o-elg my-4" style="background-color: #004C00;">
           3-2 でユーザー0017の勝ち
         </div>
       </div>

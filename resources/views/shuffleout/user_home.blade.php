@@ -10,7 +10,7 @@
     </div>
     
     <div class="row">
-      <div class="col-md-6 mb-5">
+      <div class="col-lg-6 mb-5">
         <div class="font-o-md txt-shadow mb-2">ユーザーステータス</div>
         <div class="bg-nav-base btn-shadow font-o-md ml-1" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
@@ -72,7 +72,7 @@
         </div>
       </div>
       
-      <div class="col-md-6 pl-0 mb-3">
+      <div class="col-lg-6 pl-0 mb-3">
         <div class="font-o-md txt-shadow">カードステータス</div>
         <div class="row">
           {{-- 攻撃カードのレイアウト開始--}}
@@ -86,7 +86,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_red.png" style="max-width: 80%; height:auto;">
+                <img src="../images/10_red.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -104,7 +104,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_red.png" style="max-width: 80%; height:auto;">
+                <img src="../images/20_red.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -122,7 +122,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_red.png" style="max-width: 80%; height:auto;">
+                <img src="../images/30_red.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -140,7 +140,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_red.png" style="max-width: 80%; height:auto;">
+                <img src="../images/40_red.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -158,7 +158,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/50_red.png" style="max-width: 80%; height:auto;">
+                <img src="../images/50_red.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -189,7 +189,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_blue.png" style="max-width: 80%; height:auto;">
+                <img src="../images/10_blue.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -207,7 +207,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_blue.png" style="max-width: 80%; height:auto;">
+                <img src="../images/20_blue.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -225,7 +225,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_blue.png" style="max-width: 80%; height:auto;">
+                <img src="../images/30_blue.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -243,7 +243,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_blue.png" style="max-width: 80%; height:auto;">
+                <img src="../images/40_blue.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -261,7 +261,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/60_blue.png" style="max-width: 80%; height:auto;">
+                <img src="../images/60_blue.png" style="max-width: 52%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -297,9 +297,9 @@
   　
   　{{-- 戦績テーブル --}}
     <div class="row">
-      <div class="col-md-6">
-        <div class="font-o-md txt-shadow">トータル戦績</div>
-        <table class="table table-reflow text-white">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="font-o-md txt-shadow">トータル戦績詳細</div>
+        <table class="table table-bordered text-white txt-shadow font-o-sm">
           <thead>
             <tr>
               <th></th>
@@ -336,10 +336,12 @@
           </tbody>
         </table>
       </div>
-
-      <div class="col-md-6 mb-5">
-        <div class="font-o-md txt-shadow">現ターム戦績</div>
-        <table class="table table-reflow text-white">
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3 mb-5">
+        <div class="font-o-md txt-shadow">現ターム戦績詳細</div>
+        <table class="table table-bordered text-white txt-shadow font-o-sm">
           <thead>
             <tr>
               <th></th>
