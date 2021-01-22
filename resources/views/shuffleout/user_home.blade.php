@@ -81,7 +81,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">攻No1</div>
+                <div class="font-o-esm">攻カードNo1</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -99,7 +99,7 @@
             
             <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">攻No2</div>
+                <div class="font-o-esm">攻カードNo2</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -117,7 +117,7 @@
  
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">攻No3</div>
+                <div class="font-o-esm">攻カードNo3</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -135,7 +135,7 @@
  
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">攻No4</div>
+                <div class="font-o-esm">攻カードNo4</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -153,7 +153,7 @@
                 
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">攻No5</div>
+                <div class="font-o-esm">攻カードNo5</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -184,7 +184,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">守No1</div>
+                <div class="font-o-esm">守カードNo1</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -202,7 +202,7 @@
             
             <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">守No2</div>
+                <div class="font-o-esm">守カードNo2</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -220,7 +220,7 @@
  
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">守No3</div>
+                <div class="font-o-esm">守カードNo3</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -238,7 +238,7 @@
  
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">守No4</div>
+                <div class="font-o-esm">守カードNo4</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -256,7 +256,7 @@
                 
              <div class="row mx-0">
               <div class="col-9 px-0">
-                <div class="font-o-sm">守No5</div>
+                <div class="font-o-esm">守カードNo5</div>
               </div>
             </div>
             <div class="row mx-0">

@@ -14,10 +14,10 @@
             <a class="border-bottom font-o-esm txt-shadow" href="#!">あいう
             </a>
               <div class="mt-2"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
             </div>
           </div>
         {{-- 攻撃側のレイアウト終了 --}}
@@ -28,10 +28,10 @@
             <a class="border-bottom font-o-esm txt-shadow mb-2" href="#!">ユーザ
             </a>
               <div class="mt-2"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/20_blue.png" style="max-width: 45%; height:auto;"></div>
-              <div><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/20_blue.png" style="max-width: 45%; height:auto;"></div>
+              <div class="pt-1"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
             </div>
           </div>
         {{-- 守備側のレイアウト終了 --}}
