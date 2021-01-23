@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col text-center">
-      <div class="font-o-lg txt-shadow my-2">対戦結果</div>
+      <div class="font-o-lg txt-shadow my-2">対戦ルーム作成</div>
       <div class="row">
         {{-- 説明開始 --}}
         <div class="col-6 ">

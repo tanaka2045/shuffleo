@@ -35,18 +35,18 @@
           </thead>
           <tbody>
             <tr class="table-green">
-              <th scope="row" class="color-gold txt-shadow">１</th>
-              <td >あいうえおかきくけこ</td>
-              <td>54.5%</td>
+              <th scope="row" class="color-gold txt-shadow" style="border: none;">１</th>
+              <td style="border: none;">あいうえおかきくけこ</td>
+              <td style="border: none;">54.5%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-silver txt-shadow">２</th>
-              <td >Jacob</td>
+              <th scope="row" class="color-silver txt-shadow" style="border: none;">２</th>
+              <td>Jacob</td>
               <td>54.2%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-blonze txt-shadow">３</th>
-              <td >Larry</td>
+              <th scope="row" class="color-blonze txt-shadow" style="border: none;">３</th>
+              <td>Larry</td>
               <td>53.8%</td>
             </tr>
             <tr class="table-green">
