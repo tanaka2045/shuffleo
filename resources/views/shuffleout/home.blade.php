@@ -30,7 +30,7 @@
     </div>
     <div class="row">
       <div class="col text-center">
-        <button type="button" class="btn btn-blue btn-shadow" style="text-align: center; margin-top: 50px;">ユーザーホーム</button>
+        <a href="{{ action('HomeController@userHomeAccess') }}" role="button"  class="btn btn-blue btn-shadow" style="text-align: center; margin-top: 50px;">ユーザーホーム</a>
       </div>
     </div>
   </div>

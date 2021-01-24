@@ -10,9 +10,9 @@
     </div>
     
     <div class="row">
-      <div class="col-lg-6 mb-5">
+      <div class="col-md-6 mb-5 px-5">
         <div class="font-o-md txt-shadow mb-2">ユーザーステータス</div>
-        <div class="bg-nav-base btn-shadow font-o-md ml-1" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
+        <div class="bg-nav-base btn-shadow font-o-sm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
             <tbody>
               <tr class="table-transparent">
@@ -72,9 +72,9 @@
         </div>
       </div>
       
-      <div class="col-lg-6 pl-0 mb-3">
+      <div class="col-md-6 px-0 mb-3">
         <div class="font-o-md txt-shadow">カードステータス</div>
-        <div class="row">
+        <div class="row mx-0">
           {{-- 攻撃カードのレイアウト開始--}}
           <div class="col-4 offset-2 px-0">
             <div class="font-o-sm txt-shadow mt-2 mb-1" style="color:#FFCADC;">攻撃カード
@@ -283,12 +283,13 @@
           </div>
         </div>
         {{--カードポイント更新ボタン　開始--}}
-        <div class="row">
+        <div class="row mx-0">
           <div class="col text-center mt-3">
             <span class="font-o-sm">チップ数:</span>
             <span class="font-o-elg text-dark bg-light">20</span>
             <button type="button" class="btn btn-green text-center btn-shadow ml-3 mr-0">リセット</button>
             <button type="button" class="btn btn-blue text-center btn-shadow ml-1">確定</button>
+            @csrf
           </div>
          </div>
         {{--カードポイント更新ボタン 終了--}}
@@ -297,7 +298,7 @@
   　
   　{{-- 戦績テーブル --}}
     <div class="row">
-      <div class="col-lg-6 offset-lg-3">
+      <div class="col-md-6 offset-md-3">
         <div class="font-o-md txt-shadow">トータル戦績詳細</div>
         <table class="table table-bordered text-white txt-shadow font-o-sm">
           <thead>
@@ -339,7 +340,7 @@
     </div>
     
     <div class="row">
-      <div class="col-lg-6 offset-lg-3 mb-5">
+      <div class="col-md-6 offset-md-3 mb-5">
         <div class="font-o-md txt-shadow">現ターム戦績詳細</div>
         <table class="table table-bordered text-white txt-shadow font-o-sm">
           <thead>

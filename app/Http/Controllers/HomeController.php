@@ -12,6 +12,15 @@ class HomeController extends Controller
     return view('shuffleout.user_edit');
   }
   
+  public function homeAccess()
+  {
+    return view('shuffleout.home');
+  }
+  
+  public function userHomeAccess()
+  {
+    return view('shuffleout.user_home');
+  }  
   
   
   
@@ -20,7 +29,7 @@ class HomeController extends Controller
   
   public function test()
   {
-    return view('layouts.template_test');
+    return view('layouts.template');
   }
   
    public function test1()

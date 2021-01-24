@@ -27,12 +27,15 @@
   </head>
   
   <body>
-  <nav class="navbar fixed-top navbar-dark justify-content-center">
-        <button type="button" class="btn btn-header">ホーム</button>
-        <button type="button" class="btn btn-header">ユーザーホーム</button>
-        <button type="button" class="btn btn-header">対戦組合せ</button>
-      </div>
-  </nav>
+    <nav class="navbar fixed-top navbar-dark justify-content-center">
+        <div>
+          <button type="button" class="btn btn-header">ホーム</button>
+          <button type="button" class="btn btn-header">ユーザーホーム</button>
+          <button type="button" class="btn btn-header">対戦組合せ</button>
+          {{--<a href="{{ action('HomeController@userHomeAccess') }}" type="button" class="btn btn-header">ユーザーホーム</button>
+          <a href="{{ action('MatchController@matchMakeAccess') }}" type="button" class="btn btn-header">対戦組合せ</button>--}}
+        </div>
+    </nav>
     <div class="container-fluid" style="padding-top:50px;">
       <div class="row">
         <div class= "col bg-base px-0">

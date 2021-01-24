@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3 text-center">
         <div class="font-o-lg txt-shadow my-2">対戦結果</div>
-        <button type="button" class="btn btn-gray-blue btn-shadow text-center font-o-esm mb-2">確認</button>
+        <button type="button" class="btn btn-gray-blue btn-shadow text-center font-o-esm mb-2">結果確認</button>
         <div class="row">
           {{-- 攻撃側のレイアウト開始 --}}
           <div class="col-4 offset-2 px-0">
