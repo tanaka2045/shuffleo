@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+  public function userEdit()
+  {
+    return view('shuffleout.user_edit');
+  }
+  
+  
+  
+  
+  
+  
+  
   public function test()
   {
     return view('layouts.template_test');
@@ -87,6 +99,6 @@ class HomeController extends Controller
   
    public function test99()
   {
-    return view('shuffleout.user_home_test');
+    return view('shuffleout.zzztest');
   }
 }

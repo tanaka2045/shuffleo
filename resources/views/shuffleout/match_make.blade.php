@@ -14,7 +14,7 @@
         <div class="p-2 btn-shadow" style="border:3px solid #FFFFFF";>
           <div class="font-o-elg text-left">守備</div>
           <div class="text-right">
-            <button type="button" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム作成</button>
+            <button type="button" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</button>
           </div>          
         </div>
       </div>
