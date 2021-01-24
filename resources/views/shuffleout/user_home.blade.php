@@ -384,7 +384,7 @@
       <div class="col text-center">
         <div class="btn-group-vertical">
           <button type="button" class="btn btn-blue text-center btn-shadow">対戦履歴</button>
-          <button type="button" class="btn btn-blue text-center btn-shadow mt-4 mb-5">ランキング</button>
+          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-4 mb-5">ランキング</a>
         </div>
       </div>
     </div>

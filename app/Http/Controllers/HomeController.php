@@ -54,17 +54,9 @@ class HomeController extends Controller
   
    public function test5()
   {
-    return view('shuffleout.ranking');
+    return view('layouts.ranking');
   }
   
-   public function test6()
-  {
-    return view('shuffleout.ranking_term');
-  }
-   public function test7()
-  {
-    return view('shuffleout.ranking_rate');
-  }
    public function test8()
   {
     return view('layouts.templateWoNav');

@@ -1,30 +1,5 @@
-@extends('layouts.template')
-
-@section('content')
-    
-  <div class="container">
     <div class="row">
-      <div class="col font-o-lg txt-shadow text-center my-3">ランキング</div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 offset-md-2 font-o-md px-0">
-        <div class="d-flex justify-content-start">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" href="#!">トータル勝率</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#!">ターム勝率</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#!">レート</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 offset-md-2 px-0">
+      <div class="col-md-6 offset-md-3 px-0">
         <table class="table btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
           <thead class="thead-dark text-center">
             <tr>
@@ -35,17 +10,17 @@
           </thead>
           <tbody>
             <tr class="table-green">
-              <th scope="row" class="color-gold txt-shadow" style="border: none;">１</th>
-              <td style="border: none;">あいうえおかきくけこ</td>
-              <td style="border: none;">54.5%</td>
+              <th scope="row" class="color-gold txt-shadow-dark">１</th>
+              <td>あいうえおかきくけこ</td>
+              <td>54.5%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-silver txt-shadow" style="border: none;">２</th>
+              <th scope="row" class="color-silver txt-shadow-dark" style="border: none;">２</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
            <tr class="table-green">
-              <th scope="row" class="color-blonze txt-shadow" style="border: none;">３</th>
+              <th scope="row" class="color-blonze txt-shadow-dark" style="border: none;">３</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
@@ -138,9 +113,5 @@
         </table>
       </div> 
     </div>
-  </div>
     
-    
-                
-@endsection
  

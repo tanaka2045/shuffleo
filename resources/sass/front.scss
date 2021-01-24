@@ -304,7 +304,7 @@ button.bg-base:focus {
 }
 
 .color-gold {
-  background: linear-gradient(to top, #68551E, #DFCB99 50%, #68551E);
+  background: linear-gradient(to top, #68551E, #E6D7B0 50%, #68551E);
   color:#FFFFFF;
   font-size: 1.0em;
 }
@@ -392,7 +392,7 @@ button.bg-base:focus {
 .table-green td,
 .table-green thead th,
 .table-green tbody + tbody {
-  border-color: #dee2e6;
+  border: 1px solid #677480;
 }
   
 .table-transparent {
@@ -419,4 +419,8 @@ border-color: #FFFFFF;
 
 .txt-shadow{
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7 );
+}
+
+.txt-shadow-dark{
+    text-shadow: 3px 3px 3px rgba(0, 0, 0);
 }
