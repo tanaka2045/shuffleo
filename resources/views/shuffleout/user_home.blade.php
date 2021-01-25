@@ -23,50 +23,49 @@
                 <th scope="row" class="txt-shadow">性別</th>
                 <td class="bg-status">男性</td>
               </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">年齢</th>
                 <td class="bg-status">30代</td>
               </tr>
-               <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">誕生月</th>
-                <td class="bg-status">1月</td>
             </tbody>
           </table>
           <table class="table table-bordered table-sm">
             <tbody>            
-              </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">レート</th>
                 <td class="bg-status">1500</td>
               </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">トータル対戦数</th>
                 <td class="bg-status">140</td>
               </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">トータル勝率</th>
                 <td class="bg-status">42.9%</td>
               </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">現ターム対戦数</th>
                 <td class="bg-status">80</td>
               </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">現ターム勝率</th>
                 <td class="bg-status">57.1%</td>
               </tr>
-              </tr>
-                <tr class="table-transparent">
+              <tr class="table-transparent">
                 <th scope="row" class="txt-shadow">現ターム残対戦数</th>
                 <td class="bg-status">20</td>
-              </tr>                           
+              </tr>
+              <tr class="table-transparent">
+                <th scope="row" class="txt-shadow">過去最高ターム勝率</th>
+                <td class="bg-status">54.5%</td>
+              </tr>   
             </tbody>
           </table>
           <div class="text-center">
             <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" style="text-align: center; width: 90%;">次タームへ</button>
           </div>
           <div class="mb-3">
-           <a class="border-bottom font-o-esm txt-shadow" href="#!">閲覧していない対戦結果
+           <a class="border-bottom font-o-esm txt-shadow" href="{{ action('MatchController@matchResultAccess') }}">閲覧していない対戦結果
            </a>
           </div>
         </div>
@@ -383,8 +382,8 @@
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-          <button type="button" class="btn btn-blue text-center btn-shadow">対戦履歴</button>
-          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-4 mb-5">ランキング</a>
+          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-4">ランキング</a>
+          <a href="{{ action('MatchController@matchHistoryAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mb-4">対戦履歴</a>
         </div>
       </div>
     </div>

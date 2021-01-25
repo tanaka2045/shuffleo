@@ -15,19 +15,19 @@
       <div class="col-xs-12 col-lg-6 offset-lg-3 font-weight-bold pt-5" style="text-align: left;">
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="loginID">【ログインID】</label>
             <input type="text" class="form-control" maxlength="20" style="height: 1.5em">
           </div>
-          @csrf
         </form>
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="password">【パスワード】</label>
             <input type="text" class="form-control" maxlength="20" style="height: 1.5em">
           </div>
-          @csrf
         </form>
         
       </div>

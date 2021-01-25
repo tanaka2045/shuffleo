@@ -15,35 +15,35 @@
       <div class="col-xs-12 col-lg-6 offset-lg-3 font-weight-bold" style="text-align: left;">
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="loginID">【ログインID】</label>
             <input type="text" class="form-control" maxlength="20" placeholder="半角英数字8~20文字" style="height: 1.5em">
           </div>
-          @csrf
         </form>
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="password">【パスワード】</label>
             <input type="text" class="form-control" maxlength="20" placeholder="半角英数字8~20文字" style="height: 1.5em">
           </div>
-          @csrf
         </form>
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="password">【パスワード（確認用）】</label>
             <input type="text" class="form-control" maxlength="20" placeholder="半角英数字8~20文字" style="height: 1.5em">
           </div>
-          @csrf
         </form>
         
         <form action="" >
+          @csrf
           <div class="form-group">
             <label for="email">【メールアドレス】</label>
             <input type="text" class="form-control" maxlength="20" placeholder="メールアドレス" style="height: 1.5em">
           </div>
-          @csrf
         </form>
        
       </div>

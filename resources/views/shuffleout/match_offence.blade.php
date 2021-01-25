@@ -1,4 +1,4 @@
-@extends('layouts.templateWoNav')
+@extends('layouts.templateWoNavWoFooter')
 
 @section('content')
 
@@ -36,15 +36,16 @@
             <div class="row mx-0">
               <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                 <form action="">
-                <div class="form-group pr-1">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint1">
-                    <option value="ONo1" selected>攻1 10</option>
-                    <option value="ONo2">攻2 20</option>
-                    <option value="ONo3">攻3 30</option>
-                    <option value="ONo4">攻4 40</option>
-                    <option value="ONo5">攻5 50</option>
-                  </select>
-                </div>
+                  @csrf
+                  <div class="form-group pr-1">
+                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint1">
+                      <option value="ONo1" selected>攻1 10</option>
+                      <option value="ONo2">攻2 20</option>
+                      <option value="ONo3">攻3 30</option>
+                      <option value="ONo4">攻4 40</option>
+                      <option value="ONo5">攻5 50</option>
+                    </select>
+                  </div>
                 </form>
                   <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
               </div>
@@ -53,15 +54,16 @@
             <div class="row mx-0">
               <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                 <form action="">
-                <div class="form-group pr-1">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint2">
-                    <option value="ONo1">攻1 10</option>
-                    <option value="ONo2" selected>攻2 20</option>
-                    <option value="ONo3">攻3 30</option>
-                    <option value="ONo4">攻4 40</option>
-                    <option value="ONo5">攻5 50</option>
-                  </select>
-                </div>
+                  @csrf
+                  <div class="form-group pr-1">
+                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint2">
+                      <option value="ONo1">攻1 10</option>
+                      <option value="ONo2" selected>攻2 20</option>
+                      <option value="ONo3">攻3 30</option>
+                      <option value="ONo4">攻4 40</option>
+                      <option value="ONo5">攻5 50</option>
+                    </select>
+                  </div>
                 </form>
                   <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
               </div>
@@ -70,15 +72,16 @@
             <div class="row mx-0">
               <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                 <form action="">
-                <div class="form-group pr-1">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint3">
-                    <option value="ONo1">攻1 10</option>
-                    <option value="ONo2">攻2 20</option>
-                    <option value="ONo3" selected>攻3 30</option>
-                    <option value="ONo4">攻4 40</option>
-                    <option value="ONo5">攻5 50</option>
-                  </select>
-                </div>
+                  @csrf
+                  <div class="form-group pr-1">
+                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint3">
+                      <option value="ONo1">攻1 10</option>
+                      <option value="ONo2">攻2 20</option>
+                      <option value="ONo3" selected>攻3 30</option>
+                      <option value="ONo4">攻4 40</option>
+                      <option value="ONo5">攻5 50</option>
+                    </select>
+                  </div>
                 </form>
                   <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
               </div>
@@ -87,15 +90,16 @@
             <div class="row mx-0">
               <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                 <form action="">
-                <div class="form-group pr-1">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint4">
-                    <option value="ONo1">攻1 10</option>
-                    <option value="ONo2">攻2 20</option>
-                    <option value="ONo3">攻3 30</option>
-                    <option value="ONo4" selected>攻4 40</option>
-                    <option value="ONo5">攻5 50</option>
-                  </select>
-                </div>
+                  @csrf
+                  <div class="form-group pr-1">
+                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint4">
+                      <option value="ONo1">攻1 10</option>
+                      <option value="ONo2">攻2 20</option>
+                      <option value="ONo3">攻3 30</option>
+                      <option value="ONo4" selected>攻4 40</option>
+                      <option value="ONo5">攻5 50</option>
+                    </select>
+                  </div>
                 </form>
                   <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
               </div>
@@ -104,15 +108,16 @@
             <div class="row mx-0">
               <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                 <form action="">
-                <div class="form-group pr-1">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint5">
-                    <option value="ONo1">攻1 10</option>
-                    <option value="ONo2">攻2 20</option>
-                    <option value="ONo3">攻3 30</option>
-                    <option value="ONo4">攻4 40</option>
-                    <option value="ONo5" selected>攻5 50</option>
-                  </select>
-                </div>
+                  @csrf
+                  <div class="form-group pr-1">
+                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint5">
+                      <option value="ONo1">攻1 10</option>
+                      <option value="ONo2">攻2 20</option>
+                      <option value="ONo3">攻3 30</option>
+                      <option value="ONo4">攻4 40</option>
+                      <option value="ONo5" selected>攻5 50</option>
+                    </select>
+                  </div>
                 </form>
                   <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
               </div>
@@ -167,7 +172,7 @@
           <div class="col text-center mt-4 px-0">
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">セット</button>
-            <button type="button" class="btn btn-blue text-center btn-shadow mx-2">対戦</button>
+            <a href="{{ action('MatchController@matchResultAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mx-2">対戦</a>
           </div>
         </div>
         

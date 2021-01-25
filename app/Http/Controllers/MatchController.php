@@ -11,4 +11,24 @@ class MatchController extends Controller
   {
     return view('shuffleout.match_make');
   }
+  
+  public function matchDiffenceAccess()
+  {
+    return view('shuffleout.match_diffence');
+  }
+    
+  public function matchOffenceAccess()
+  {
+    return view('shuffleout.match_offence');
+  }
+  
+  public function matchResultAccess()
+  {
+    return view('shuffleout.match_result');
+  }
+  
+  public function matchHistoryAccess()
+  {
+    return view('shuffleout.match_history');
+  }
 }

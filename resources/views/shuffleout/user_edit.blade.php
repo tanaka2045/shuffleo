@@ -14,14 +14,15 @@
   <div class="row">
     <div class="col-xs-12 col-lg-9 offset-lg-3 font-weight-bold" style="text-align: left; padding-right: 5px;">
         <form action="">
+          @csrf
           <div class="form-group">
             <label for="name">【ユーザー名】</label>
             <span style="margin-left: 10px;">あいうえおかきくけこ</span>
           </div>
-          @csrf
         </form>
         
         <form action="">
+          @csrf
           <div class="form-group">
             <label class="radio-inline" style="padding-right: 50px;">【性別】</label>
             {{-- 男性がchecked　→　これまで選択していた性別をcheckedにする --}}
@@ -34,10 +35,10 @@
               <label class="form check-label" for="female">女性</label>
             </span>
           </div>
-          @csrf
         </form>
         
         <form action="">
+          @csrf
           <div class="form-group" >
             <label for="age" style="padding-right: 40px;">【年齢】</label>
             <select type="text" style="margin: 0px 0px 10px 10px;" name="age" id="age">
@@ -52,30 +53,8 @@
               <option value="80歳以上">80歳以上</option>
             </select>
           </div>
-          @csrf
         </form>
         
-        <form action="">
-          <div class="form-group" >
-            <label for="age" style="padding-right: 25px;">【誕生月】</label>
-            <select type="text" style="margin: 0px 0px 10px 10px;" name="age" id="age">
-              <option value="">選択してください</option>
-              <option value="1月">1月</option>
-              <option value="2月">2月</option>
-              <option value="3月">3月</option>
-              <option value="4月">4月</option>
-              <option value="5月">5月</option>
-              <option value="6月">6月</option>
-              <option value="7月">7月</option>
-              <option value="8月">8月</option>
-              <option value="9月">9月</option>
-              <option value="10月">10月</option>
-              <option value="11月">11月</option>
-              <option value="12月">12月</option>
-            </select>
-          </div>
-          @csrf
-        </form>
       </div>
   </div>
   

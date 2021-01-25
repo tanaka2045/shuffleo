@@ -38,7 +38,7 @@ button.bg-base:focus {
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-blue:hover {
@@ -82,7 +82,7 @@ button.bg-base:focus {
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-diffence:hover {
@@ -125,7 +125,7 @@ button.bg-base:focus {
   background-color: #425667;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-gray-blue:hover {
@@ -169,7 +169,7 @@ button.bg-base:focus {
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-green:hover {
@@ -213,7 +213,7 @@ button.bg-base:focus {
   border-color: #FFFFFF;
   margin-left: 2px;
   margin-right: 2px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-header:hover {
@@ -257,7 +257,7 @@ button.bg-base:focus {
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .btn-offence:hover {
