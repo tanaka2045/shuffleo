@@ -22,6 +22,10 @@ button.bg-base:focus {
   background-color: #0E1D55;
 }
 
+.bg-nav-base-gradient {
+  background: linear-gradient(to bottom, #002060, #002C84 50%, #002060);
+}
+
 .bg-status {
   background-color: #C4CBD3;
   color: #000000;
@@ -305,22 +309,21 @@ button.bg-base:focus {
 
 .color-gold {
   background: linear-gradient(to top, #68551E, #E6D7B0 50%, #68551E);
-  color:#FFFFFF;
+  color:#000000;
   font-size: 1.0em;
 }
 
 .color-silver {
   background: linear-gradient(to top, #3E454C, #C0C0C0 50%, #3E454C);
-  color:#FFFFFF;
+  color:#000000;
   font-size: 1.0em;
 }
 
 .color-blonze {
   background: linear-gradient(to top, #4F3819, #DCBB90 50%, #4F3819);
-  color:#FFFFFF;
+  color:#000000;
   font-size: 1.0em;
 }
-
 
 .font-o-elg{
   color: #FFFFFF;
@@ -352,7 +355,6 @@ button.bg-base:focus {
   font-weight: bold;
 }
 
-
 .img-responsive {
   display: block;
   height: auto;
@@ -380,19 +382,42 @@ button.bg-base:focus {
   padding-right: 0px;
 }
 
-.table-green {
-  background-color: #004C00;
-  color: #FFFFFF;
+.table-o-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-o-bordered th{
+  border: 1px solid #dee2e6;
+}
+
+.table-o-bordered td {
+  border: 1px solid #343a40;
+}
+
+.table-o-bordered thead th,
+.table-o-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+.table-ranking {
+  background-color: #C4CBD3;
+  color: #000000;
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
 }
 
-.table-green th,
-.table-green td,
-.table-green thead th,
-.table-green tbody + tbody {
-  border: 1px solid #677480;
+.table-ranking th,
+.table-ranking td,
+.table-ranking thead th,
+.table-ranking tbody + tbody {
+  border: 1px solid #001F5C;
+}
+
+.table .thead-navcolor th {
+  color: #fff;
+  background-color: #0E1D55;
+  border-color: #001F5C;
 }
   
 .table-transparent {
@@ -422,5 +447,5 @@ border-color: #FFFFFF;
 }
 
 .txt-shadow-dark{
-    text-shadow: 3px 3px 3px rgba(0, 0, 0);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0);
 }

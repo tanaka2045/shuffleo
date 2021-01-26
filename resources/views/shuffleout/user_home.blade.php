@@ -298,92 +298,92 @@
   　{{-- 戦績テーブル --}}
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <div class="font-o-md txt-shadow">トータル戦績詳細</div>
-        <table class="table table-bordered text-white txt-shadow font-o-sm">
-          <thead>
-            <tr>
-              <th></th>
-              <th>攻撃時</th>
-              <th>守備時</th>
-              <th>計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">対戦数</th>
-              <td>80</td>
-              <td>60</td>
-              <td>140</td>
-            </tr>
-            <tr>
-              <th scope="row">勝ち数</th>
-              <td>40</td>
-              <td>20</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <th scope="row">負け数</th>
-              <td>40</td>
-              <td>40</td>
-              <td>80</td>
-            </tr>
-            <tr>
-              <th scope="row">勝率</th>
-              <td>50.0%</td>
-              <td>33.3%</td>
-              <td>42.9%</td>
-            </tr>            
-          </tbody>
-        </table>
+        <div class="font-o-md txt-shadow"><詳細>トータル戦績</div>
+          <table class="table table-o-bordered table-sm btn-shadow text-white font-o-sm">
+            <thead class="bg-nav-base">
+              <tr>
+                <th></th>
+                <th>攻撃時</th>
+                <th>守備時</th>
+                <th>計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="bg-nav-base">対戦数</th>
+                <td class="bg-status">80</td>
+                <td class="bg-status">60</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">勝ち数</th>
+                <td class="bg-status">40</td>
+                <td class="bg-status">20</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">負け数</th>
+                <td class="bg-status">40</td>
+                <td class="bg-status">40</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">勝率</th>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
+                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
+              </tr>            
+            </tbody>
+          </table>
       </div>
     </div>
     
     <div class="row">
       <div class="col-md-6 offset-md-3 mb-5">
-        <div class="font-o-md txt-shadow">現ターム戦績詳細</div>
-        <table class="table table-bordered text-white txt-shadow font-o-sm">
-          <thead>
-            <tr>
-              <th></th>
-              <th>攻撃時</th>
-              <th>守備時</th>
-              <th>計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">対戦数</th>
-              <td>80</td>
-              <td>60</td>
-              <td>140</td>
-            </tr>
-            <tr>
-              <th scope="row">勝ち数</th>
-              <td>40</td>
-              <td>20</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <th scope="row">負け数</th>
-              <td>40</td>
-              <td>40</td>
-              <td>80</td>
-            </tr>
-            <tr>
-              <th scope="row">勝率</th>
-              <td>50.0%</td>
-              <td>33.3%</td>
-              <td>42.9%</td>
-            </tr>            
-          </tbody>
-        </table>
+        <div class="font-o-md txt-shadow"><詳細>現ターム戦績</div>
+        <table class="table table-o-bordered table-sm btn-shadow text-white font-o-sm">
+            <thead class="bg-nav-base">
+              <tr>
+                <th></th>
+                <th>攻撃時</th>
+                <th>守備時</th>
+                <th>計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="bg-nav-base">対戦数</th>
+                <td class="bg-status">80</td>
+                <td class="bg-status">60</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">勝ち数</th>
+                <td class="bg-status">40</td>
+                <td class="bg-status">20</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">負け数</th>
+                <td class="bg-status">40</td>
+                <td class="bg-status">40</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">勝率</th>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
+                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
+              </tr>            
+            </tbody>
+          </table>
       </div>
     </div>
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-4">ランキング</a>
-          <a href="{{ action('MatchController@matchHistoryAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mb-4">対戦履歴</a>
+          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-3">ランキング</a>
+          <a href="{{ action('MatchController@matchHistoryAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mb-5">対戦履歴</a>
         </div>
       </div>
     </div>

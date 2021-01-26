@@ -1,111 +1,111 @@
     <div class="row">
       <div class="col-md-6 offset-md-3 px-0">
-        <table class="table btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
-          <thead class="thead-dark text-center">
+        <table class="table table-sm btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
+          <thead class="thead-navcolor text-center">
             <tr>
-              <th scope="col" class="align-middle" style="border: 1px solid #677480;">順位</th>
-              <th scope="col" class="align-middle" style="border: 1px solid #677480;">ユーザー名</th>
-              <th scope="col" class="align-middle" style="border: 1px solid #677480;">トータル<br>勝率</th>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">順位</th>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">ユーザー名</th>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">トータル<br>勝率</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-green">
-              <th scope="row" class="color-gold align-middle p-0"><img src="../images/rank_first.png" width="35" height="35"></th>
+            <tr class="table-ranking">
+              <th scope="row" class="color-gold align-middle font-o-lg txt-shadow-dark p-0">1</th>
               <td>あいうえおかきくけこ</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row" class="color-silver align-middle p-0"><img src="../images/rank_second.png" width="35" height="35"></th>
+           <tr class="table-ranking">
+              <th scope="row" class="color-silver align-middle font-o-lg txt-shadow-dark p-0">2</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row" class="color-blonze align-middle p-0"><img src="../images/rank_third.png" width="35" height="35"></th>
+           <tr class="table-ranking">
+              <th scope="row" class="color-blonze align-middle font-o-lg txt-shadow-dark p-0">3</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">４</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">4</th>
               <td>Mark</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">５</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">5</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">６</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">6</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">７</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">7</th>
               <td>Mark</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">８</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">8</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">９</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">9</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">１０</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">10</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">１１</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">11</th>
               <td>Mark</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１２</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">12</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１３</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">13</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">１４</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">14</th>
               <td>Mark</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１５</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">15</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１６</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">16</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">１７</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">17</th>
               <td>Mark</td>
               <td>54.5%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１８</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">18</th>
               <td>Jacob</td>
               <td>54.2%</td>
             </tr>
-           <tr class="table-green">
-              <th scope="row">１９</th>
+           <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">19</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>
-            <tr class="table-green">
-              <th scope="row">２０</th>
+            <tr class="table-ranking">
+              <th scope="row" class="bg-nav-base-gradient text-white">20</th>
               <td>Larry</td>
               <td>53.8%</td>
             </tr>

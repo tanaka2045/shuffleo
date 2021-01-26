@@ -15,7 +15,7 @@
         <div class="collapse" id="collapseExample">
           <div class="text-left" style=" font-size:11px; color: #FFFFFF;">
             <ul class="pl-3">
-              <li>カードポイントをカード横のプルダウンメニューで重複がないよう選択</li>
+              <li>ドロップダウンメニューから５枚のカードが重複しないよう守備カードを選択（メニューは守No+カードポイントで表示）</li>
               <li>オープンカードを選択（デフォルトは最上段のカード）</li>
               <li>セットボタンでカード配置</li>
               <li>確定ボタンで登録完了</li>
@@ -150,7 +150,7 @@
           <div class="col text-center my-4 px-0">
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">セット</button>
-            <button type="button" class="btn btn-blue text-center btn-shadow mx-2">登録</button>
+            <a href="{{ action('MatchController@matchMakeAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mx-2">登録</a>
           </div>
         </div>
         
