@@ -29,9 +29,9 @@
   <body>
     <nav class="navbar fixed-top navbar-dark justify-content-center">
         <div>
-          <a href="{{ action('Users\HomeController@homeAccess') }}" type="button" class="btn btn-header">ホーム</a>
-          <a href="{{ action('Users\HomeController@userHomeAccess') }}" type="button" class="btn btn-header">ユーザーホーム</a>
-          <a href="{{ action('Users\MatchController@matchMakeAccess') }}" type="button" class="btn btn-header">対戦組合せ</a>
+          <a href="{{ action('Users\HomeController@homeAccess') }}" role="button" tabindex="0" class="btn btn-header">ホーム</a>
+          <a href="{{ action('Users\HomeController@userHomeAccess') }}" role="button" tabindex="0" class="btn btn-header">ユーザーホーム</a>
+          <a href="{{ action('Users\MatchController@matchMakeAccess') }}" role="button" tabindex="0" class="btn btn-header">対戦組合せ</a>
         </div>
     </nav>
     <div class="container-fluid" style="padding-top:50px;">

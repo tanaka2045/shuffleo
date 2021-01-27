@@ -172,7 +172,7 @@
           <div class="col text-center mt-4 px-0">
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">セット</button>
-            <a href="{{ action('Users\MatchController@matchResultAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mx-2">対戦</a>
+            <a href="{{ action('Users\MatchController@matchResultAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mx-2">対戦</a>
           </div>
         </div>
         
