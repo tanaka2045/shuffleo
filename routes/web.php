@@ -41,17 +41,6 @@ Route::get('shuffleo/announce', 'HelpMessageController@announceAccess');
 Route::get('shuffleo/tutorial', 'HelpMessageController@tutorialAccess');
 Route::get('shuffleo/policy', 'HelpMessageController@policyAccess');
 Route::get('shuffleo/inquiry', 'InquiryController@inquiryAccess');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
