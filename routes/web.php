@@ -47,7 +47,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {
+Route::group(['prefix' => 'admin/983053', 'middleware' => 'guest:admin'], function() {
   Route::get('/', function () {
     return view('admin.welcome');
   });
