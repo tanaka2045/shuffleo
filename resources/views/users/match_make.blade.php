@@ -14,7 +14,7 @@
         <div class="p-2 bg-nav-base btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
           <div class="font-o-elg txt-shadow text-left pl-3" style="color: #C9D3F6;">守備側で対戦</div>
           <div class="text-right">
-            <a href="{{ action('MatchController@matchDiffenceAccess') }}" type="button" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>
+            <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" type="button" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>
           </div>          
         </div>
       </div>
@@ -39,7 +39,7 @@
                 <td class="font-o-md align-middle">2</td>
                 <td>
                   <div class="btn-group-vertical">
-                    <a href="{{ action('MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
                   </div>
                 </td>
               </tr>
@@ -48,7 +48,7 @@
                 <td class="font-o-md align-middle">2</td>
                 <td>
                   <div class="btn-group-vertical">
-                    <a href="{{ action('MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 mt-1 px-1">対戦ルームへ</a>
+                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 mt-1 px-1">対戦ルームへ</a>
                     <button type="button" class="btn btn-green btn-shadow font-o-esm mx-0 mb-1 px-1">キャンセル</button>
                   </div>
                 </td>
@@ -58,7 +58,7 @@
                 <td class="font-o-md align-middle">10</td>
                 <td>
                   <div class="btn-group-vertical">
-                    <a href="{{ action('MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" type="button" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
                   </div>
                 </td>
               </tr>

@@ -150,7 +150,7 @@
           <div class="col text-center my-4 px-0">
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">セット</button>
-            <a href="{{ action('MatchController@matchMakeAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mx-2">登録</a>
+            <a href="{{ action('Users\MatchController@matchMakeAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mx-2">登録</a>
           </div>
         </div>
         

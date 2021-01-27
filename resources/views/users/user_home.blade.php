@@ -65,7 +65,7 @@
             <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" style="text-align: center; width: 90%;">次タームへ</button>
           </div>
           <div class="mb-3">
-           <a class="border-bottom font-o-esm txt-shadow" href="{{ action('MatchController@matchResultAccess') }}">閲覧していない対戦結果
+           <a class="border-bottom font-o-esm txt-shadow" href="{{ action('Users\MatchController@matchResultAccess') }}">閲覧していない対戦結果
            </a>
           </div>
         </div>
@@ -382,8 +382,8 @@
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-          <a href="{{ action('StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-3">ランキング</a>
-          <a href="{{ action('MatchController@matchHistoryAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mb-5">対戦履歴</a>
+          <a href="{{ action('Users\StatisticController@rankingTotalAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mt-3">ランキング</a>
+          <a href="{{ action('Users\MatchController@matchHistoryAccess') }}" type="button" class="btn btn-blue text-center btn-shadow mb-5">対戦履歴</a>
         </div>
       </div>
     </div>

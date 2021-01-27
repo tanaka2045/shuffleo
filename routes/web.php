@@ -24,7 +24,7 @@ Route::get('shuffleo/user_register_2', 'HomeController@test11');
 Route::get('shuffleo/login', 'HomeController@test12');
 Route::get('shuffleo/zzztest', 'HomeController@test99');
 
-Route::group(['prefix' => 'shuffleo', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'auth'], function() {
 Route::get('home', 'HomeController@homeAccess');
 Route::get('user_edit', 'HomeController@userEdit');
 Route::get('user_home', 'HomeController@userHomeAccess');

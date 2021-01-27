@@ -29,9 +29,9 @@
   <body>
     <nav class="navbar fixed-top navbar-dark justify-content-center">
         <div>
-          <a href="{{ action ('HomeController@homeAccess') }}" type="button" class="btn btn-header">ホーム</a>
-          <a href="{{ action ('HomeController@userHomeAccess') }}" type="button" class="btn btn-header">ユーザーホーム</a>
-          <a href="{{ action ('MatchController@matchMakeAccess') }}" type="button" class="btn btn-header">対戦組合せ</a>
+          <a href="{{ action('Users\HomeController@homeAccess') }}" type="button" class="btn btn-header">ホーム</a>
+          <a href="{{ action('Users\HomeController@userHomeAccess') }}" type="button" class="btn btn-header">ユーザーホーム</a>
+          <a href="{{ action('Users\MatchController@matchMakeAccess') }}" type="button" class="btn btn-header">対戦組合せ</a>
         </div>
     </nav>
     <div class="container-fluid" style="padding-top:50px;">
@@ -50,9 +50,9 @@
         <div class="col px-0">
           <footer class="footer text-center text-white" style="background-color:#0E1D55; padding:10px 0px 1px 0px">
             <ul style="list-style:none; padding-left: 0;">
-              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action ('HelpMessageController@tutorialAccess') }}"><font color="#FFFFFF">遊び方</font></a></li>
-              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action ('HelpMessageController@policyAccess') }}"><font color="#FFFFFF">利用規約</font></a></li>
-              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action ('InquiryController@inquiryAccess') }}"><font color="#FFFFFF">問い合わせ</font></a></li>
+              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\HelpMessageController@tutorialAccess') }}"><font color="#FFFFFF">遊び方</font></a></li>
+              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\HelpMessageController@policyAccess') }}"><font color="#FFFFFF">利用規約</font></a></li>
+              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\InquiryController@inquiryAccess') }}"><font color="#FFFFFF">問い合わせ</font></a></li>
             </ul>
           </footer>
         </div>
