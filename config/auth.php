@@ -109,8 +109,8 @@ return [
             'expire' => 60,
         ],
         
-        'asmins' => [
-            'provider' => 'asmins',
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 15,
         ],        

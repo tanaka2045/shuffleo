@@ -10,7 +10,7 @@
     </div>
     
     <div class="row">
-      <div class="col-md-6 mb-5 px-5">
+      <div class="col-md-6 mb-5 px-4">
         <div class="font-o-md txt-shadow mb-2">ユーザーステータス</div>
         <div class="bg-nav-base btn-shadow font-o-sm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
@@ -75,12 +75,12 @@
         <div class="font-o-md txt-shadow">カードステータス</div>
         <div class="row mx-0">
           {{-- 攻撃カードのレイアウト開始--}}
-          <div class="col-4 offset-2 px-0">
+          <div class="col-5 offset-1 px-0">
             <div class="font-o-sm txt-shadow mt-2 mb-1" style="color:#FFCADC;">攻撃カード
             </div>
             <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">攻カードNo1</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">攻カードNo1</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -97,8 +97,8 @@
             </div>
             
             <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">攻カードNo2</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">攻カードNo2</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -115,8 +115,8 @@
             </div>            
  
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">攻カードNo3</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">攻カードNo3</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -133,8 +133,8 @@
             </div>                   
  
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">攻カードNo4</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">攻カードNo4</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -151,8 +151,8 @@
             </div>               
                 
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">攻カードNo5</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">攻カードNo5</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -178,12 +178,12 @@
           {{-- 攻撃カードのレイアウト終了--}}
           
           {{-- 守備カードのレイアウト開始--}}
-          <div class="col-4 px-0">
+          <div class="col-5 px-0">
             <div class="font-o-sm txt-shadow mt-2 mb-1" style="color: #C9D3F6;">守備カード
             </div>
             <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">守カードNo1</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">守カードNo1</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -200,8 +200,8 @@
             </div>
             
             <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">守カードNo2</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">守カードNo2</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -218,8 +218,8 @@
             </div>            
  
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">守カードNo3</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">守カードNo3</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -236,8 +236,8 @@
             </div>                   
  
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">守カードNo4</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">守カードNo4</div>
               </div>
             </div>
             <div class="row mx-0">
@@ -254,8 +254,8 @@
             </div>               
                 
              <div class="row mx-0">
-              <div class="col-9 px-0">
-                <div class="font-o-esm">守カードNo5</div>
+              <div class="col-9 offset-1 px-0">
+                <div class="font-o-esm" style="font-weight: normal;">守カードNo5</div>
               </div>
             </div>
             <div class="row mx-0">
