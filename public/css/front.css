@@ -13,6 +13,10 @@ button.bg-base:focus {
   background-color: #2176bd !important;
 }
 
+.bg-green {
+  background-color: #004800;
+}
+
 .bg-main {
   background: linear-gradient(to top left, #000000, #0000CC 20%, #3333CC 35%, #0000CC 80%, #000000);
   padding: 0px;
@@ -295,6 +299,50 @@ button.bg-base:focus {
 
 .btn-offence:not(:disabled):not(.disabled):active:focus,
 .btn-offence:not(:disabled):not(.disabled).active:focus,
+.show > .btn-green.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-cancel-red {
+  color: #fff;
+  background-color: #BFBFBF;
+  border-color: #A3002F;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 0.2rem;
+}
+
+.btn-cancel-red:hover {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.btn-cancel-red:focus,
+.btn-cancel-red.focus {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+.btn-cancel-red.disabled,
+.btn-cancel-red:disabled {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-cancel-red:not(:disabled):not(.disabled):active,
+.btn-cancel-red:not(:disabled):not(.disabled).active,
+.show > .btn-cancel-red.dropdown-toggle {
+  color: #fff;
+  background-color: #1d2124;
+  border-color: #171a1d;
+}
+
+.btn-cancel-red:not(:disabled):not(.disabled):active:focus,
+.btn-cancel-red:not(:disabled):not(.disabled).active:focus,
 .show > .btn-green.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
