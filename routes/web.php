@@ -19,8 +19,8 @@ Route::get('shuffleo', 'HomeController@test');
 Route::get('shuffleoWoNav/', 'HomeController@test8');
 
 Route::get('shuffleo/home_bef_login', 'HomeController@test9');
-Route::get('shuffleo/user_register_1', 'HomeController@test10');
-Route::get('shuffleo/user_register_2', 'HomeController@test11');
+Route::get('shuffleo/user_register_1', 'Users\TestController@test');
+Route::get('shuffleo/user_register_2', 'Users\TestController@test2');
 Route::get('shuffleo/login', 'HomeController@test12');
 Route::get('shuffleo/zzztest', 'HomeController@test99');
 

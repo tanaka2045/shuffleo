@@ -14,11 +14,16 @@
   <div class="row">
     <div class="col-xs-12 col-lg-9 offset-lg-3 font-weight-bold" style="text-align: left; padding-right: 5px;">
       
-        <form action="" >
+        <form method="POST" action="{{ route('register') }}">
           @csrf
           <div class="form-group row mx-0">
-            <label for="name">【ユーザー名】</label>
-            <input type="text" class="form-control" maxlength="10" placeholder="10文字以内で入力" style="margin-left: 10px; width: auto; height: 1.5em">
+            <label for="name">{{ __('【ログインID】' ) }}</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="6文字以上で入力" style="margin-left: 10px; width: auto; height: 1.5em">
+            @error('name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
           </div>
         </form>
         

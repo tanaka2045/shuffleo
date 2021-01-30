@@ -45,7 +45,7 @@
             <ul style="list-style:none; padding-left: 0;">
               <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\HelpMessageController@tutorialAccess') }}"><font color="#FFFFFF">遊び方</font></a></li>
               <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\HelpMessageController@policyAccess') }}"><font color="#FFFFFF">利用規約</font></a></li>
-              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('InquiryController@inquiryAccess') }}"><font color="#FFFFFF">問い合わせ</font></a></li>
+              <li style="display:inline; padding: 0px 10px; text-decoration: underline"><a href="{{ action('Users\InquiryController@inquiryAccess') }}"><font color="#FFFFFF">問い合わせ</font></a></li>
             </ul>
           </footer>
         </div>
