@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Rules\AlphaNumHalf;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/shuffleo/home';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'min:6', 'unique:users'],
+            'name' => ['required', 'min:6', 'unique:users', new AlphaNumHalf ],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'min:6', 'confirmed', new AlphaNumHalf ],
             'nickname' => ['required', 'string', 'max:255', 'unique:users'],
             'gender' => ['required'],
             'age' => ['required'],
