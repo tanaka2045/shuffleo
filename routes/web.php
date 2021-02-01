@@ -42,6 +42,7 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
