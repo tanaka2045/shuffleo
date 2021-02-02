@@ -16,7 +16,7 @@
     @csrf
       
       <div class="row">
-        <div class="font-o-md col-lg-6 offset-lg-3" style="text-align: left;">
+        <div class="col-lg-6 offset-lg-3 font-o-md" style="text-align: left;">
         
           <div class="form-group row mx-0">
             <label for="name">{{ __('ログインID') }}</label>
@@ -55,11 +55,15 @@
           <button type="submit" class="btn btn-blue text-center btn-shadow">{{ __('ログイン') }}</button>
             <div>
             @if (Route::has('password.request'))
-              <a class="btn btn-link mt-2" href="{{ route('password.request') }}" style="color:#DEEBF7;">
+              <a class="btn btn-link mt-3" href="{{ route('password.request') }}" style="color:#DEEBF7;">
                 {{ __('パスワードお忘れの方') }}
               </a>
             @endif
-              
+            </div>
+            <div>
+              <a class="btn btn-link" href="{{ route('register') }}" style="color:#DEEBF7;">
+                {{ __('新規登録') }}
+              </a>
             </div>
         </div>
       </div>

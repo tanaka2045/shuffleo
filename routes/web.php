@@ -50,8 +50,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {
   Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
   Route::post('login', 'Admin\Auth\LoginController@login')->name('admin.login');
   /*Route::get('register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
-  Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');*/
-  Route::get('password/rest', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+  Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');             //登録はできないようにする
+  Route::get('password/rest', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');//このアクroute::listでエラーになる、アクションがどこにあるが不明 
+  */
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
