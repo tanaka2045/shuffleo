@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3 font-weight-bold" style="text-align: left;">
         <form method="POST" action="{{ route('register') }}">
-          @csrf
+        @csrf
         
           {{-- ニックネームの登録 --}}
           <div class="form-group row mx-0">

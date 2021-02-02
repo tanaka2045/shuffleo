@@ -15,11 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('shuffleo', 'HomeController@test');
-Route::get('shuffleoWoNav/', 'HomeController@test8');
 
 Route::get('shuffleo/home_bef_login', 'HomeController@test9');
-Route::get('shuffleo/login', 'HomeController@test12');
 Route::get('shuffleo/zzztest', 'HomeController@test99');
 
 Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'auth'], function() {

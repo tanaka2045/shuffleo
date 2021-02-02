@@ -1,88 +1,71 @@
-@extends('layouts.app')
+@extends('layouts.templateWoNav')
+
+@include('layouts.titleImage')
 
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">{{ __('Login') }}</div>
-
-        <div class="card-body">
-          <form method="POST" action="{{ route('login') }}">
-          @csrf
-          
-          <!-- ログイン時のメールアドレスの入力をコメントアウト
-          <div class="form-group row">
-              <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-              <div class="col-md-6">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-          </div> -->
-          
-          <!-- ログインIDの入力項目を追加-->
-            <div class="form-group row">
-              <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ログインID') }}</label>
-              <div class="col-md-6">
-                <input id="name" type="text" class="from-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                
-                @error('name')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-                
-              </div>
-            </div>
-            
-            <!-- パスワードの入力-->
-            <div class="form-group row">
-              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
-  
-              <div class="col-md-6">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-  
-                @error('password')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-            </div>
-  
-            <div class="form-group row">
-              <div class="col-md-6 offset-md-4">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-  
-                  <label class="form-check-label" for="remember">
-                      {{ __('ログイン状態を保存する') }}
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row mb-0">
-              <div class="col-md-8 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                    {{ __('ログイン') }}
-                  </button>
-
-                  @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                      {{ __('パスワードお忘れの方') }}
-                    </a>
-                  @endif
-              </div>
-            </div>
-          </form>
-        </div>
+    
+  <div class="container">
+    
+    <div class="row">
+      <div class="col text-center pt-3">
+        <div class="font-o-lg txt-shadow mb-4"></div>
       </div>
     </div>
+  
+    <form method="POST" action="{{ route('login') }}">
+    @csrf
+      
+      <div class="row">
+        <div class="font-o-md col-lg-6 offset-lg-3" style="text-align: left;">
+        
+          <div class="form-group row mx-0">
+            <label for="name">{{ __('ログインID') }}</label>
+            <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="半角英数字6文字以上で入力" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
+            @error('name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+
+          <div class="form-group row mx-0">
+            <label for="password">{{ __('パスワード') }}</label>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="半角英数字6文字以上で入力" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+          
+          <div class="form-group row mx-0 mt-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+              <label class="form-check-label" for="remember">
+                  {{ __('ログイン状態を保存する') }}
+              </label>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    
+      <div class="row mt-5 mb-2">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-blue text-center btn-shadow">{{ __('ログイン') }}</button>
+            <div>
+            @if (Route::has('password.request'))
+              <a class="btn btn-link mt-2" href="{{ route('password.request') }}" style="color:#DEEBF7;">
+                {{ __('パスワードお忘れの方') }}
+              </a>
+            @endif
+              
+            </div>
+        </div>
+      </div>
+
+    </form>
   </div>
-</div>
+  
 @endsection
+ 
