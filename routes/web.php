@@ -58,4 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('announce_create', 'Admin\AnnounceAdminController@announceCreate');
+    Route::get('announce_edit', 'Admin\AnnounceAdminController@announceEdit');
+    Route::get('announce_index', 'Admin\AnnounceAdminController@announceIndex');
 });
