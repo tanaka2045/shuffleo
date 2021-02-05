@@ -4,8 +4,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-8 mx-auto">
-        <h2>インフォメーション新規作成</h2>
+      <div class="col-md-8 mx-auto mt-5">
+        <h3 class="mb-3">管理者用インフォメーション新規作成</h3>
         <form action="{{ action('Admin\AnnounceAdminController@announceCreate') }}" method="post" enctype="multipart/form-data"> {{-- もともと画像ファイルがあったのでこのエンコード形式 --}}
           @csrf
           @if (count($errors) > 0)
