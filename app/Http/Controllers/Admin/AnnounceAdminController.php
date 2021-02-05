@@ -29,13 +29,21 @@ class AnnounceAdminController extends Controller
     $announce->fill($form);
     $announce->save();
     
-    return redirect('admin/announce_create');
+    return redirect('admin/announce_index');
       
   }
   
-  public function announceIndex()
+  public function announceIndex(Request $request)
   {
-      return view('admin.announce_index');
+    $cond_title = $request->cond_title;
+    if ($cond_title !='') {
+      //検索されたら検索結果を取得する
+      $posts = Announces::where('title', $cond_title)->get();
+    }else{
+      //それ以外はすべてのインフォメーションを取得する
+      $posts = Announces::all();
+    }
+      return view('admin.announce_index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }  
   
   public function announceEdit(Request $request)
@@ -43,12 +51,12 @@ class AnnounceAdminController extends Controller
       //Announces Modelからデータを取得する
       $announce = Announces::find($request->id);
       if (empty($announce)) {
-        abort(403);
+        abort(404);
       }
       return view('admin.announce_edit', ['announce_form' => $announce]);
   }
   
-  /*public function update(Request $request)
+  public function announceUpdate(Request $request)
   {
     //Validationをかける
     $this->validate($request, Announces::$rules);
@@ -59,14 +67,20 @@ class AnnounceAdminController extends Controller
     
     unset($announce_form['_token']);
     
-    $announce->fill($announce_form)->save();
+    /*$announce->fill($announce_form)->save();
     $history = new announceHistory;
     $history->announce_id = $announce->id;
     $history->edited_at = Carbon::now();
-    $history->save();
+    $history->save();*/
     
-    return redirect('admin/announceIndex');
-  }*/
+    return redirect('admin/announce_index');
+  }
   
+  public function announceDelete(Request $request)
+  {
+    $announce = Announces::find($request->id);
+    $announce->delete();
+    return redirect('admin/announce_index');
+  }
   
 }

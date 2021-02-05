@@ -7,17 +7,17 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="{{ action('@') }}" role="button" class="btn btn-primary">新規作成</a>
+        <a href="{{ action('Admin\AnnounceAdminController@announceAdd') }}" role="button" class="btn btn-primary">新規作成</a>
       </div>
       <div class="col-md-8">
-        <form action="{{ action('@') }}" method="get">
+        <form action="{{ action('Admin\AnnounceAdminController@announceIndex') }}" method="get">
+          @csrf
           <div class="form-group row">
             <label class="col-md-2">タイトル</label>
             <div class="col-md-8">
               <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
             </div>
             <div class="col-md-2">
-              {{ csrf_field() }}
               <input type="submit" class="btn btn-primary" value="検索">
             </div>
           </div>
@@ -37,17 +37,17 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($posts as $news)
+              @foreach($posts as $announce)
               <tr>
-                <th>{{ $news->id }}</th>
-                <td>{{ \Str::limit($news->title, 100) }}</td>
-                <td>{{ \Str::limit($news->body, 250) }}</td>
+                <th>{{ $announce->id }}</th>
+                <td>{{ \Str::limit($announce->title, 100) }}</td>
+                <td>{{ \Str::limit($announce->body, 250) }}</td>
                 <td>
                   <div>
-                    <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id] ) }}">編集</a>
+                    <a href="{{ action('Admin\AnnounceAdminController@announceEdit', ['id' => $announce->id] ) }}">編集</a>
                   </div>
                   <div>
-                    <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id] ) }}">削除</a>
+                    <a href="{{ action('Admin\AnnounceAdminController@announceDelete', ['id' => $announce->id] ) }}">削除</a>
                   </div>
                 </td>
               </tr>

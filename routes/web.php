@@ -62,8 +62,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     Route::get('announce_create', 'Admin\AnnounceAdminController@announceAdd');
     Route::post('announce_create', 'Admin\AnnounceAdminController@announceCreate');
     
+    Route::get('announce_index', 'Admin\AnnounceAdminController@announceIndex');
+    
     Route::get('announce_edit', 'Admin\AnnounceAdminController@announceEdit');
     Route::post('announce_edit', 'Admin\AnnounceAdminController@announceUpdate');
     
-    Route::get('announce_index', 'Admin\AnnounceAdminController@announceIndex');
+    Route::get('announce_delete', 'Admin\AnnounceAdminController@announceDelete');
 });

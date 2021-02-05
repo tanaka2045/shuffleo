@@ -60,7 +60,7 @@
               </a>
             @endif
             </div>
-            <div>
+            <div class="mb-2">
               <a class="btn btn-link" href="{{ route('register') }}" style="color:#DEEBF7;">
                 {{ __('新規登録') }}
               </a>

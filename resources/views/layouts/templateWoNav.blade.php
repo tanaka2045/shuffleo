@@ -31,7 +31,7 @@
       <div class="row">
         <div class= "col bg-base px-0">
           {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
-          <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 94vh;">
+          <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 96vh;">
             <div style="text-align: center;">
               @yield('titleImage')
               @yield('content')
