@@ -67,8 +67,8 @@ class AnnounceAdminController extends Controller
     
     unset($announce_form['_token']);
     
-    /*$announce->fill($announce_form)->save();
-    $history = new announceHistory;
+    $announce->fill($announce_form)->save();
+    /*$history = new announceHistory;
     $history->announce_id = $announce->id;
     $history->edited_at = Carbon::now();
     $history->save();*/
@@ -83,9 +83,9 @@ class AnnounceAdminController extends Controller
     return redirect('admin/announce_index');
   }
 
-  public function announcePreview(Request $request)
+  public function announcePreview()
   {
-    $extract = Announces::take(10)->get();
+    $extract = Announces::latest()->take(10)->get();
     
     return view('admin.announce_official_update', ['extract' => $extract]);
   }

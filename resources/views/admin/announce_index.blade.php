@@ -30,16 +30,18 @@
           <table class="table table-dark">
             <thead>
               <tr>
-                <th width="10%">ID</th>
-                <th width="20%">タイトル</th>
-                <th width="50%">本文</th>
-                <th width="10%">操作</th>
+                <th width="10%" class="font-o-sm">ID</th>
+                <th width="10%" class="font-o-sm">更新日</th>
+                <th width="20%" class="font-o-sm">タイトル</th>
+                <th width="50%" class="font-o-sm">本文</th>
+                <th width="10%" class="font-o-sm">操作</th>
               </tr>
             </thead>
             <tbody>
               @foreach($posts as $announce)
               <tr>
                 <th>{{ $announce->id }}</th>
+                <td>{{ $announce->date }}</td>
                 <td>{{ \Str::limit($announce->title, 100) }}</td>
                 <td>{{ \Str::limit($announce->body, 250) }}</td>
                 <td>
@@ -54,6 +56,11 @@
               @endforeach
             </tbody>
           </table>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+          <a href="{{ action('Admin\AnnounceAdminController@announcePreview') }}" role="button" class="btn btn-primary">{{ __('プレビューへ') }}</a>
+          </div> 
         </div>
       </div>
     </div>

@@ -15,6 +15,12 @@
           </ul>
           @endif
           <div class="form-group row">
+            <label class="col-md-2" for="title">更新日</label>
+            <div class="col-md-10">
+              <input type="text" class="form-control" name="date" value="{{ $announce_form->date }}">
+            </div>
+          </div>
+          <div class="form-group row">
             <label class="col-md-2" for="title">タイトル</label>
             <div class="col-md-10">
               <input type="text" class="form-control" name="title" value="{{ $announce_form->title }}">

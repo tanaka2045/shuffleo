@@ -1,26 +1,32 @@
-@extends('layouts.template')
+@extends('layouts.templateWoNavWoFooter')
 
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col font-o-lg txt-shadow text-center my-3">{{ __('インフォメーション') }}</div>
+      <div class="col font-o-lg txt-shadow text-center my-3">{{ __('インフォメーション（管理用）') }}</div>
     </div>
     <div class="row">
       <div class="col-md-6 offset-md-3 px-0">
-        <table class="table table-sm btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
-          <tbody>
-            @foreach($extract as $announce)
-              <tr class="table-transparent">
-                {{-- <th scope="row" class="txt-shadow">ユーザー名</th>
-                <td class="bg-status">あいうえおかきくけこ</td>--}}
-                <th>{{ $announce->id }}</th>
-                <td>{{ \Str::limit($announce->title, 100) }}</td>
-                <td>{{ \Str::limit($announce->body, 250) }}</td>
+        @foreach($extract as $announce)
+          <table class="table table-sm btn-shadow"  align="center">
+            <tbody>
+              <tr class="table-transparent font-o-sm" style="background-color: #152C7F;">
+                <td>{{ $announce->date }} {{ $announce->title }}</td>
               </tr>
-            @endforeach
-          </tbody>
-        </table>
+              <tr class="tabale-transparent font-o-sm-norm" style="background-color: #0000cc;">
+                <td>{{ $announce->body }}</td>
+              </tr>
+            </tbody>
+          </table>
+        @endforeach
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col text-center">
+      <a href="{{ action('Admin\AnnounceAdminController@announceIndex') }}" role="button" class="btn btn-primary">{{ __('Indexへ') }}</a>
+      </div> 
+    </div>
+  
   </div>
 @endsection

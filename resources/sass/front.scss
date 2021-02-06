@@ -403,6 +403,36 @@ button.bg-base:focus {
   font-weight: bold;
 }
 
+.font-o-elg-norm{
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.font-o-lg-norm{
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.font-o-md-norm{
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.font-o-sm-norm{
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.font-o-esm-norm{
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: normal;
+}
+
 .img-responsive {
   display: block;
   height: auto;
@@ -471,7 +501,6 @@ button.bg-base:focus {
 .table-transparent {
 background-color: transparent;
 color: #FFFFFF;
-font-weight: bold;
 text-align: center;
 }
 
@@ -479,7 +508,7 @@ text-align: center;
 .table-transparent td,
 .table-transparent thead th,
 .table-transparent tbody + tbody {
-border-color: #FFFFFF;
+border: 1px solid transparent;
 }
 
 .title_comment {

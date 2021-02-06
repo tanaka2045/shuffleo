@@ -16,6 +16,12 @@
             </ul>
           @endif
           <div class="form-group row">
+           <label class="col-md-3">更新日</label>
+             <div class="col-md-9">
+              <input type="text" class="form-control" name="date" value="{{ old('date') }}">
+             </div>
+          </div>
+          <div class="form-group row">
            <label class="col-md-3">タイトル</label>
              <div class="col-md-9">
               <input type="text" class="form-control" name="title" value="{{ old('title') }}">
