@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Announces;
-use App\AnnounceHistory;
+use App\AnnounceHistory; //現時点で使っていない
 use Carbon\Carbon;
 use Storage;
 
@@ -81,6 +81,13 @@ class AnnounceAdminController extends Controller
     $announce = Announces::find($request->id);
     $announce->delete();
     return redirect('admin/announce_index');
+  }
+
+  public function announcePreview(Request $request)
+  {
+    $extract = Announces::take(10)->get();
+    
+    return view('admin.announce_official_update', ['extract' => $extract]);
   }
   
 }

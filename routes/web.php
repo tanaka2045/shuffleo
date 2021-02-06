@@ -68,4 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     Route::post('announce_edit', 'Admin\AnnounceAdminController@announceUpdate');
     
     Route::get('announce_delete', 'Admin\AnnounceAdminController@announceDelete');
+    
+    Route::get('announce_official_update', 'Admin\AnnounceAdminController@announcePreview');
+    Route::post('announce_official_update', 'Admin\AnnounceAdminController@announceOfficialUpdate');
 });
