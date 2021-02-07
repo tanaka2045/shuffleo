@@ -11,7 +11,7 @@
           <table class="table table-sm btn-shadow"  align="center">
             <tbody>
               <tr class="table-transparent font-o-sm" style="background-color: #152C7F;">
-                <td>{{ $announce->date }} {{ $announce->title }}</td>
+                <td>{{ $announce->date }}　{{ $announce->title }}</td>
               </tr>
               <tr class="tabale-transparent font-o-sm-norm" style="background-color: #0000cc;">
                 <td>{{ $announce->body }}</td>
@@ -23,8 +23,14 @@
     </div>
     
     <div class="row">
-      <div class="col text-center">
+      <div class="col text-center my-3">
       <a href="{{ action('Admin\AnnounceAdminController@announceIndex') }}" role="button" class="btn btn-primary">{{ __('Indexへ') }}</a>
+      </div> 
+    </div>
+    
+    <div class="row">
+      <div class="col text-center my-5">
+      <a href="{{ action('Admin\AnnounceAdminController@announceOfficialUpdate') }}" role="button" class="btn btn-danger">{{ __('オフィシャルアップデートへ') }}</a>
       </div> 
     </div>
   

@@ -70,5 +70,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     Route::get('announce_delete', 'Admin\AnnounceAdminController@announceDelete');
     
     Route::get('announce_official_update', 'Admin\AnnounceAdminController@announcePreview');
-    Route::post('announce_official_update', 'Admin\AnnounceAdminController@announceOfficialUpdate');
+    Route::get('announce_official_update2', 'Admin\AnnounceAdminController@announceOfficialUpdate');
 });

@@ -87,7 +87,23 @@ class AnnounceAdminController extends Controller
   {
     $extract = Announces::latest()->take(10)->get();
     
+    /*foreach($extract as $extracts){
+    $extracts->update(["public"=>0]);
+    }*/
+    
     return view('admin.announce_official_update', ['extract' => $extract]);
   }
   
+  public function announceOfficialUpdate(Request $request)
+  {
+    $announcetest = Announces::latest()->take(10)->get();
+    
+    dd($announcetest);
+    
+    foreach($announcetest as $announcetests){
+    $announcetests->update(["public"=>0]);
+    }
+    
+    return redirect('admin/announce_official_update');
+  }
 }
