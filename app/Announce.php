@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Announces extends Model
+class Announce extends Model
 {
     //
   protected $guarded = array('id');
@@ -20,5 +20,5 @@ class Announces extends Model
   //  return $this->hasMany('App\History');
   //}
   
-  protected $table = 'announce';
+  protected $table = 'announces';
 }

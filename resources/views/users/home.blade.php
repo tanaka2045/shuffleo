@@ -13,18 +13,14 @@
     </div>
   
     <div class="row mx=0">
-      <div class="col-lg-6 offset-lg-3 text-center mt-5">
+      <div class="col-lg-6 offset-lg-3 text-center mt-3">
         <a href="{{ action('Users\HelpMessageController@announceAccess') }}" class="font-o-md border-bottom" style="margin-bottom: 20px;">インフォメーション</a>
         <div class="cardtext-black border-0 mt-3" style="background-color: transparent;">
-          <h5 class="font-o-sm">21/1/13　　作成中　まだ遊べません</h5>
-          <h5 class="font-o-sm">21/1/12　　コメントサンプルYYY</h5>
-           {{--@foreach($posts as $news)
-            <tr>
-              <th>{{ $news->id }}</th>
-              <td>{{ \Str::limit($news->title, 100) }}</td>
-              <td>{{ \Str::limit($news->body, 250) }}</td>
-            </tr>
-          @endforeach--}}
+          @foreach($extract as $announce)
+            <div class="font-o-sm-norm">
+              {{ $announce->date }}　{{ $announce->title }}
+            </div>
+          @endforeach
         </div>
       </div>
     </div>

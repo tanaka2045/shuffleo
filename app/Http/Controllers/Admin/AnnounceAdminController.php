@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Announces;
+use App\Announce;
 use App\AnnounceHistory; //現時点で使っていない
 use Carbon\Carbon;
 use Storage;
@@ -19,9 +19,9 @@ class AnnounceAdminController extends Controller
   
   public function announceCreate(Request $request)
   {
-    $this->validate($request, Announces::$rules);
+    $this->validate($request, Announce::$rules);
     
-    $announce = new Announces;
+    $announce = new Announce;
     $form = $request->all();
     
     unset($form['_token']);
@@ -38,18 +38,18 @@ class AnnounceAdminController extends Controller
     $cond_title = $request->cond_title;
     if ($cond_title !='') {
       //検索されたら検索結果を取得する
-      $posts = Announces::where('title', $cond_title)->get();
+      $posts = Announce::where('title', $cond_title)->get();
     }else{
       //それ以外はすべてのインフォメーションを取得する
-      $posts = Announces::all();
+      $posts = Announce::all();
     }
       return view('admin.announce_index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }  
   
   public function announceEdit(Request $request)
   {
-      //Announces Modelからデータを取得する
-      $announce = Announces::find($request->id);
+      //Announce Modelからデータを取得する
+      $announce = Announce::find($request->id);
       if (empty($announce)) {
         abort(404);
       }
@@ -59,9 +59,9 @@ class AnnounceAdminController extends Controller
   public function announceUpdate(Request $request)
   {
     //Validationをかける
-    $this->validate($request, Announces::$rules);
-    //Announces Modelからデータを取得する
-    $announce = Announces::find($request->id);
+    $this->validate($request, Announce::$rules);
+    //Announce Modelからデータを取得する
+    $announce = Announce::find($request->id);
     //送信されてきたフォームデータを格納する
     $announce_form = $request->all();
     
@@ -78,14 +78,14 @@ class AnnounceAdminController extends Controller
   
   public function announceDelete(Request $request)
   {
-    $announce = Announces::find($request->id);
+    $announce = Announce::find($request->id);
     $announce->delete();
     return redirect('admin/announce_index');
   }
 
   public function announcePreview()
   {
-    $extract = Announces::latest()->take(10)->get();
+    $extract = Announce::latest()->take(10)->get();
     
     /*foreach($extract as $extracts){
     $extracts->update(["public"=>0]);
@@ -96,7 +96,7 @@ class AnnounceAdminController extends Controller
   
   public function announceOfficialUpdate(Request $request)
   {
-    $announcetest = Announces::latest()->take(10)->get();
+    $announcetest = Announce::latest()->take(10)->get();
     
     foreach($announcetest as $announcetests){
     $announcetests->update(["public"=>1]);
