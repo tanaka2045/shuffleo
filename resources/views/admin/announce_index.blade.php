@@ -58,7 +58,7 @@
           </table>
         </div>
         <div class="row">
-          <div class="col text-center">
+          <div class="col text-center mb-4">
           <a href="{{ action('Admin\AnnounceAdminController@announcePreview') }}" role="button" class="btn btn-primary">{{ __('プレビューへ') }}</a>
           </div> 
         </div>
