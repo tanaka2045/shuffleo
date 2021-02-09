@@ -33,7 +33,9 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::get('announce', 'HelpMessageController@announceAccess');
   Route::get('tutorial', 'HelpMessageController@tutorialAccess');
   Route::get('policy', 'HelpMessageController@policyAccess');
-  Route::get('inquiry', 'InquiryController@inquiryAccess');
+  Route::get('inquiry', 'InquiryController@inquiryAccess')->name('inquiry');
+  Route::post('inquiry/confirm', 'InquiryController@inquiryConfirm')->name('inquiry.confirm');
+  Route::post('inquiry/send', 'InquiryController@inquirySend')->name('inquiry.send');
 });
 
 Auth::routes();
