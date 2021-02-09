@@ -12,39 +12,26 @@
         <form method="POST" action="{{ route('inquiry.send') }}">
           @csrf
           
-          <div>
-            <label>メールアドレス</label>
-            {{ $inputs['email_inquiry'] }}
-            <input name="email_inquiry" value="{{ $inputs['email_inquiry'] }}" type="hidden">
+          <div class="form-group row mx-0">
+            <label>{{ __('メールアドレス')}}</label>
+            <input name="email_inquiry" class="form-control" value="{{ $inputs['email_inquiry'] }}" style="height: 1.5em;" readonly>
           </div>
           
-          <div>
-            <label>タイトル</label>
-            {{ $inputs['title_inquiry'] }}
-            <input name="title_inquiry" value="{{ $inputs['title_inquiry'] }}" type="hidden">
+          <div class="form-group row mx-0">
+            <label>{{ __('タイトル')}}</label>
+            <input name="title_inquiry" class="form-control" value="{{ $inputs['title_inquiry'] }}" style="height: 1.5em;" readonly>
           </div>
       
-          <div>
-            <label>お問い合わせ内容</label>
-            {!! nl2br(e($inputs['body_inquiry'])) !!}
-            <input name="body_inquiry" value="{{ $inputs['body_inquiry'] }}" type="hidden">
+          <div class="form-group row mx-0">
+            <label>{{ __('お問い合わせ内容')}}</label>
+            <textarea name="body_inquiry" class="form-control" rows="10" value="{{ $inputs['body_inquiry'] }}" readonly>{{ $inputs['body_inquiry'] }}</textarea>
           </div>
       
-          <button type="submit" name="action" value="back">
-              入力内容修正
-          </button>
-          <button type="submit" name="action" value="submit">
-              送信する
-          </button>
-      </form>
-
-
-
-
-
+          <button type="button" onclick="history.back()">{{ __('入力内容修正')}}</button>
+          <button type="submit btn-primary" name="action" value="submit">{{ __('送信')}}</button>
+        </form>
       </div>
     </div>
-    
     
   </div>
 @endsection
