@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('home_before_login');
+});*/
 
-
-Route::get('shuffleo/home_bef_login', 'HomeController@test9');
-Route::get('shuffleo/zzztest', 'HomeController@test99');
+Route::get('/', 'Users\HomeController@homeBeforeLogin');
 
 Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'auth'], function() {
   Route::get('home', 'HomeController@homeAccess');

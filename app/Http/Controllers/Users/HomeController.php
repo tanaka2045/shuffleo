@@ -12,7 +12,11 @@ use Storage;
 class HomeController extends Controller
 
 {
-  
+  public function homeBeforeLogin()
+  {
+    return view('home_before_login');
+  }
+
   public function userEdit()
   {
     return view('users.user_edit');

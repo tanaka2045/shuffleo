@@ -120,8 +120,8 @@
             <div class="col text-center">
               <div>
                 {{-- home(login前画面へ変更する） --}}
-                <a class="btn btn-link" href="{{ route('login') }}" style="color:#DEEBF7;">
-                  {{ __('戻る') }}
+                <a class="btn btn-link" href="{{ action('Users\HomeController@homeBeforeLogin') }}" style="color:#DEEBF7;">
+                  {{ __('前の画面に戻る') }}
                 </a>
               </div>
             </div>

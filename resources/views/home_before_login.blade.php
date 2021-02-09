@@ -1,4 +1,4 @@
-@extends('layouts.templateWoNav')
+@extends('layouts.templateWoNavWoFooter')
 
 @include('layouts.titleImage')
 
@@ -15,8 +15,8 @@
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-        <button type="button" class="btn btn-blue btn-shadow mt-5" style="text-align: center;">はじめから</button>
-        <button type="button" class="btn btn-blue btn-shadow mt-5" style="text-align: center;">つづきから</button>
+        <a href="{{ route('register') }}" role="button" class="btn btn-blue btn-shadow mt-5" style="text-align: center;">{{ __('はじめから') }}</a>
+        <a href="{{ route('login') }}" role="button" class="btn btn-blue btn-shadow" style="text-align: center;">{{ __('つづきから') }}</a>
         </div>
       </div>
     </div>

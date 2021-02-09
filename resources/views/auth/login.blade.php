@@ -61,8 +61,8 @@
             @endif
             </div>
             <div class="mb-2">
-              <a class="btn btn-link" href="{{ route('register') }}" style="color:#DEEBF7;">
-                {{ __('新規登録') }}
+              <a class="btn btn-link" href="{{ action('Users\HomeController@homeBeforeLogin') }}" style="color:#DEEBF7;">
+                {{ __('前の画面に戻る') }}
               </a>
             </div>
         </div>
