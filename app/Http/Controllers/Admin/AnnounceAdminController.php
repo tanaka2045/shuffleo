@@ -87,10 +87,6 @@ class AnnounceAdminController extends Controller
   {
     $extract = Announce::latest()->take(10)->get();
     
-    /*foreach($extract as $extracts){
-    $extracts->update(["public"=>0]);
-    }*/
-    
     return view('admin.announce_official_preview', ['extract' => $extract]);
   }
   
