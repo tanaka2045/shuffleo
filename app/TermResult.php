@@ -9,8 +9,7 @@ class TermResult extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        //'title' => 'required',
-        //'body' => 'required',
+        //'user_id' => 'required',
     );
 
     protected $table = 'term_results';

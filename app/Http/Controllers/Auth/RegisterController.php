@@ -68,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return $user=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -76,9 +76,19 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
         ]);
+
+        /*return TermResult::create([
+            'user_id' => $user->id,
+            'term_count'=> '1',
+            'win_count_offence'=> '0',
+            'lose_count_offence'=> '0',
+            'win_count_diffence'=> '0',
+            'lose_count_diffence'=> '0',
+        ]);*/  
         
-        $term_result = new TermResult;
+        
+        /*$term_result = new TermResult;
         $term_result->user_id = $data->name;
-        $term_result->save();
+        $term_result->save();*/
     }
 }
