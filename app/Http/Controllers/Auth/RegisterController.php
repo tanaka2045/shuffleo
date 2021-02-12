@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Rules\AlphaNumHalf;
+use App\TermResult;
 
 class RegisterController extends Controller
 {
@@ -75,5 +76,9 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
         ]);
+        
+        $term_result = new TermResult;
+        $term_result->user_id = $data->name;
+        $term_result->save();
     }
 }
