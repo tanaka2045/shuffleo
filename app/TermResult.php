@@ -29,7 +29,7 @@ class TermResult extends Model
     
     //トータルの勝率計算
     if ($total_match_count == 0){
-      $total_win_rate = 0;
+      $total_win_rate= 0;
     }else{
       $total_win_rate = ($win_count_offence + $win_count_diffence) / $total_match_count;
     }
