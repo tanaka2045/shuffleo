@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Rules\AlphaNumHalf;
@@ -68,7 +69,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return $user=User::create([
+        $user=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -77,18 +78,10 @@ class RegisterController extends Controller
             'age' => $data['age'],
         ]);
 
-        /*return TermResult::create([
-            'user_id' => $user->id,
-            'term_count'=> '1',
-            'win_count_offence'=> '0',
-            'lose_count_offence'=> '0',
-            'win_count_diffence'=> '0',
-            'lose_count_diffence'=> '0',
-        ]);*/  
+        $term_result = new TermResult;
+        $term_result->user_id = $user->id;
+        $term_result->save();
         
-        
-        /*$term_result = new TermResult;
-        $term_result->user_id = $data->name;
-        $term_result->save();*/
+        return $user;
     }
 }

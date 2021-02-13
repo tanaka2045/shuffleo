@@ -34,12 +34,12 @@
           </div>
           <span class="radio-inline mr-4">
             <label>
-              <input type="radio" name="gender" value="male" checked {{ old('gender') == 'male' ? 'checked' : '' }}> 男
+              <input type="radio" name="gender" value="男性" checked {{ old('gender') == '男性' ? 'checked' : '' }}> 男
             </label>
           </span>
           <span class="radio-inline">
             <label>
-              <input id="gender" type="radio" name="gender" value="female" {{ old('gender') == 'female' ? 'checked' : '' }}> 女
+              <input id="gender" type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}> 女
             </label>
           </span>
           {{--<span class="form-group @if(!empty($errors->first('gender'))) has-error @endif">
@@ -53,15 +53,15 @@
             </div>
             <select id="age" type="text" class="@error('age') is-invalid @enderror " name="age" id="age" style="background-color:#000000; color:#FFFFFF;">
               <option value=""></option>
-              <option value="10" @if(old('age')=='10') selected  @endif>10代</option>
-              <option value="20" @if(old('age')=='20') selected  @endif>20代</option>
-              <option value="30" @if(old('age')=='30') selected  @endif>30代</option>
-              <option value="40" @if(old('age')=='40') selected  @endif>40代</option>
-              <option value="50" @if(old('age')=='50') selected  @endif>50代</option>
-              <option value="60" @if(old('age')=='60') selected  @endif>60代</option>
-              <option value="70" @if(old('age')=='70') selected  @endif>70代</option>
-              <option value="80" @if(old('age')=='80') selected  @endif>80代</option>
-              <option value="90" @if(old('age')=='90') selected  @endif>90代以上</option>
+              <option value="10代" @if(old('age')=='10') selected  @endif>10代</option>
+              <option value="20代" @if(old('age')=='20') selected  @endif>20代</option>
+              <option value="30代" @if(old('age')=='30') selected  @endif>30代</option>
+              <option value="40代" @if(old('age')=='40') selected  @endif>40代</option>
+              <option value="50代" @if(old('age')=='50') selected  @endif>50代</option>
+              <option value="60代" @if(old('age')=='60') selected  @endif>60代</option>
+              <option value="70代" @if(old('age')=='70') selected  @endif>70代</option>
+              <option value="80代" @if(old('age')=='80') selected  @endif>80代</option>
+              <option value="90代以上" @if(old('age')=='90') selected  @endif>90代以上</option>
             </select>
             @error('age')
               <span class="invalid-feedback" role="alert">

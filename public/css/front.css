@@ -31,7 +31,7 @@ button.bg-base:focus {
 }
 
 .bg-status {
-  background-color: #C4CBD3;
+  background-color: #BFCBD7;
   color: #000000;
 }
 
@@ -509,6 +509,19 @@ button.bg-base:focus {
 .table-transparent thead th,
 .table-transparent tbody + tbody {
   border: 1px solid transparent;
+}
+
+.table-transparent-ui {
+  background-color: transparent;
+  color: #BFCBD7;
+  text-align: center;
+}
+
+.table-transparent-ui th,
+.table-transparent-ui td,
+.table-transparent-ui thead th,
+.table-transparent-ui tbody + tbody {
+  border: 1px solid #9EA9B5;
 }
 
 .title_comment {

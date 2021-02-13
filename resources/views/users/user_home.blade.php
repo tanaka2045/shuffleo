@@ -11,52 +11,52 @@
     
     <div class="row">
       <div class="col-md-6 mb-5 px-4">
-        <div class="font-o-md txt-shadow mb-2">ユーザーステータス</div>
+        <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
         <div class="bg-nav-base btn-shadow font-o-sm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
             <tbody>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">ユーザー名</th>
-                <td class="bg-status">あいうえおかきくけこ</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >ユーザー名</th>
+                <td class="bg-status">{{ $user->name }}</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">性別</th>
-                <td class="bg-status">男性</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >性別</th>
+                <td class="bg-status">{{ $user->gender }}</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">年齢</th>
-                <td class="bg-status">30代</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >年齢</th>
+                <td class="bg-status">{{ $user->age }}</td>
               </tr>
             </tbody>
           </table>
           <table class="table table-bordered table-sm">
             <tbody>            
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">レート</th>
-                <td class="bg-status">1500</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >レート</th>
+                <td class="bg-status">{{ $user->elorate }}</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">トータル対戦数</th>
-                <td class="bg-status">140</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >トータル対戦数</th>
+                <td class="bg-status">{{ $total_match_count }}</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">トータル勝率</th>
-                <td class="bg-status">42.9%</td>
+              <tr class="table-transparent-ui">
+                <th scope="row" >トータル勝率</th>
+                <td class="bg-status">{{ $total_win_rate }}</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">現ターム対戦数</th>
+              <tr class="table-transparent-ui">
+                <th scope="row" >現ターム対戦数</th>
                 <td class="bg-status">80</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">現ターム勝率</th>
+              <tr class="table-transparent-ui">
+                <th scope="row" >現ターム勝率</th>
                 <td class="bg-status">57.1%</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">現ターム残対戦数</th>
+              <tr class="table-transparent-ui">
+                <th scope="row" >現ターム残対戦数</th>
                 <td class="bg-status">20</td>
               </tr>
-              <tr class="table-transparent">
-                <th scope="row" class="txt-shadow">過去最高ターム勝率</th>
+              <tr class="table-transparent-ui">
+                <th scope="row" >過去最高ターム勝率</th>
                 <td class="bg-status">54.5%</td>
               </tr>   
             </tbody>
@@ -65,18 +65,18 @@
             <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" style="text-align: center; width: 90%;">次タームへ</button>
           </div>
           <div class="mb-3">
-           <a class="border-bottom font-o-esm txt-shadow" href="{{ action('Users\MatchController@matchResultAccess') }}">閲覧していない対戦結果
+           <a class="border-bottom font-o-esm" href="{{ action('Users\MatchController@matchResultAccess') }}">閲覧していない対戦結果
            </a>
           </div>
         </div>
       </div>
       
       <div class="col-md-6 px-0 mb-3">
-        <div class="font-o-md txt-shadow">カードステータス</div>
+        <div class="font-o-md txt-shadow" style="color:#BFCBD7;">カードステータス</div>
         <div class="row mx-0">
           {{-- 攻撃カードのレイアウト開始--}}
           <div class="col-5 offset-1 px-0">
-            <div class="font-o-sm txt-shadow mt-2 mb-1" style="color:#FFCADC;">攻撃カード
+            <div class="font-o-sm mt-2 mb-1" style="color:#FFCADC;">攻撃カード
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
@@ -85,7 +85,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_red.png" style="max-width: 48%; height:auto;">
+                <img src="../images/10_red.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -103,7 +103,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_red.png" style="max-width: 48%; height:auto;">
+                <img src="../images/20_red.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -121,7 +121,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_red.png" style="max-width: 48%; height:auto;">
+                <img src="../images/30_red.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -139,7 +139,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_red.png" style="max-width: 48%; height:auto;">
+                <img src="../images/40_red.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -157,7 +157,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/50_red.png" style="max-width: 48%; height:auto;">
+                <img src="../images/50_red.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -179,7 +179,7 @@
           
           {{-- 守備カードのレイアウト開始--}}
           <div class="col-5 px-0">
-            <div class="font-o-sm txt-shadow mt-2 mb-1" style="color: #C9D3F6;">守備カード
+            <div class="font-o-sm mt-2 mb-1" style="color: #C9D3F6;">守備カード
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
@@ -188,7 +188,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_blue.png" style="max-width: 48%; height:auto;">
+                <img src="../images/10_blue.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -206,7 +206,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_blue.png" style="max-width: 48%; height:auto;">
+                <img src="../images/20_blue.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -224,7 +224,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_blue.png" style="max-width: 48%; height:auto;">
+                <img src="../images/30_blue.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -242,7 +242,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_blue.png" style="max-width: 48%; height:auto;">
+                <img src="../images/40_blue.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -260,7 +260,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/60_blue.png" style="max-width: 48%; height:auto;">
+                <img src="../images/60_blue.png" style="max-width: 45%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
