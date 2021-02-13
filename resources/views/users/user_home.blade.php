@@ -41,7 +41,7 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル勝率</th>
-                <td class="bg-status">{{ $total_win_rate }}</td>
+                <td class="bg-status">{{ __('NA') }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム対戦数</th>

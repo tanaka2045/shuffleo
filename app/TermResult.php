@@ -12,11 +12,10 @@ class TermResult extends Model
     //'user_id' => 'required',
   );
   
-  public function matchInformation(){
-    //トータル対戦数の計算
-    //$total_match_count = $term_result->win_count_offence + $term_result->win_count_diffence + $term_result->lose_count_offence + $term_result->lose_count_diffence;
+  public static function test($user_id){
     
   }
-
+  
+  
   protected $table = 'term_results';
 }
