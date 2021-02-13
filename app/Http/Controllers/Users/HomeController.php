@@ -15,11 +15,6 @@ use Storage;
 class HomeController extends Controller
 
 {
-  public function __construct()
-  {
-    $this->middleware('match.result');
-  }
-  
   public function homeBeforeLogin()
   {
     return view('home_before_login');
@@ -39,15 +34,18 @@ class HomeController extends Controller
 
   public function userHomeAccess(Request $request)
   {
-    
-    
     $user_id = Auth::id();
     $user = User::find($user_id);
-  
-    $total_match_count = $request->total_match_count;
-    TermResult::test($user_id)
     
-    return view('users.user_home', ['user' => $user, 'total_match_count'=>$total_match_count]);
+    //トータル戦績の計算結果
+    list($total_match_count, $total_win_rate) = TermResult::totalMatchCalc($user_id);
+    
+    //最新ターム戦績の計算結果
+    list($current_match_count, $current_win_rate, $residual_match_count) = TermResult::currentMatchCalc($user_id);
+    
+    return view('users.user_home', ['user' => $user, 'total_match_count' => $total_match_count,
+      'total_win_rate' => $total_win_rate, 'current_match_count' => $current_match_count, 
+      'current_win_rate' => $current_win_rate, 'residual_match_count' => $residual_match_count]);
   }  
   
 }

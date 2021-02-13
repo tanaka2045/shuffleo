@@ -41,19 +41,19 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル勝率</th>
-                <td class="bg-status">{{ __('NA') }}</td>
+                <td class="bg-status">{{ $total_win_rate }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム対戦数</th>
-                <td class="bg-status">80</td>
+                <td class="bg-status">{{ $current_match_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム勝率</th>
-                <td class="bg-status">57.1%</td>
+                <td class="bg-status">{{ $current_win_rate }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム残対戦数</th>
-                <td class="bg-status">20</td>
+                <td class="bg-status">{{ $residual_match_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >過去最高ターム勝率</th>
