@@ -41,7 +41,7 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル勝率</th>
-                <td class="bg-status">{{ $total_win_rate }}</td>
+                <td class="bg-status">{{ number_format($total_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム対戦数</th>
@@ -49,7 +49,7 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム勝率</th>
-                <td class="bg-status">{{ $current_win_rate }}</td>
+                <td class="bg-status">{{ number_format($current_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム残対戦数</th>

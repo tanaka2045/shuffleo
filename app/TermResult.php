@@ -31,9 +31,9 @@ class TermResult extends Model
     if ($total_match_count == 0){
       $total_win_rate= 0;
     }else{
-      $total_win_rate = ($win_count_offence + $win_count_diffence) / $total_match_count;
+      $total_win_rate = ($win_count_offence + $win_count_diffence) *100 / $total_match_count;
     }
-
+    
     return [$total_match_count, $total_win_rate];  
   }
   
@@ -52,13 +52,13 @@ class TermResult extends Model
     if ($current_match_count == 0){
       $current_win_rate = 0;
     }else{
-      $current_win_rate = ($current_term_result->win_count_offence + $current_term_result->win_count_diffence) 
+      $current_win_rate = ($current_term_result->win_count_offence + $current_term_result->win_count_diffence)*100 
         / $current_match_count;
     }
     
     //最新タームの残対戦数
     $residual_match_count = 100 - $current_match_count;
-
+    
     return [$current_match_count, $current_win_rate, $residual_match_count];  
   }
   
