@@ -43,6 +43,9 @@ class TermResult extends Model
     $max = TermResult::where('user_id',$user_id)->max('term_count');
     $current_term_result = TermResult::where('user_id',$user_id)->where('term_count',$max)->first();
     
+    //最新タームカウントの取得
+    $term_count = $current_term_result->term_count;
+    
     //最新タームの対戦数計算
     $current_match_count = $current_term_result->win_count_offence
       + $current_term_result->win_count_diffence + $current_term_result->lose_count_offence 
@@ -59,7 +62,7 @@ class TermResult extends Model
     //最新タームの残対戦数
     $residual_match_count = 100 - $current_match_count;
     
-    return [$current_match_count, $current_win_rate, $residual_match_count];  
+    return [$term_count, $current_match_count, $current_win_rate, $residual_match_count];  
   }
   
   protected $table = 'term_results';

@@ -57,7 +57,12 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >過去最高ターム勝率</th>
-                <td class="bg-status">54.5%</td>
+                <td class="bg-status">
+                  @if ($term_count == 1)
+                    {{ __('データ無し') }}
+                  @else
+                    {{ number_format($user->best_term_win_rate,1)."%" }}</td>
+                  @endif
               </tr>   
             </tbody>
           </table>

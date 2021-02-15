@@ -41,11 +41,12 @@ class HomeController extends Controller
     list($total_match_count, $total_win_rate) = TermResult::totalMatchCalc($user_id);
     
     //最新ターム戦績の計算結果
-    list($current_match_count, $current_win_rate, $residual_match_count) = TermResult::currentMatchCalc($user_id);
+    list($term_count, $current_match_count, $current_win_rate, $residual_match_count) = TermResult::currentMatchCalc($user_id);
     
     return view('users.user_home', ['user' => $user, 'total_match_count' => $total_match_count,
-      'total_win_rate' => $total_win_rate, 'current_match_count' => $current_match_count, 
-      'current_win_rate' => $current_win_rate, 'residual_match_count' => $residual_match_count]);
+      'total_win_rate' => $total_win_rate, 'term_count' => $term_count, 'current_match_count' => $current_match_count, 
+      'current_win_rate' => $current_win_rate, 'residual_match_count' => $residual_match_count
+      ]);
   }  
   
 }
