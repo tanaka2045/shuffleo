@@ -47,9 +47,11 @@ class TermResult extends Model
     $term_count = $current_term_result->term_count;
     
     //最新タームの対戦数計算
-    $current_match_count = $current_term_result->win_count_offence
-      + $current_term_result->win_count_diffence + $current_term_result->lose_count_offence 
-      + $current_term_result->lose_count_diffence;
+    $win_count_offence = $current_term_result->win_count_offence;
+    $win_count_diffence = $current_term_result->win_count_diffence;
+    $lose_count_offence = $current_term_result->lose_count_offence;
+    $lose_count_diffence = $current_term_result->lose_count_diffence;
+    $current_match_count = $win_count_offence + $win_count_diffence + $lose_count_offence + $lose_count_diffence;
     
     //最新タームの勝率計算
     if ($current_match_count == 0){
@@ -64,6 +66,34 @@ class TermResult extends Model
     
     return [$term_count, $current_match_count, $current_win_rate, $residual_match_count];  
   }
+  
+  //トータル＆攻撃＆勝回数の計算
+  public static function totalWinCountOffnece($user_id)
+  {
+   $total_win_count_offence = TermResult::where('user_id', $user_id)->sum("win_count_offence");
+   
+   return($total_win_count_offence);
+  }
+  
+  //トータル＆攻撃＆負回数の計算
+  public static function totalLoseCountOffnece($user_id)
+  {
+   $total_lose_count_offence = TermResult::where('user_id', $user_id)->sum("lsoe_count_offence");
+   
+   return($total_lose_count_offence);
+  }
+
+  //トータル＆攻撃回数の計算
+  public static function totalCountOffnece()
+  {
+   $total_count_offence = $total_win_count_offence + $total_lose_count_offence;
+   dd($total_count_offence);
+   
+   return($total_count_offence);
+  }
+  
+  
+  
   
   protected $table = 'term_results';
 }

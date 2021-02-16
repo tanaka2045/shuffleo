@@ -21,6 +21,7 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::get('home', 'HomeController@homeAccess');
   Route::get('user_edit', 'HomeController@userEdit');
   Route::get('user_home', 'HomeController@userHomeAccess');
+  Route::get('user_match_detailed', 'HomeController@userMatchDetailedAccess');
   Route::get('match_make', 'MatchController@matchMakeAccess');
   Route::get('match_diffence', 'MatchController@matchDiffenceAccess');
   Route::get('match_offence', 'MatchController@matchOffenceAccess');

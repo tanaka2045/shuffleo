@@ -15,6 +15,7 @@ use Storage;
 class HomeController extends Controller
 
 {
+  
   public function homeBeforeLogin()
   {
     return view('home_before_login');
@@ -48,5 +49,12 @@ class HomeController extends Controller
       'current_win_rate' => $current_win_rate, 'residual_match_count' => $residual_match_count
       ]);
   }  
+
+  public function userMatchDetailedAccess(Request $request)
+  {
+    $user_id = Auth::id();
+    $total_win_count_offence = TermResult::totalWinCountOffnece($user_id);
+    return view('users.user_match_detailed', ['total_win_count_offence' => $total_win_count_offence]);
+  }
   
 }

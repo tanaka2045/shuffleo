@@ -10,7 +10,7 @@
     </div>
     
     <div class="row">
-      <div class="col-md-6 mb-5 px-4">
+      <div class="col-md-6 mb-3 px-4">
         <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
         <div class="bg-nav-base btn-shadow font-o-sm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
@@ -66,8 +66,13 @@
               </tr>   
             </tbody>
           </table>
-          <div class="text-center">
-            <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" style="text-align: center; width: 90%;">次タームへ</button>
+          <div class="row text-center mx-0">
+            <div class="col-6 px-1">
+              <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">対戦成績詳細</a>
+            </div>
+            <div class="col-6 px-1">
+              <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">次タームへ</button>
+            </div>
           </div>
           <div class="mb-3">
            <a class="border-bottom font-o-esm" href="{{ action('Users\MatchController@matchResultAccess') }}">閲覧していない対戦結果
@@ -90,7 +95,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_red.png" style="max-width: 45%; height:auto;">
+                <img src="../images/10_red.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -108,7 +113,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_red.png" style="max-width: 45%; height:auto;">
+                <img src="../images/20_red.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -126,7 +131,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_red.png" style="max-width: 45%; height:auto;">
+                <img src="../images/30_red.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -144,7 +149,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_red.png" style="max-width: 45%; height:auto;">
+                <img src="../images/40_red.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -162,7 +167,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/50_red.png" style="max-width: 45%; height:auto;">
+                <img src="../images/50_red.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -193,7 +198,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_blue.png" style="max-width: 45%; height:auto;">
+                <img src="../images/10_blue.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -211,7 +216,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_blue.png" style="max-width: 45%; height:auto;">
+                <img src="../images/20_blue.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -229,7 +234,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_blue.png" style="max-width: 45%; height:auto;">
+                <img src="../images/30_blue.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -247,7 +252,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_blue.png" style="max-width: 45%; height:auto;">
+                <img src="../images/40_blue.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -265,7 +270,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/60_blue.png" style="max-width: 45%; height:auto;">
+                <img src="../images/60_blue.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -300,94 +305,11 @@
       </div>
   　</div>
   　
-  　{{-- 戦績テーブル --}}
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="font-o-md txt-shadow"><詳細>トータル戦績</div>
-          <table class="table table-o-bordered table-sm btn-shadow text-white font-o-sm">
-            <thead class="bg-nav-base">
-              <tr>
-                <th></th>
-                <th>攻撃時</th>
-                <th>守備時</th>
-                <th>計</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="bg-nav-base">対戦数</th>
-                <td class="bg-status">80</td>
-                <td class="bg-status">60</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">勝ち数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">20</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">負け数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">40</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">勝率</th>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
-                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
-              </tr>            
-            </tbody>
-          </table>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-6 offset-md-3 mb-5">
-        <div class="font-o-md txt-shadow"><詳細>現ターム戦績</div>
-        <table class="table table-o-bordered table-sm btn-shadow text-white font-o-sm">
-            <thead class="bg-nav-base">
-              <tr>
-                <th></th>
-                <th>攻撃時</th>
-                <th>守備時</th>
-                <th>計</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="bg-nav-base">対戦数</th>
-                <td class="bg-status">80</td>
-                <td class="bg-status">60</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">勝ち数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">20</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">負け数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">40</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
-              </tr>
-              <tr>
-                <th scope="row" class="bg-nav-base">勝率</th>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
-                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
-              </tr>            
-            </tbody>
-          </table>
-      </div>
-    </div>
+  　{{-- ランキングおよび対戦履歴への遷移ボタン --}}
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-          <a href="{{ action('Users\StatisticController@rankingTotalAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mt-3">ランキング</a>
+          <a href="{{ action('Users\StatisticController@rankingTotalAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow">ランキング</a>
           <a href="{{ action('Users\MatchController@matchHistoryAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mb-5">対戦履歴</a>
         </div>
       </div>
