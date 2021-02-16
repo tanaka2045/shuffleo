@@ -37,7 +37,7 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル対戦数</th>
-                <td class="bg-status">{{ $total_match_count }}</td>
+                <td class="bg-status">{{ $total_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル勝率</th>
@@ -45,7 +45,7 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム対戦数</th>
-                <td class="bg-status">{{ $current_match_count }}</td>
+                <td class="bg-status">{{ $current_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム勝率</th>
@@ -53,12 +53,12 @@
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >現ターム残対戦数</th>
-                <td class="bg-status">{{ $residual_match_count }}</td>
+                <td class="bg-status">{{ $residual_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >過去最高ターム勝率</th>
                 <td class="bg-status">
-                  @if ($term_count == 1)
+                  @if ($current_term_count == 1)
                     {{ __('データ無し') }}
                   @else
                     {{ number_format($user->best_term_win_rate,1)."%" }}</td>

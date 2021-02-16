@@ -24,28 +24,28 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="bg-nav-base">対戦数</th>
-                <td class="bg-status">80</td>
-                <td class="bg-status">60</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
-              </tr>
-              <tr>
                 <th scope="row" class="bg-nav-base">勝ち数</th>
                 <td class="bg-status">{{  $total_win_count_offence  }}</td>
-                <td class="bg-status">20</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
+                <td class="bg-status">{{  $total_win_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $total_win_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-nav-base">負け数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">40</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
+                <td class="bg-status">{{  $total_lose_count_offence  }}</td>
+                <td class="bg-status">{{  $total_lose_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $total_lose_count  }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">計</th>
+                <td class="bg-status">{{  $total_count_offence  }}</td>
+                <td class="bg-status">{{  $total_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $total_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-nav-base">勝率</th>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
-                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_offence,1)."%"  }}</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_diffence,1)."%"  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($total_win_rate,1)."%"  }}</td>
               </tr>            
             </tbody>
           </table>
@@ -66,28 +66,28 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="bg-nav-base">対戦数</th>
-                <td class="bg-status">80</td>
-                <td class="bg-status">60</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">140</td>
-              </tr>
-              <tr>
                 <th scope="row" class="bg-nav-base">勝ち数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">20</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">60</td>
+                <td class="bg-status">{{  $current_win_count_offence  }}</td>
+                <td class="bg-status">{{  $current_win_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $current_win_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-nav-base">負け数</th>
-                <td class="bg-status">40</td>
-                <td class="bg-status">40</td>
-                <td class="bg-status" style="border-right-color: #dee2e6;">80</td>
+                <td class="bg-status">{{  $current_lose_count_offence  }}</td>
+                <td class="bg-status">{{  $current_lose_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $current_lose_count  }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-nav-base">計</th>
+                <td class="bg-status">{{  $current_count_offence  }}</td>
+                <td class="bg-status">{{  $current_count_diffence  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6;">{{  $current_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-nav-base">勝率</th>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">50.0%</td>
-                <td class="bg-status" style="border-bottom-color: #dee2e6;">33.3%</td>
-                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">42.9%</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_offence,1)."%"  }}</td>
+                <td class="bg-status" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_diffence,1)."%"  }}</td>
+                <td class="bg-status" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($current_win_rate,1)."%"  }}</td>
               </tr>            
             </tbody>
           </table>
