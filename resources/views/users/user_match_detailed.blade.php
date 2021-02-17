@@ -12,7 +12,7 @@
   　{{-- 戦績テーブル --}}
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">トータル戦績 詳細</div>
+        <div class="font-o-md mb-2" style="color:#BFCBD7;">トータル戦績 詳細</div>
           <table class="table table-o-bordered table-sm btn-shadow font-o-sm">
             <thead class="bg-nav-base">
               <tr>
@@ -54,7 +54,7 @@
     
     <div class="row">
       <div class="col-md-6 offset-md-3 my-3">
-        <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">現ターム戦績 詳細</div>
+        <div class="font-o-md mb-2" style="color:#BFCBD7;">現ターム戦績 詳細</div>
         <table class="table table-o-bordered table-sm btn-shadow font-o-sm">
             <thead class="bg-nav-base">
               <tr>
@@ -91,6 +91,15 @@
               </tr>            
             </tbody>
           </table>
+      </div>
+    </div>
+    
+  　{{-- ユーザーホームへの遷移ボタン --}}
+    <div class="row">
+      <div class="col text-center">
+        <div class="btn-group-vertical mb-4" >
+          <a href="{{ action('Users\HomeController@userHomeAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow font-o-esm-norm">戻る</a>
+        </div>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Rules\AlphaNumHalf;
 use App\TermResult;
+use App\CardStatus;
 
 class RegisterController extends Controller
 {
@@ -81,6 +82,10 @@ class RegisterController extends Controller
         $term_result = new TermResult;
         $term_result->user_id = $user->id;
         $term_result->save();
+        
+        $card_status = new CardStatus;
+        $card_status->user_id = $user->id;
+        $card_status->save();
         
         return $user;
     }

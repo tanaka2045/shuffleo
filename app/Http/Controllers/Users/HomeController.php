@@ -55,51 +55,32 @@ class HomeController extends Controller
   public function userMatchDetailedAccess(Request $request)
   {
     $user_id = Auth::id();
-    
-    $total_win_count_offence = TermResult::totalWinCountOffnece($user_id);
-    $total_lose_count_offence = TermResult::totalLoseCountOffnece($user_id);
-    $total_count_offence = TermResult::totalCountOffnece($user_id);
-    $total_win_rate_offence = TermResult::totalWinRateOffnece($user_id);
-    
-    $total_win_count_diffence = TermResult::totalWinCountDiffnece($user_id);
-    $total_lose_count_diffence = TermResult::totalLoseCountDiffnece($user_id);
-    $total_count_diffence = TermResult::totalCountDiffnece($user_id);
-    $total_win_rate_diffence = TermResult::totalWinRateDiffnece($user_id);
-    
-    $total_win_count = TermResult::totalWinCount($user_id);
-    $total_lose_count = TermResult::totalLoseCount($user_id);
-    $total_count = TermResult::totalCount($user_id);
-    $total_win_rate = TermResult::totalWinRate($user_id);
-    
-    $current_win_count_offence = TermResult::currentWinCountOffnece($user_id);
-    $current_lose_count_offence = TermResult::currentLoseCountOffnece($user_id);
-    $current_count_offence = TermResult::currentCountOffnece($user_id);
-    $current_win_rate_offence = TermResult::currentWinRateOffnece($user_id);
-    
-    $current_win_count_diffence = TermResult::currentWinCountDiffnece($user_id);
-    $current_lose_count_diffence = TermResult::currentLoseCountDiffnece($user_id);
-    $current_count_diffence = TermResult::currentCountDiffnece($user_id);
-    $current_win_rate_diffence = TermResult::currentWinRateDiffnece($user_id);
-    
-    $current_win_count = TermResult::currentWinCount($user_id);
-    $current_lose_count = TermResult::currentLoseCount($user_id);
-    $current_count = TermResult::currentCount($user_id);
-    $current_win_rate = TermResult::currentWinRate($user_id);
 
-    return view('users.user_match_detailed', ['total_win_count_offence' => $total_win_count_offence, 
-      'total_lose_count_offence' => $total_lose_count_offence, 'total_count_offence' =>$total_count_offence,
-      'total_win_rate_offence' => $total_win_rate_offence,
-      'total_win_count_diffence' => $total_win_count_diffence, 'total_lose_count_diffence' => $total_lose_count_diffence, 
-      'total_count_diffence' =>$total_count_diffence, 'total_win_rate_diffence' => $total_win_rate_diffence, 
-      'total_win_count' => $total_win_count, 'total_lose_count' => $total_lose_count, 
-      'total_count' =>$total_count, 'total_win_rate' => $total_win_rate,
-      'current_win_count_offence' => $current_win_count_offence, 
-      'current_lose_count_offence' => $current_lose_count_offence, 'current_count_offence' =>$current_count_offence,
-      'current_win_rate_offence' => $current_win_rate_offence,
-      'current_win_count_diffence' => $current_win_count_diffence, 'current_lose_count_diffence' => $current_lose_count_diffence, 
-      'current_count_diffence' =>$current_count_diffence, 'current_win_rate_diffence' => $current_win_rate_diffence, 
-      'current_win_count' => $current_win_count, 'current_lose_count' => $current_lose_count, 
-      'current_count' =>$current_count, 'current_win_rate' => $current_win_rate
+    return view('users.user_match_detailed', [
+      'total_win_count_offence' => TermResult::totalWinCountOffnece($user_id), 
+      'total_lose_count_offence' => TermResult::totalLoseCountOffnece($user_id), 
+      'total_count_offence' =>TermResult::totalCountOffnece($user_id),
+      'total_win_rate_offence' => TermResult::totalWinRateOffnece($user_id),
+      'total_win_count_diffence' => TermResult::totalWinCountDiffnece($user_id), 
+      'total_lose_count_diffence' => TermResult::totalLoseCountDiffnece($user_id), 
+      'total_count_diffence' =>TermResult::totalCountDiffnece($user_id), 
+      'total_win_rate_diffence' => TermResult::totalWinRateDiffnece($user_id), 
+      'total_win_count' => TermResult::totalWinCount($user_id), 
+      'total_lose_count' => TermResult::totalLoseCount($user_id), 
+      'total_count' =>TermResult::totalCount($user_id), 
+      'total_win_rate' => TermResult::totalWinRate($user_id),
+      'current_win_count_offence' => TermResult::currentWinCountOffnece($user_id), 
+      'current_lose_count_offence' => TermResult::currentLoseCountOffnece($user_id), 
+      'current_count_offence' => TermResult::currentCountOffnece($user_id),
+      'current_win_rate_offence' => TermResult::currentWinRateOffnece($user_id),
+      'current_win_count_diffence' => TermResult::currentWinCountDiffnece($user_id), 
+      'current_lose_count_diffence' => TermResult::currentLoseCountDiffnece($user_id), 
+      'current_count_diffence' =>TermResult::currentCountDiffnece($user_id), 
+      'current_win_rate_diffence' => TermResult::currentWinRateDiffnece($user_id), 
+      'current_win_count' => TermResult::currentWinCount($user_id), 
+      'current_lose_count' => TermResult::currentLoseCount($user_id), 
+      'current_count' => TermResult::currentCount($user_id), 
+      'current_win_rate' => TermResult::currentWinRate($user_id)
       ]);
   }
   
