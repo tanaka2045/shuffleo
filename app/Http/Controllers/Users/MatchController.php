@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+use App\User;
+use App\CardStatus;
 
 class MatchController extends Controller
 {
@@ -14,9 +18,26 @@ class MatchController extends Controller
   
   public function matchDiffenceAccess()
   {
+    $user_id = Auth::id();
+    list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+      $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+    
+    return view('users.match_diffence', [
+      'diffence_card_point_1' => $diffence_card_point_1,
+      'diffence_card_point_2' => $diffence_card_point_2,
+      'diffence_card_point_3' => $diffence_card_point_3,
+      'diffence_card_point_4' => $diffence_card_point_4,
+      'diffence_card_point_5' => $diffence_card_point_5,
+    ]);
+  }
+  
+  public function matchDiffenceLayout()
+  {
+    
+    
     return view('users.match_diffence');
   }
-    
+  
   public function matchOffenceAccess()
   {
     return view('users.match_offence');

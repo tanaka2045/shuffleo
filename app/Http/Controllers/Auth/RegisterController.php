@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Rules\AlphaNumHalf;
 use App\TermResult;
 use App\CardStatus;
+use App\MatchResult;
 
 class RegisterController extends Controller
 {

@@ -42,11 +42,11 @@
                       @csrf
                       <div class="form-group pr-1 mb-0">
                         <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint1">
-                          <option value="ONo1" selected>守1 10</option>
-                          <option value="ONo2">守2 20</option>
-                          <option value="ONo3">守3 30</option>
-                          <option value="ONo4">守4 40</option>
-                          <option value="ONo5">守5 50</option>
+                          <option value="DNo1" selected>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
@@ -63,11 +63,11 @@
                       @csrf
                       <div class="form-group pr-1 mb-0">
                         <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint2">
-                          <option value="ONo1">守1 10</option>
-                          <option value="ONo2" selected>守2 20</option>
-                          <option value="ONo3">守3 30</option>
-                          <option value="ONo4">守4 40</option>
-                          <option value="ONo5">守5 50</option>
+                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" selected>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
@@ -84,11 +84,11 @@
                       @csrf
                       <div class="form-group pr-1 mb-0">
                         <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint3">
-                          <option value="ONo1">守1 10</option>
-                          <option value="ONo2">守2 20</option>
-                          <option value="ONo3" selected>守3 30</option>
-                          <option value="ONo4">守4 40</option>
-                          <option value="ONo5">守5 50</option>
+                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" selected>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
@@ -105,11 +105,11 @@
                       @csrf
                       <div class="form-group pr-1 mb-0">
                         <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint4">
-                          <option value="ONo1">守1 10</option>
-                          <option value="ONo2">守2 20</option>
-                          <option value="ONo3">守3 30</option>
-                          <option value="ONo4" selected>守4 40</option>
-                          <option value="ONo5">守5 50</option>
+                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" selected>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
@@ -126,11 +126,11 @@
                       @csrf
                       <div class="form-group pr-1 mb-0">
                         <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint5">
-                          <option value="ONo1">守1 10</option>
-                          <option value="ONo2">守2 20</option>
-                          <option value="ONo3">守3 30</option>
-                          <option value="ONo4">守4 40</option>
-                          <option value="ONo5"selected>守5 50</option>
+                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5"selected>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
@@ -149,7 +149,7 @@
         <div class="row mx-0">
           <div class="col text-center my-4 px-0">
             <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
-            <button type="button" class="btn btn-green text-center btn-shadow mx-2">セット</button>
+            <a href="{{ action('Users\MatchController@matchDiffenceLayout') }}" role="button" tabindex="0" class="btn btn-green text-center btn-shadow mx-2">セット</a>
             <a href="{{ action('Users\MatchController@matchMakeAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mx-2">登録</a>
           </div>
         </div>

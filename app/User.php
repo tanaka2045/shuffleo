@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
          return $this->hasMany('App\CardStatus');
     }
+
+    public function matchResults()
+    {
+         return $this->hasMany('App\MatchResult');
+    }
 }
