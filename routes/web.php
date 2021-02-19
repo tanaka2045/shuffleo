@@ -23,8 +23,10 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::get('user_home', 'HomeController@userHomeAccess');
   Route::get('user_match_detailed', 'HomeController@userMatchDetailedAccess');
   Route::get('match_make', 'MatchController@matchMakeAccess');
+  
   Route::get('match_diffence', 'MatchController@matchDiffenceAccess');
-  Route::get('match_diffence', 'MatchController@matchDiffenceLayout');
+  Route::post('match_diffence', 'MatchController@matchDiffenceLayout')->name('diffence.layout');
+  
   Route::get('match_offence', 'MatchController@matchOffenceAccess');
   Route::get('match_result', 'MatchController@matchResultAccess');
   Route::get('match_history', 'MatchController@matchHistoryAccess');

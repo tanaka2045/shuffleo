@@ -33,9 +33,7 @@ class MatchController extends Controller
   
   public function matchDiffenceLayout(Request $request)
   {
-    $test = $request->session()->all();
-    dd($test);
-    return redirect('shuffleo/match_diffence');
+    return redirect('shuffleo/match_diffence')->withInput($request->all);
   }
   
   public function matchOffenceAccess()
