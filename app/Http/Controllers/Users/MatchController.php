@@ -33,19 +33,30 @@ class MatchController extends Controller
   
   public function matchDiffenceLayout(Request $request)
   {
-    //select fromの重複チェック
-    $select_array = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3, $request->diffenceLayout4, $request->diffenceLayout5];
-    $unique_array = array_unique($select_array);
-    //dd($unique_array);
+    //リセットボタン押下時の処理
+    if ($request->has('reset'))
+    {
+      return redirect('shuffleo/match_diffence');
+    }
     
-    if (array_search(null, $unique_array) == true)
+    //セットボタン押下時の処理
+    if ($request->has('set'))
     {
-      return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
-    }elseif(count($unique_array) !== count($select_array)) 
-    {
-      return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
-    }else{
-      return redirect('shuffleo/match_diffence')->withInput($request->all);
+      //select formのエラーチェック
+      $select_array = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3, $request->diffenceLayout4, $request->diffenceLayout5];
+      $unique_array = array_unique($select_array);
+      //選択されていないカードの有無チェック
+      if (array_search(null, $unique_array) == true)
+      {
+        return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
+      //重複して選択されているカードの有無チェック
+      }elseif(count($unique_array) !== count($select_array)) 
+      {
+        return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
+      }else{
+        //問題ないときの処理
+        return redirect('shuffleo/match_diffence')->withInput($request->all);
+      }
     }
   }
   

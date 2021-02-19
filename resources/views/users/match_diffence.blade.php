@@ -159,9 +159,9 @@
         {{-- ボタン設定 --}}
         <div class="row mx-0">
           <div class="col text-center my-4 px-0">
-            <button type="button" class="btn btn-green text-center btn-shadow mx-2">リセット</button>
-            <button type="submit" class="btn-green text-center btn-shadow mx-2">{{  __('セット')  }}</button>
-            <a href="{{ action('Users\MatchController@matchMakeAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mx-2">登録</a>
+            <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="reset">{{ __('リセット') }}</button>
+            <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="set">{{  __('セット')  }}</button>
+            <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="set">{{  __('　登録　')  }}</button>
           </div>
         </div>
       </form>
