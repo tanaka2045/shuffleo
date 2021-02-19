@@ -41,8 +41,9 @@
                     <form action="">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint1">
-                          <option value="DNo1" selected>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint1" id="diffencePoint1">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
+                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
                           <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
                           <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
                           <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
@@ -62,9 +63,10 @@
                     <form action="">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint2">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint2" id="diffencePoint2">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                           <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" selected>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
                           <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
                           <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
                           <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
@@ -83,10 +85,11 @@
                     <form action="">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint3">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint3" id="diffencePoint3">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                           <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
                           <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" selected>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
                           <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
                           <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
@@ -104,17 +107,18 @@
                     <form action="">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint4">
-                          <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" selected>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint4" id="diffencePoint4">
+                          <option value="DNo0" @if(old('diffencePoint4')=='DNo0') selected @endif>{{ ('選択') }}</option>
+                          <option value="DNo1" @if(old('diffencePoint4')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffencePoint4')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffencePoint4')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffencePoint4')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffencePoint4')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>
                     <div class="form-check">
-                    <input class="form-check-input position-static" type="radio" name="openCard" id="4openCard4" value="openCard4">
+                    <input class="form-check-input position-static" type="radio" name="openCard" id="openCard4" value="openCard4">
                     </div>
                   </div>
                 </div>
@@ -125,12 +129,13 @@
                     <form action="">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offencePoint" id="offencePoint5">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint5" id="diffencePoint5">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                           <option value="DNo1">{{ ('守1_'. $diffence_card_point_1) }}</option>
                           <option value="DNo2">{{ ('守2_'. $diffence_card_point_2) }}</option>
                           <option value="DNo3">{{ ('守3_'. $diffence_card_point_3) }}</option>
                           <option value="DNo4">{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5"selected>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo5">{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     </form>

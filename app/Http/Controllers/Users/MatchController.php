@@ -31,11 +31,11 @@ class MatchController extends Controller
     ]);
   }
   
-  public function matchDiffenceLayout()
+  public function matchDiffenceLayout(Request $request)
   {
-    
-    
-    return view('users.match_diffence');
+    $test = $request->session()->all();
+    dd($test);
+    return redirect('shuffleo/match_diffence');
   }
   
   public function matchOffenceAccess()

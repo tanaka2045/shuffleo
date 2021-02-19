@@ -53,15 +53,15 @@
             </div>
             <select id="age" type="text" class="@error('age') is-invalid @enderror " name="age" id="age" style="background-color:#000000; color:#FFFFFF;">
               <option value=""></option>
-              <option value="10代" @if(old('age')=='10') selected  @endif>10代</option>
-              <option value="20代" @if(old('age')=='20') selected  @endif>20代</option>
-              <option value="30代" @if(old('age')=='30') selected  @endif>30代</option>
-              <option value="40代" @if(old('age')=='40') selected  @endif>40代</option>
-              <option value="50代" @if(old('age')=='50') selected  @endif>50代</option>
-              <option value="60代" @if(old('age')=='60') selected  @endif>60代</option>
-              <option value="70代" @if(old('age')=='70') selected  @endif>70代</option>
-              <option value="80代" @if(old('age')=='80') selected  @endif>80代</option>
-              <option value="90代以上" @if(old('age')=='90') selected  @endif>90代以上</option>
+              <option value="10代" @if(old('age')=='10代') selected @endif>10代</option>
+              <option value="20代" @if(old('age')=='20代') selected @endif>20代</option>
+              <option value="30代" @if(old('age')=='30代') selected @endif>30代</option>
+              <option value="40代" @if(old('age')=='40代') selected @endif>40代</option>
+              <option value="50代" @if(old('age')=='50代') selected @endif>50代</option>
+              <option value="60代" @if(old('age')=='60代') selected @endif>60代</option>
+              <option value="70代" @if(old('age')=='70代') selected @endif>70代</option>
+              <option value="80代" @if(old('age')=='80代') selected @endif>80代</option>
+              <option value="90代以上" @if(old('age')=='90代以上') selected @endif>90代以上</option>
             </select>
             @error('age')
               <span class="invalid-feedback" role="alert">
@@ -126,14 +126,10 @@
               </div>
             </div>
           </div>
-          
-          
-          
-          
+
         </form>
       </div>
     </div>
-    
     
   </div>
   
