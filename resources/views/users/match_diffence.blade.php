@@ -30,6 +30,15 @@
         <div class="row mx-0">
           {{-- 守備側のレイアウト開始 --}}
           <div class="col-9 offset-2 px-0">
+            <div class="text-danger font-o-sm">
+            
+              @if ($errors ->any())
+                @foreach($errors->all() as $e)
+                    {{ $e }}
+                @endforeach
+              @endif
+              
+            </div>
               @csrf
               <div class="form-group pr-1 mb-0">
                       
@@ -43,13 +52,13 @@
                     <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint1" id="diffencePoint1">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffenceLayout1" id="diffenceLayout1">
                           <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                          <option value="DNo1" @if(old('diffencePoint1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" @if(old('diffencePoint1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" @if(old('diffencePoint1')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" @if(old('diffencePoint1')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5" @if(old('diffencePoint1')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout1')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout1')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout1')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     <div class="form-check">
@@ -64,13 +73,13 @@
                       <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint2" id="diffencePoint2">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffenceLayout2" id="diffenceLayout2">
                           <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                          <option value="DNo1" @if(old('diffencePoint2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" @if(old('diffencePoint2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" @if(old('diffencePoint2')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" @if(old('diffencePoint2')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5" @if(old('diffencePoint2')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout2')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout2')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout2')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     <div class="form-check">
@@ -85,13 +94,13 @@
                     <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint3" id="diffencePoint3">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffenceLayout3" id="diffenceLayout3">
                           <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                          <option value="DNo1" @if(old('diffencePoint3')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" @if(old('diffencePoint3')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" @if(old('diffencePoint3')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" @if(old('diffencePoint3')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5" @if(old('diffencePoint3')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout3')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout3')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout3')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout3')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout3')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     <div class="form-check">
@@ -106,13 +115,13 @@
                     <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint4" id="diffencePoint4">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffenceLayout4" id="diffenceLayout4">
                           <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                          <option value="DNo1" @if(old('diffencePoint4')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" @if(old('diffencePoint4')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" @if(old('diffencePoint4')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" @if(old('diffencePoint4')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5" @if(old('diffencePoint4')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout4')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout4')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout4')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout4')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout4')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     <div class="form-check">
@@ -127,13 +136,13 @@
                     <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
                       @csrf
                       <div class="form-group pr-1 mb-0">
-                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffencePoint5" id="diffencePoint5">
+                        <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="diffenceLayout5" id="diffenceLayout5">
                           <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                          <option value="DNo1" @if(old('diffencePoint5')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                          <option value="DNo2" @if(old('diffencePoint5')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                          <option value="DNo3" @if(old('diffencePoint5')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                          <option value="DNo4" @if(old('diffencePoint5')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                          <option value="DNo5" @if(old('diffencePoint5')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout5')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout5')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout5')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout5')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout5')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
                         </select>
                       </div>
                     <div class="form-check">

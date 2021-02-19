@@ -33,7 +33,20 @@ class MatchController extends Controller
   
   public function matchDiffenceLayout(Request $request)
   {
-    return redirect('shuffleo/match_diffence')->withInput($request->all);
+    //select fromの重複チェック
+    $select_array = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3, $request->diffenceLayout4, $request->diffenceLayout5];
+    $unique_array = array_unique($select_array);
+    //dd($unique_array);
+    
+    if (array_search(null, $unique_array) == true)
+    {
+      return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
+    }elseif(count($unique_array) !== count($select_array)) 
+    {
+      return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
+    }else{
+      return redirect('shuffleo/match_diffence')->withInput($request->all);
+    }
   }
   
   public function matchOffenceAccess()
