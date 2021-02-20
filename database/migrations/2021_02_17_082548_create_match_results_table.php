@@ -17,6 +17,8 @@ class CreateMatchResultsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('offence_user_id')->nullable();
+            $table->string('diffence_nickname');
+            $table->string('offence_nickname')->nullable();
             $table->integer('offence_layout_1')->nullable();
             $table->integer('offence_layout_2')->nullable();
             $table->integer('offence_layout_3')->nullable();

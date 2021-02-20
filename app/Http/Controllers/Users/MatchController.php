@@ -14,7 +14,9 @@ class MatchController extends Controller
 {
   public function matchMakeAccess()
   {
-    return view('users.match_make');
+    $diffence_users= MatchResult::where('diffence_entry',1)->get();
+    
+    return view('users.match_make', ['diffence_users' => $diffence_users]);
   }
   
   public function matchDiffenceAccess()
@@ -64,6 +66,8 @@ class MatchController extends Controller
     if ($request->has('entry'))
     {
       $user_id = Auth::id();
+      $user = User::find($user_id);
+      
       list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
       $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
      
@@ -74,10 +78,10 @@ class MatchController extends Controller
       $replace = [$diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, $diffence_card_point_4, $diffence_card_point_5,
         '1', '2', '3', '4', '5'];
       $replace_after =str_replace($search, $replace, $replace_before);
-
       
       $diffence_entry = new MatchResult;
       $diffence_entry->user_id = $user_id;
+      $diffence_entry->diffence_nickname = User::find($user_id)->nickname;
       $diffence_entry->diffence_layout_1 = $replace_after[0];
       $diffence_entry->diffence_layout_2 = $replace_after[1];
       $diffence_entry->diffence_layout_3 = $replace_after[2];
@@ -86,7 +90,7 @@ class MatchController extends Controller
       $diffence_entry->open_card = $replace_after[5];
       $diffence_entry->diffence_entry = 1;
       $diffence_entry->save();
-      
+
       return redirect('shuffleo/match_make');
     }
   }

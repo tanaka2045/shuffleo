@@ -34,38 +34,22 @@
               </tr>
             </thead>             
             <tbody>
-              <tr>
-                <th scope="row" class="font-o-md text-left align-middle pl-3">user0017</th>
-                <td class="font-o-md align-middle">2</td>
-                <td>
-                  <div class="btn-group-vertical">
-                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="font-o-md text-left align-middle pl-3">あいうえおかきくけこ</th>
-                <td class="font-o-md align-middle">2</td>
-                <td>
-                  <div class="btn-group-vertical">
-                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 mt-1 px-1">対戦ルームへ</a>
-                    <button type="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 my-1 px-1" style="color:#A3002F;">キャンセル</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="font-o-md text-left align-middle pl-3">user0213</th>
-                <td class="font-o-md align-middle">10</td>
-                <td>
-                  <div class="btn-group-vertical">
-                    <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
-                  </div>
-                </td>
-              </tr>
+              @if (isset($diffence_users))
+               @foreach($diffence_users as $diffence_user)
+                <tr>
+                  <th scope="row" class="font-o-md text-left align-middle pl-3">{{ $diffence_user->diffence_nickname }}</th>
+                  <td class="font-o-md align-middle">0</td>
+                  <td>
+                    <div class="btn-group-vertical">
+                      <a href="{{ action('Users\MatchController@matchOffenceAccess') }}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                      <button type="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-1" style="color:#A3002F;">キャンセル</button>
+                    </div>
+                  </td>
+                </tr>
+                @endforeach
+              @endif
             </tbody>
-          </table>        
-         
-         
+          </table>
          
         </div>
       </div>
