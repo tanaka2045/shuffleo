@@ -15,8 +15,14 @@ class MatchController extends Controller
   public function matchMakeAccess()
   {
     $diffence_users= MatchResult::where('diffence_entry',1)->get();
-    
     return view('users.match_make', ['diffence_users' => $diffence_users]);
+  }
+
+  public function matchMakeDelete(Request $request)
+  {
+    $diffence_info = MatchResult::find($request->id);
+    $diffence_info->delete();
+    return view('users.match_make');
   }
   
   public function matchDiffenceAccess()
@@ -95,9 +101,13 @@ class MatchController extends Controller
     }
   }
   
-  public function matchOffenceAccess()
+  public function matchOffenceAccess(Request $request)
   {
-    return view('users.match_offence');
+    $user_id = Auth::id();
+    $offence_nickname = User::find($user_id)->nickname;
+    $diffence_info = MatchResult::find($request->id);
+  
+    return view('users.match_offence', ['offence_nickname' => $offence_nickname, 'diffence_info' => $diffence_info]);
   }
   
   public function matchResultAccess()

@@ -68,7 +68,7 @@
           </table>
           <div class="row text-center mx-0">
             <div class="col-6 px-1">
-              <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">対戦成績詳細</a>
+              <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm mb-3 mx-1">対戦成績詳細</a>
             </div>
             <div class="col-6 px-1">
               <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">次タームへ</button>

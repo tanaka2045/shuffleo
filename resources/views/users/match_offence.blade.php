@@ -28,7 +28,7 @@
           <div class="col-6 px-0">
             <div class="row mx-0">
               <div class="col mb-3">
-                <a class="font-o-sm txt-shadow">あいう
+                <a class="font-o-sm txt-shadow">{{ $offence_nickname }}
                 </a>
               </div>
             </div>
@@ -129,7 +129,7 @@
           <div class="col-6 px-0">
             <div class="row mx-0">
               <div class="col mb-3">
-                <a class="font-o-sm txt-shadow">ユーザ
+                <a class="font-o-sm txt-shadow">{{ $diffence_info->diffence_nickname }}
                 </a>
               </div>
             </div>

@@ -18,7 +18,8 @@ button.bg-base:focus {
 }
 
 .bg-main {
-  background: linear-gradient(to top left, #000000, #0000CC 20%, #3333CC 35%, #0000CC 80%, #000000);
+  /*background: linear-gradient(to top left, #0F0F0F,  #00007A 50%, #0F0F0F);*/
+  background: linear-gradient(to top, #0E1D55,  #0E1D55 50%, #0E1D55);
   padding: 0px;
 }
 
@@ -31,7 +32,7 @@ button.bg-base:focus {
 }
 
 .bg-status {
-  background-color: #BFCBD7;
+  background-color: #8795A5;
   color: #000000;
 }
 
@@ -86,7 +87,7 @@ button.bg-base:focus {
 
 .btn-diffence {
   color: #fff;
-  background: linear-gradient(to bottom, #03124C, #091F70 50%, #1640DC);
+  background: linear-gradient(to bottom, #03124C, #091F70 90%, #1640DC);
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
@@ -261,7 +262,7 @@ button.bg-base:focus {
 
 .btn-offence {
   color: #fff;
-  background: linear-gradient(to bottom, #70001D, #A3002F 50%, #C3003A);
+  background: linear-gradient(to bottom, #70001D, #A3002F 90%, #C3003A);
   border-color: #FFFFFF;
   margin-left: 10px;
   margin-right: 10px;
