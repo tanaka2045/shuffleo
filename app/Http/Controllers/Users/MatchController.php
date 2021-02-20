@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\CardStatus;
+use App\MatchResult;
 
 class MatchController extends Controller
 {
@@ -53,10 +54,40 @@ class MatchController extends Controller
       }elseif(count($unique_array) !== count($select_array)) 
       {
         return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
+      //問題ないときの処理 
       }else{
-        //問題ないときの処理
         return redirect('shuffleo/match_diffence')->withInput($request->all);
       }
+    }
+    
+    //登録ボタン押下時の処理
+    if ($request->has('entry'))
+    {
+      $user_id = Auth::id();
+      list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+      $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+     
+      //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
+      $replace_before = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3,
+        $request->diffenceLayout4, $request->diffenceLayout5, $request->openCard];
+      $search = ['DNo1', 'DNo2', 'DNo3', 'DNo4', 'DNo5', 'openCard1', 'openCard2','openCard3','openCard4','openCard5',];
+      $replace = [$diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, $diffence_card_point_4, $diffence_card_point_5,
+        '1', '2', '3', '4', '5'];
+      $replace_after =str_replace($search, $replace, $replace_before);
+
+      
+      $diffence_entry = new MatchResult;
+      $diffence_entry->user_id = $user_id;
+      $diffence_entry->diffence_layout_1 = $replace_after[0];
+      $diffence_entry->diffence_layout_2 = $replace_after[1];
+      $diffence_entry->diffence_layout_3 = $replace_after[2];
+      $diffence_entry->diffence_layout_4 = $replace_after[3];
+      $diffence_entry->diffence_layout_5 = $replace_after[4];
+      $diffence_entry->open_card = $replace_after[5];
+      $diffence_entry->diffence_entry = 1;
+      $diffence_entry->save();
+      
+      return redirect('shuffleo/match_make');
     }
   }
   

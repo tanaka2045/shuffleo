@@ -46,6 +46,7 @@ class HomeController extends Controller
     $current_win_rate = TermResult::currentWinRate($user_id);
     $residual_count =TermResult::residualCount($user_id);
     
+    //userMatchDetailedAceess()のように書き換えることが望ましいが、書き方の例として残しておいた
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
       'total_win_rate' => $total_win_rate, 'current_term_count' => $current_term_count, 'current_count' => $current_count, 
       'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count
