@@ -29,12 +29,14 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::post('match_diffence', 'MatchController@matchDiffenceLayout')->name('diffence.layout');
   
   Route::get('match_offence', 'MatchController@matchOffenceAccess');
+  Route::post('match_offence', 'MatchController@matchOffenceLayout')->name('offence.layout');
+  
   Route::get('match_result', 'MatchController@matchResultAccess');
   Route::get('match_history', 'MatchController@matchHistoryAccess');
   Route::get('ranking_total', 'StatisticController@rankingTotalAccess');
   Route::get('ranking_term', 'StatisticController@rankingTermAccess');
   Route::get('ranking_rate', 'StatisticController@rankingRateAccess');
-  Route::get('other_user', 'OtherUserController@otherUserAccess');
+  Route::get('other_user/{id}', 'OtherUserController@otherUserAccess');
   Route::get('announce', 'HelpMessageController@announceAccess');
   Route::get('tutorial', 'HelpMessageController@tutorialAccess');
   Route::get('policy', 'HelpMessageController@policyAccess');

@@ -104,10 +104,85 @@ class MatchController extends Controller
   public function matchOffenceAccess(Request $request)
   {
     $user_id = Auth::id();
+    //ニックネームの取得
     $offence_nickname = User::find($user_id)->nickname;
     $diffence_info = MatchResult::find($request->id);
+    
+    //攻撃カードポイントの取得
+    list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
+      $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
+    
+    return view('users.match_offence', [
+      'offence_nickname' => $offence_nickname, 
+      'diffence_info' => $diffence_info,
+      'offence_card_point_1' => $offence_card_point_1,
+      'offence_card_point_2' => $offence_card_point_2,
+      'offence_card_point_3' => $offence_card_point_3,
+      'offence_card_point_4' => $offence_card_point_4,
+      'offence_card_point_5' => $offence_card_point_5,
+    ]);
+  }
   
-    return view('users.match_offence', ['offence_nickname' => $offence_nickname, 'diffence_info' => $diffence_info]);
+  public function matchOffenceLayout(Request $request)
+  {
+    //リセットボタン押下時の処理
+    if ($request->has('reset'))
+    {
+      //dd($request->diffence_info);
+      return redirect('shuffleo/match_offence')->withInput($request->all);
+    }
+
+    //セットボタン押下時の処理
+    if ($request->has('set'))
+    {
+      //select formのエラーチェック
+      $select_array = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3, $request->offenceLayout4, $request->offenceLayout5];
+      $unique_array = array_unique($select_array);
+      //選択されていないカードの有無チェック
+      if (array_search(null, $unique_array) == true)
+      {
+        return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
+      //重複して選択されているカードの有無チェック
+      }elseif(count($unique_array) !== count($select_array)) 
+      {
+        return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
+      //問題ないときの処理 
+      }else{
+        return redirect('shuffleo/match_offence')->withInput($request->all);
+      }
+    }
+
+    //登録ボタン押下時の処理
+    if ($request->has('entry'))
+    {
+      $user_id = Auth::id();
+      $user = User::find($user_id);
+      
+      list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
+      $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
+     
+      //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
+      $replace_before = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3,
+        $request->offenceLayout4, $request->offenceLayout5];
+      $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
+      $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5,];
+      $replace_after =str_replace($search, $replace, $replace_before);
+    
+      //$offence_entry = MatchResult::where;
+      $offence_entry->user_id = $user_id;
+      $offence_entry->offence_nickname = User::find($user_id)->nickname;
+      $offence_entry->offence_layout_1 = $replace_after[0];
+      $offence_entry->offence_layout_2 = $replace_after[1];
+      $offence_entry->offence_layout_3 = $replace_after[2];
+      $offence_entry->offence_layout_4 = $replace_after[3];
+      $offence_entry->offence_layout_5 = $replace_after[4];
+      $offence_entry->open_card = $replace_after[5];
+      $offence_entry->offence_entry = 1;
+      $offence_entry->save();
+
+      return redirect('shuffleo/match_make');
+    }
+
   }
   
   public function matchResultAccess()

@@ -132,13 +132,14 @@ class TermResult extends Model
   {
     $max = TermResult::where('user_id',$user_id)->max('term_count');
     $current_term_result = TermResult::where('user_id',$user_id)->where('term_count',$max)->first();
-    
     return($current_term_result);
   }
   
   //現タームカウントの計算
   public static function currentTermCount($user_id)
   {
+    //$test=self::currentTermResult($user_id);
+    //dd($test);
     $current_term_count = self::currentTermResult($user_id)->term_count;
     
     return($current_term_count);

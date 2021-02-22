@@ -23,6 +23,19 @@ class CardStatus extends Model
     return array($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, 
       $diffence_card_point_4, $diffence_card_point_5);
   }
+  
+  public static function offenceCardStatus($user_id)
+  {
+    $offence_card_status = CardStatus::where('user_id', $user_id)->orderBy('id', 'desc')->first();
+    $offence_card_point_1 = $offence_card_status->offence_card_point_1;
+    $offence_card_point_2 = $offence_card_status->offence_card_point_2;
+    $offence_card_point_3 = $offence_card_status->offence_card_point_3;
+    $offence_card_point_4 = $offence_card_status->offence_card_point_4;
+    $offence_card_point_5 = $offence_card_status->offence_card_point_5;
+    
+    return array($offence_card_point_1, $offence_card_point_2, $offence_card_point_3, 
+      $offence_card_point_4, $offence_card_point_5);
+  }
     
   
   protected $table = 'card_statuses';
