@@ -21,17 +21,17 @@
             </ul>
           </div>
         </div>
-        <div class="row">          
-          <div class="col text-center text-danger font-o-sm">
-            @if ($errors ->any())
-              @foreach($errors->all() as $e)
-                  {{ $e }}
-              @endforeach
-            @endif
-          </div>
-        </div>
-        
         <form action="{{ route('offence.layout') }}" method="post" enctype="multipart/form-data">
+          <div class="row">          
+            <div class="col text-center text-danger font-o-sm">
+              @if ($errors ->any())
+                @foreach($errors->all() as $e)
+                    {{ $e }}
+                @endforeach
+              @endif
+            </div>
+          </div>
+          
           <div class="row mx-0">
             
             {{-- 攻撃側のレイアウト開始 --}}
@@ -50,10 +50,10 @@
                       <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offenceLayout1" id="offenceLayout1">
                         <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                         <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
-                        <option value="ONo2" @if(old('offenceLayout1')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
-                        <option value="ONo3" @if(old('offenceLayout1')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
-                        <option value="ONo4" @if(old('offenceLayout1')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
-                        <option value="ONo5" @if(old('offenceLayout1')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
+                        <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
+                        <option value="ONo3" @if(old('offenceLayout3')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
+                        <option value="ONo4" @if(old('offenceLayout4')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
+                        <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                       </select>
                     </div>
                     <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
@@ -66,11 +66,11 @@
                     <div class="form-group pr-1">
                       <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offenceLayout2" id="offencelayout2">
                         <option value="ONo0" disabled selected>{{ ('選択') }}</option>
-                        <option value="ONo1" @if(old('offenceLayout2')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
+                        <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                         <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
-                        <option value="ONo3" @if(old('offenceLayout2')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
-                        <option value="ONo4" @if(old('offenceLayout2')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
-                        <option value="ONo5" @if(old('offenceLayout2')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
+                        <option value="ONo3" @if(old('offenceLayout3')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
+                        <option value="ONo4" @if(old('offenceLayout4')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
+                        <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                       </select>
                     </div>
                     <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
@@ -83,11 +83,11 @@
                     <div class="form-group pr-1">
                       <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offenceLayout3" id="offenceLayout3">
                         <option value="ONo0" disabled selected>{{ ('選択') }}</option>
-                        <option value="ONo1" @if(old('offenceLayout3')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
-                        <option value="ONo2" @if(old('offenceLayout3')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
+                        <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
+                        <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
                         <option value="ONo3" @if(old('offenceLayout3')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
-                        <option value="ONo4" @if(old('offenceLayout3')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
-                        <option value="ONo5" @if(old('offenceLayout3')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
+                        <option value="ONo4" @if(old('offenceLayout4')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
+                        <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                       </select>
                     </div>
                     <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
@@ -100,11 +100,11 @@
                     <div class="form-group pr-1">
                       <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offenceLayout4" id="offenceLayout4">
                         <option value="ONo0" disabled selected>{{ ('選択') }}</option>
-                        <option value="ONo1" @if(old('offenceLayout4')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
-                        <option value="ONo2" @if(old('offenceLayout4')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
-                        <option value="ONo3" @if(old('offenceLayout4')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
+                        <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
+                        <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
+                        <option value="ONo3" @if(old('offenceLayout3')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
                         <option value="ONo4" @if(old('offenceLayout4')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
-                        <option value="ONo5" @if(old('offenceLayout4')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
+                        <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                       </select>
                     </div>
                     <img src="../images/back_red.png" style="max-width: 30%; height:auto;">
@@ -117,10 +117,10 @@
                     <div class="form-group pr-1">
                       <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px;" name="offenceLayout5" id="offenceLayout5">
                         <option value="ONo0" disabled selected>{{ ('選択') }}</option>
-                        <option value="ONo1" @if(old('offenceLayout5')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
-                        <option value="ONo2" @if(old('offenceLayout5')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
-                        <option value="ONo3" @if(old('offenceLayout5')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
-                        <option value="ONo4" @if(old('offenceLayout5')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
+                        <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
+                        <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
+                        <option value="ONo3" @if(old('offenceLayout3')=='ONo3') selected @endif>{{ ('攻3_'. $offence_card_point_3) }}</option>
+                        <option value="ONo4" @if(old('offenceLayout4')=='ONo4') selected @endif>{{ ('攻4_'. $offence_card_point_4) }}</option>
                         <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                       </select>
                     </div>
@@ -178,7 +178,7 @@
               {{--@php
               dd($diffence_info);
               @endphp--}}
-              <input type="hidden" name="diffence_info" value="{{ $diffence_info->id }}">
+              {{--<input type="hidden" name="diffence_info" value="{{ $diffence_info }}">--}}
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="reset">{{ __('リセット') }}</button>
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="set">{{  __('セット')  }}</button>
               <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry">{{  __('　対戦　')  }}</button>

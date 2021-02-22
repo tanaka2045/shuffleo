@@ -55,7 +55,7 @@ class MatchController extends Controller
       $select_array = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3, $request->diffenceLayout4, $request->diffenceLayout5];
       $unique_array = array_unique($select_array);
       //選択されていないカードの有無チェック
-      if (array_search(null, $unique_array) == true)
+      if (in_array(null, $unique_array, true) == true)
       {
         return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
       //重複して選択されているカードの有無チェック
@@ -123,13 +123,14 @@ class MatchController extends Controller
     ]);
   }
   
+  
   public function matchOffenceLayout(Request $request)
   {
     //リセットボタン押下時の処理
     if ($request->has('reset'))
     {
-      //dd($request->diffence_info);
-      return redirect('shuffleo/match_offence')->withInput($request->all);
+      $id= $request->diffence_info;
+      return redirect(route('offence.access', ['id' => $id]));
     }
 
     //セットボタン押下時の処理
@@ -139,7 +140,7 @@ class MatchController extends Controller
       $select_array = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3, $request->offenceLayout4, $request->offenceLayout5];
       $unique_array = array_unique($select_array);
       //選択されていないカードの有無チェック
-      if (array_search(null, $unique_array) == true)
+      if (in_array(null, $unique_array, true) == true)
       {
         return redirect()->back()->withInput($request->all)->withErrors('選択されていないカードがあります');
       //重複して選択されているカードの有無チェック
