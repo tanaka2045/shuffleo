@@ -33,6 +33,7 @@ class CreateMatchResultsTable extends Migration
             $table->boolean('offence_user_access')->default(0);
             $table->boolean('diffence_user_access')->default(0);
             $table->boolean('diffence_entry')->default(0);
+            $table->string('matched_at')->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\CardStatus;
 use App\MatchResult;
+use Carbon\Carbon;
 
 class MatchController extends Controller
 {
@@ -149,37 +150,42 @@ class MatchController extends Controller
         return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
       //問題ないときの処理 
       }else{
-        return redirect('shuffleo/match_offence')->withInput($request->all);
+        $id= $request->diffence_info;
+        return redirect(route('offence.access', ['id' => $id]))->withInput($request->all);
       }
     }
 
     //登録ボタン押下時の処理
     if ($request->has('entry'))
     {
-      $user_id = Auth::id();
-      $user = User::find($user_id);
+      $id= $request->diffence_info; //対戦結果id (match_resultのid)
+      $match_result = MatchResult::find($id);
+      
+      $user_id = Auth::id(); //ログインユーザーID
+      $user = User::find($user_id); //ログインユーザーIDからログインユーザー情報の取得
+      
+      $match_result->matched_at = Carbon::now();
+      $match_result->diffence_entry = 0;
+      $match_result->offence_user_access =1;
+      $match_result->diffence_user_access =0; //0 → 0へ変わらず　見返しやすいよう記載
       
       list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
       $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
-     
-      //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
+      
+      //カードNoをカードポイントへ置換
       $replace_before = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3,
         $request->offenceLayout4, $request->offenceLayout5];
       $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
       $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5,];
       $replace_after =str_replace($search, $replace, $replace_before);
     
-      //$offence_entry = MatchResult::where;
-      $offence_entry->user_id = $user_id;
-      $offence_entry->offence_nickname = User::find($user_id)->nickname;
-      $offence_entry->offence_layout_1 = $replace_after[0];
-      $offence_entry->offence_layout_2 = $replace_after[1];
-      $offence_entry->offence_layout_3 = $replace_after[2];
-      $offence_entry->offence_layout_4 = $replace_after[3];
-      $offence_entry->offence_layout_5 = $replace_after[4];
-      $offence_entry->open_card = $replace_after[5];
-      $offence_entry->offence_entry = 1;
-      $offence_entry->save();
+      $match_result->offence_nickname = User::find($user_id)->nickname;
+      $match_result->offence_layout_1 = $replace_after[0];
+      $match_result->offence_layout_2 = $replace_after[1];
+      $match_result->offence_layout_3 = $replace_after[2];
+      $match_result->offence_layout_4 = $replace_after[3];
+      $match_result->offence_layout_5 = $replace_after[4];
+      $match_result->save();
 
       return redirect('shuffleo/match_make');
     }
