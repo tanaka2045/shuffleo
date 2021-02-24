@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\TermResult;
 use App\Announce;
+use App\CardStatus;
 use Carbon\Carbon;
 use Storage;
 
@@ -46,10 +47,13 @@ class HomeController extends Controller
     $current_win_rate = TermResult::currentWinRate($user_id);
     $residual_count =TermResult::residualCount($user_id);
     
+    $card_status = CardStatus::where('user_id', $user_id)->latest()->take(1)->first();
+    $tip_count = $card_status->tip_count;
+    
     //userMatchDetailedAceess()のように書き換えることが望ましいが、書き方の例として残しておいた
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
       'total_win_rate' => $total_win_rate, 'current_term_count' => $current_term_count, 'current_count' => $current_count, 
-      'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count
+      'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count, 'tip_count' => $tip_count
       ]);
   }  
 

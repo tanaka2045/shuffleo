@@ -11,7 +11,7 @@
           {{-- 攻撃側のレイアウト開始 --}}
           <div class="col-4 offset-2 px-0">
             <div class="text-center">
-            <a class="border-bottom font-o-esm txt-shadow" href="#!">あいう
+            <a class="border-bottom font-o-esm txt-shadow" href="#!">{{ $request->offence_nickname }}
             </a>
               <div class="mt-2"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
               <div class="pt-1"><img src="../images/back_red.png" style="max-width: 45%; height:auto;"></div>
@@ -25,7 +25,7 @@
         {{-- 守備側のレイアウト開始 --}}
           <div class="col-4 px-0">
             <div class="text-center">
-            <a class="border-bottom font-o-esm txt-shadow mb-2" href="#!">ユーザ
+            <a class="border-bottom font-o-esm txt-shadow mb-2" href="#!">{{ $request->diffence_nickname }}
             </a>
               <div class="mt-2"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
               <div class="pt-1"><img src="../images/back_blue.png" style="max-width: 45%; height:auto;"></div>
@@ -39,7 +39,7 @@
         </div>
         
         <div class="font-o-elg my-4" style="background-color: #004C00;">
-          3-2 でユーザー0017の勝ち
+          {{  $request->offence_point."-".$request->diffence_point."で".$request->win_user."の勝ち" }}
         </div>
       </div>
     </div>

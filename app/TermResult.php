@@ -138,8 +138,6 @@ class TermResult extends Model
   //現タームカウントの計算
   public static function currentTermCount($user_id)
   {
-    //$test=self::currentTermResult($user_id);
-    //dd($test);
     $current_term_count = self::currentTermResult($user_id)->term_count;
     
     return($current_term_count);
@@ -264,5 +262,24 @@ class TermResult extends Model
     return ($residual_count);  
   }
   
+  //対戦結果をTermResultの成績へ反映
+  public static function termResultUpdate($match_result, $offence_point, $diffence_point, $win_user)
+  {
+    $max_offence = TermResult::where('user_id',$match_result->offence_user_id)->max('term_count');
+    $offence_term_result=TermResult::where('user_id', $match_result->offence_user_id)->where('term_count', $max_offence)->first();
+    $max_diffence = TermResult::where('user_id',$match_result->user_id)->max('term_count');
+    $diffence_term_result=TermResult::where('user_id', $match_result->user_id)->where('term_count', $max_diffence)->first();
+    
+   if($win_user == $match_result->offence_nickname){
+      $offence_term_result->win_count_offence++;
+      $diffence_term_result->lose_count_diffence++;
+    }else{
+      $offence_term_result->lose_count_offence++;
+      $diffence_term_result->win_count_diffence++;
+    }
+    
+    $offence_term_result->save();
+    $diffence_term_result->save();
+  }
   protected $table = 'term_results';
 }

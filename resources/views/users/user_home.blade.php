@@ -33,7 +33,7 @@
             <tbody>            
               <tr class="table-transparent-ui">
                 <th scope="row" >レート</th>
-                <td class="bg-status">{{ $user->elorate }}</td>
+                <td class="bg-status">{{ number_format($user->elorate,0) }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル対戦数</th>
@@ -294,8 +294,8 @@
         {{--カードポイント更新ボタン　開始--}}
         <div class="row mx-0">
           <div class="col text-center mt-3">
-            <span class="font-o-sm">チップ数:</span>
-            <span class="font-o-elg text-dark bg-light">20</span>
+            <span class="font-o-sm-norm">チップ数:</span>
+            <span class="font-o-elg-norm text-dark bg-light px-1">{{ $tip_count }}</span>
             <button type="button" class="btn btn-green text-center btn-shadow ml-3 mr-0">リセット</button>
             <button type="button" class="btn btn-blue text-center btn-shadow ml-1">確定</button>
             @csrf

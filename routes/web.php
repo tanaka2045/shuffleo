@@ -31,7 +31,7 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::get('match_offence', 'MatchController@matchOffenceAccess')->name('offence.access');
   Route::post('match_offence', 'MatchController@matchOffenceLayout')->name('offence.layout');
   
-  Route::get('match_result', 'MatchController@matchResultAccess');
+  Route::get('match_result', 'MatchController@matchResultAccess')->name('match.result');
   Route::get('match_history', 'MatchController@matchHistoryAccess');
   Route::get('ranking_total', 'StatisticController@rankingTotalAccess');
   Route::get('ranking_term', 'StatisticController@rankingTermAccess');

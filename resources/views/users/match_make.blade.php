@@ -21,7 +21,7 @@
     </div>
     
     <div class="row">
-      <div class="col-lg-8 offset-lg-2 mt-1 mb-5 px-4">
+      <div class="col-lg-8 offset-lg-2 mt-2 mb-5 px-4">
          <div class="p-2 bg-green btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
           <div class="font-o-elg txt-shadow text-left pl-2" style="color:#FFCADC;">攻撃で対戦</div>
           

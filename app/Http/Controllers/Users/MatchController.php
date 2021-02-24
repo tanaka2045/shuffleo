@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\CardStatus;
 use App\MatchResult;
+use App\TermResult;
 use Carbon\Carbon;
 
 class MatchController extends Controller
@@ -164,6 +165,8 @@ class MatchController extends Controller
       $user_id = Auth::id(); //ログインユーザーID
       $user = User::find($user_id); //ログインユーザーIDからログインユーザー情報の取得
       
+      //MatchResult更新
+      $match_result->offence_user_id = $user_id;
       $match_result->matched_at = Carbon::now();
       $match_result->diffence_entry = 0;
       $match_result->offence_user_access =1;
@@ -186,15 +189,33 @@ class MatchController extends Controller
       $match_result->offence_layout_4 = $replace_after[3];
       $match_result->offence_layout_5 = $replace_after[4];
       $match_result->save();
-
-      return redirect('shuffleo/match_make');
+      
+      //勝敗の計算
+      list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
+      
+      //レート計算
+      MatchResult::elorateCalculation($match_result, $win_user);
+      
+      //チップ計算
+      MatchResult::tipCalculation($match_result);
+      
+      //TermResultへ成績結果を更新
+      TermResult::termResultUpdate($match_result,$offence_point, $diffence_point, $win_user);
+      
+      //攻守ニックネームの設定（view引き渡し向け）
+      $offence_nickname=$match_result->offence_nickname;
+      $diffence_nickname=$match_result->diffence_nickname;
+      
+      return redirect(route('match.result', ['offence_point' => $offence_point, 
+        'diffence_point' => $diffence_point, 'win_user' => $win_user, 
+        'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname]));
     }
 
   }
   
-  public function matchResultAccess()
+  public function matchResultAccess(Request $request)
   {
-    return view('users.match_result');
+    return view('users.match_result', ['request' => $request]);
   }
   
   public function matchHistoryAccess()
