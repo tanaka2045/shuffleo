@@ -37,9 +37,8 @@
             {{-- 攻撃側のレイアウト開始 --}}
             <div class="col-6 px-0">
               <div class="row mx-0">
-                <div class="col mb-3">
-                  <a class="font-o-sm txt-shadow">{{ $offence_nickname }}
-                  </a>
+                <div class="col mb-3 font-o-sm txt-shadow">
+                  {{ $offence_nickname }}
                 </div>
               </div>
               {{--攻1--}}
@@ -133,9 +132,8 @@
            {{-- 守備側のレイアウト開始 --}}
             <div class="col-6 px-0">
               <div class="row mx-0">
-                <div class="col mb-3">
-                  <a class="font-o-sm txt-shadow">{{ $diffence_info->diffence_nickname }}
-                  </a>
+                <div class="col mb-3 font-o-sm">
+                  {{ $diffence_info->diffence_nickname }}
                 </div>
               </div>
               {{--守1--}}

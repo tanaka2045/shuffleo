@@ -37,7 +37,9 @@
               @if (isset($diffence_users))
                @foreach($diffence_users as $diffence_user)
                 <tr>
-                  <th scope="row" class="font-o-md-norm text-left align-middle pl-3">{{ $diffence_user->diffence_nickname }}</th>
+                  <th scope="row" class="font-o-md-norm text-left align-middle pl-3">
+                    <a href="{{ action('Users\OtherUserController@otherUserAccess', $diffence_user->user_id) }}" class="border-bottom" style="color:#FFFFFF;" > 
+                    {{ $diffence_user->diffence_nickname }}</a></th>
                   <td class="font-o-md-norm align-middle">0</td>
                   <td>
                     <div class="btn-group-vertical">

@@ -32,7 +32,7 @@
             <tbody>            
               <tr class="table-transparent-ui">
                 <th scope="row" >レート</th>
-                <td class="bg-status">{{ $user->elorate }}</td>
+                <td class="bg-status">{{ str_replace(',', '', number_format($user->elorate,0)) }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >トータル対戦数</th>

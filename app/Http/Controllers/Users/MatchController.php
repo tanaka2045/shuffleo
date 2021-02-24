@@ -202,12 +202,14 @@ class MatchController extends Controller
       //TermResultへ成績結果を更新
       TermResult::termResultUpdate($match_result,$offence_point, $diffence_point, $win_user);
       
-      //攻守ニックネームの設定（view引き渡し向け）
+      //攻守ニックネームの守ユーザーIDの設定（view引き渡し向け）
       $offence_nickname=$match_result->offence_nickname;
       $diffence_nickname=$match_result->diffence_nickname;
+      $diffence_user_id=$match_result->user_id;
       
       return redirect(route('match.result', ['offence_point' => $offence_point, 
-        'diffence_point' => $diffence_point, 'win_user' => $win_user, 
+        'diffence_point' => $diffence_point, 'win_user' => $win_user,
+        'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
         'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname]));
     }
 
