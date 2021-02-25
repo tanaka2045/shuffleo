@@ -19,7 +19,8 @@ button.bg-base:focus {
 
 .bg-main {
   /*background: linear-gradient(to top left, #0F0F0F,  #00007A 50%, #0F0F0F);*/
-  background: linear-gradient(to top, #0E1D55,  #0E1D55 50%, #0E1D55);
+  /*background: linear-gradient(to top, #0E1D55,  #0E1D55 50%, #0E1D55);*/
+  background-color: #0E1D55;
   padding: 0px;
 }
 
