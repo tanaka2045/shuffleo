@@ -309,7 +309,7 @@
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical">
-          <a href="{{ action('Users\StatisticController@rankingTotalAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow">ランキング</a>
+          <a href="{{ action('Users\StatisticController@rankingRateAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow">ランキング</a>
           <a href="{{ action('Users\MatchController@matchHistoryAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow mb-5">対戦履歴</a>
         </div>
       </div>

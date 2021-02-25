@@ -27,7 +27,7 @@
     <div class="row mx-0">
       <div class="col text-center">
         <div class="btn-group-vertical my-4">
-          <a href="{{ action('Users\StatisticController@rankingTotalAccess') }}" role="button" class="btn btn-blue btn-shadow mx-0" style="text-align: center;">{{ __('ランキング') }}</a>
+          <a href="{{ action('Users\StatisticController@rankingRateAccess') }}" role="button" class="btn btn-blue btn-shadow mx-0" style="text-align: center;">{{ __('ランキング') }}</a>
           <a href="{{ action('Users\MatchController@matchHistoryAccess') }}" role="button"  class="btn btn-blue btn-shadow mx-0" style="text-align: center;">{{ __('対戦履歴') }}</a>
         </div>
       </div>

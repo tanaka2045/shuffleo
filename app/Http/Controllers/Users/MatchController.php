@@ -194,13 +194,13 @@ class MatchController extends Controller
       list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
       
       //レート計算
-      MatchResult::elorateCalculation($match_result, $win_user);
+      TermResult::elorateCalculation($match_result, $win_user);
       
       //チップ計算
-      MatchResult::tipCalculation($match_result);
+      TermResult::tipCalculation($match_result);
       
       //TermResultへ成績結果を更新
-      TermResult::termResultUpdate($match_result,$offence_point, $diffence_point, $win_user);
+      TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
       
       //攻守ニックネームの守ユーザーIDの設定（view引き渡し向け）
       $offence_nickname=$match_result->offence_nickname;

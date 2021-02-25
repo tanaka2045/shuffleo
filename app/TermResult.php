@@ -121,7 +121,7 @@ class TermResult extends Model
     }else{
     $total_win_rate = (self::totalWinCount($user_id)*100)/ self::totalCount($user_id);
     }
-    
+
    return($total_win_rate);
   }
 
@@ -280,6 +280,46 @@ class TermResult extends Model
     
     $offence_term_result->save();
     $diffence_term_result->save();
+    
+    return array($offence_term_result, $diffence_term_result);
   }
+  
+  public static function elorateCalculation($match_result, $win_user)
+  {
+
+    $k=8; // 係数設定 Kが大きいほど、最適レートに到達しやすいがレートは不安定になる
+    
+    if($win_user == $match_result->offence_nickname){
+      $win_user_all = User::where('nickname', $match_result->offence_nickname)->first();
+      $lose_user_all = User::where('nickname', $match_result->diffence_nickname)->first();
+    }else{
+      $win_user_all = User::where('nickname', $match_result->diffence_nickname)->first();
+      $lose_user_all = User::where('nickname', $match_result->offence_nickname)->first();
+    }
+    
+    $elorate_win_user_ini = $win_user_all->elorate;
+    $elorate_lose_user_ini = $lose_user_all->elorate;
+    
+    $eij=1/(1+pow(10,(($elorate_lose_user_ini-$elorate_win_user_ini)/400)));
+    $eji=1/(1+pow(10,(($elorate_win_user_ini-$elorate_lose_user_ini)/400)));
+    
+    $elorate_win_user = $elorate_win_user_ini + $k*(1-$eij);
+    $elorate_lose_user = $elorate_lose_user_ini + $k*(0-$eji);
+    
+    $win_user_all->elorate = $elorate_win_user;
+    $win_user_all->save();
+    $lose_user_all->elorate = $elorate_lose_user;
+    $lose_user_all->save();
+  }
+  
+  public static function tipCalculation($match_result)
+  {
+    $card_status = CardStatus::where('user_id', $match_result->user_id)->latest()->take(1)->first();
+    $tip_count = $card_status->tip_count;
+    $tip_count++;
+    $card_status->tip_count = $tip_count;
+    $card_status->save();
+  }
+  
   protected $table = 'term_results';
 }
