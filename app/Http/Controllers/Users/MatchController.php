@@ -16,8 +16,9 @@ class MatchController extends Controller
 {
   public function matchMakeAccess()
   {
+    $user_id = Auth::id();
     $diffence_users= MatchResult::where('diffence_entry',1)->get();
-    return view('users.match_make', ['diffence_users' => $diffence_users]);
+    return view('users.match_make', ['diffence_users' => $diffence_users, 'user_id' => $user_id]);
   }
 
   public function matchMakeDelete(Request $request)

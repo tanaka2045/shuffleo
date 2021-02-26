@@ -38,13 +38,16 @@
                @foreach($diffence_users as $diffence_user)
                 <tr>
                   <th scope="row" class="font-o-md-norm text-left align-middle pl-3">
-                    <a href="{{ action('Users\OtherUserController@otherUserAccess', $diffence_user->user_id) }}" class="border-bottom" style="color:#FFFFFF;" > 
+                    <a href="{{ action('Users\OtherUserController@otherUserAccess', $diffence_user->user_id) }}" style="text-decoration:underline; color:#FFFFFF;" > 
                     {{ $diffence_user->diffence_nickname }}</a></th>
                   <td class="font-o-md-norm align-middle">0</td>
                   <td>
                     <div class="btn-group-vertical">
-                      <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
-                      <a href="{{ action('Users\MatchController@matchMakeDelete', ['id' => $diffence_user->id] ) }}" role="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-1" style="color:#A3002F;">キャンセル</a>
+                      @if ($diffence_user->user_id == $user_id)
+                        <a href="{{ action('Users\MatchController@matchMakeDelete', ['id' => $diffence_user->id] ) }}" role="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-2" style="color:#A3002F;">キャンセル</a>
+                      @else
+                        <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                      @endif
                     </div>
                   </td>
                 </tr>

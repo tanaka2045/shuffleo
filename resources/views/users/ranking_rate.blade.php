@@ -49,7 +49,7 @@
                 @else
                   <th scope="row" class="bg-nav-base-gradient text-white">{{ ($rank_counter)  }}</th>
                 @endif
-                <td><a href="{{ action('Users\OtherUserController@otherUserAccess', $rank->id) }}" style="color:#000000;" > 
+                <td><a href="{{ action('Users\OtherUserController@otherUserAccess', $rank->id) }}" style="text-decoration:underline; color:#000000;" > 
                   {{ $rank->nickname }}</a></td>
                 <td>{{ str_replace(',','', number_format($rank->elorate,0)) }}</td>
               </tr>

@@ -98,7 +98,7 @@
     <div class="row">
       <div class="col text-center">
         <div class="btn-group-vertical mb-4" >
-          <a href="{{ action('Users\HomeController@userHomeAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow font-o-esm-norm">戻る</a>
+          <a href="{{ action('Users\HomeController@userHomeAccess') }}" role="button" tabindex="0" class="btn btn-blue text-center btn-shadow font-o-esm">戻る</a>
         </div>
       </div>
     </div>
