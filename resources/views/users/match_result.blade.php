@@ -9,7 +9,7 @@
         <button type="button" class="btn btn-gray-blue btn-shadow text-center font-o-esm mb-2">結果確認</button>
         <div class="row">
           {{-- 攻撃側のレイアウト開始 --}}
-          <div class="col-4 offset-2 px-0">
+          <div class="col-5 offset-1 px-0">
             <div class="text-center">
             <a class="border-bottom font-o-esm" href="{{ action('Users\OtherUserController@otherUserAccess', $request->offence_user_id) }}">
               {{ $request->offence_nickname }}
@@ -24,7 +24,7 @@
         {{-- 攻撃側のレイアウト終了 --}}
         
         {{-- 守備側のレイアウト開始 --}}
-          <div class="col-4 px-0">
+          <div class="col-5 px-0">
             <div class="text-center">
             <a class="border-bottom font-o-esm mb-2" href="{{ action('Users\OtherUserController@otherUserAccess', $request->diffence_user_id) }}">
               {{ $request->diffence_nickname }}

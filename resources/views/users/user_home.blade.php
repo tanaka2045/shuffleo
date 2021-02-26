@@ -17,7 +17,7 @@
             <tbody>
               <tr class="table-transparent-ui">
                 <th scope="row" >ユーザー名</th>
-                <td class="bg-status">{{ $user->name }}</td>
+                <td class="bg-status">{{ $user->nickname }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" >性別</th>
