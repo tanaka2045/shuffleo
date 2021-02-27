@@ -33,7 +33,8 @@ class MatchController extends Controller
     $user_id = Auth::id();
     list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
       $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
-
+    
+    //登録ボタンスイッチング初期値（0=非活性）の呼び出し
     $button_switch = User::find($user_id)->button_switch;
     
     return view('users.match_diffence', [
@@ -51,7 +52,7 @@ class MatchController extends Controller
     //リセットボタン押下時の処理
     if ($request->has('reset'))
     {
-      //登録ボタンスイッチの非活性切り替え
+      //登録ボタンスイッチング→非活性
       $user_id = Auth::id();
       $button_switch = User::find($user_id);
       $button_switch->button_switch = 0;
@@ -76,7 +77,7 @@ class MatchController extends Controller
         return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
       //問題ないときの処理 
       }else{
-      //登録ボタンスイッチの活性切り替え
+      //登録ボタンスイッチング→活性
       $user_id = Auth::id();
       $button_switch = User::find($user_id);
       $button_switch->button_switch = 1;
@@ -115,7 +116,7 @@ class MatchController extends Controller
       $diffence_entry->diffence_entry = 1;
       $diffence_entry->save();
       
-      //登録ボタンスイッチの非活性切り替え：新たな守備登録、対戦のための初期化
+      //登録ボタンスイッチング→0：新たな守備登録、対戦のための初期化
       $user_id = Auth::id();
       $button_switch = User::find($user_id);
       $button_switch->button_switch = 0;
@@ -132,6 +133,9 @@ class MatchController extends Controller
     $offence_nickname = User::find($user_id)->nickname;
     $diffence_info = MatchResult::find($request->id);
     
+    //対戦ボタンスイッチング初期値（0=非活性）の呼び出し
+    $button_switch = User::find($user_id)->button_switch;
+    
     //攻撃カードポイントの取得
     list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
       $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
@@ -139,6 +143,7 @@ class MatchController extends Controller
     return view('users.match_offence', [
       'offence_nickname' => $offence_nickname, 
       'diffence_info' => $diffence_info,
+      'button_switch' => $button_switch,
       'offence_card_point_1' => $offence_card_point_1,
       'offence_card_point_2' => $offence_card_point_2,
       'offence_card_point_3' => $offence_card_point_3,
@@ -154,7 +159,14 @@ class MatchController extends Controller
     if ($request->has('reset'))
     {
       $id= $request->diffence_info;
-      return redirect(route('offence.access', ['id' => $id]));
+      
+      //登録ボタンスイッチング→非活性
+      $user_id = Auth::id();
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 0;
+      $button_switch->save();
+      
+      return redirect(route('offence.access', ['id' => $id, 'button_switch' => $button_switch]));
     }
 
     //セットボタン押下時の処理
@@ -174,7 +186,14 @@ class MatchController extends Controller
       //問題ないときの処理 
       }else{
         $id= $request->diffence_info;
-        return redirect(route('offence.access', ['id' => $id]))->withInput($request->all);
+        
+        //対戦ボタンスイッチング→活性
+        $user_id = Auth::id();
+        $button_switch = User::find($user_id);
+        $button_switch->button_switch = 1;
+        $button_switch->save();
+        
+        return redirect(route('offence.access', ['id' => $id, 'button_switch' => $button_switch]))->withInput($request->all);
       }
     }
 
@@ -229,10 +248,16 @@ class MatchController extends Controller
       $diffence_nickname=$match_result->diffence_nickname;
       $diffence_user_id=$match_result->user_id;
       
+      //対戦ボタンスイッチング→0：新たな守備登録、対戦のための初期化
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 0;
+      $button_switch->save();
+      
       return redirect(route('match.result', ['offence_point' => $offence_point, 
         'diffence_point' => $diffence_point, 'win_user' => $win_user,
         'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
-        'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname]));
+        'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
+        'button_switch' => $button_switch]));
     }
 
   }

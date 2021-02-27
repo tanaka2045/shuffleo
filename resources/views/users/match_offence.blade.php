@@ -179,7 +179,11 @@
               <input type="hidden" name="diffence_info" value="{{ $diffence_info->id }}">
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="reset">{{ __('リセット') }}</button>
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="set">{{  __('セット')  }}</button>
-              <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry">{{  __('　対戦　')  }}</button>
+              @if ($button_switch == 0)
+                <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry" disabled>{{  __('　対戦　')  }}</button>
+              @else
+                <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry">{{  __('　対戦　')  }}</button>
+              @endif
             </div>
           </div>
         </form>
