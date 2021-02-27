@@ -33,6 +33,8 @@ class MatchController extends Controller
     $user_id = Auth::id();
     list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
       $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+
+    $button_switch = User::find($user_id)->button_switch;
     
     return view('users.match_diffence', [
       'diffence_card_point_1' => $diffence_card_point_1,
@@ -40,6 +42,7 @@ class MatchController extends Controller
       'diffence_card_point_3' => $diffence_card_point_3,
       'diffence_card_point_4' => $diffence_card_point_4,
       'diffence_card_point_5' => $diffence_card_point_5,
+      'button_switch' => $button_switch
     ]);
   }
   
@@ -48,7 +51,13 @@ class MatchController extends Controller
     //リセットボタン押下時の処理
     if ($request->has('reset'))
     {
-      return redirect('shuffleo/match_diffence');
+      //登録ボタンスイッチの非活性切り替え
+      $user_id = Auth::id();
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 0;
+      $button_switch->save();
+      
+      return redirect(route('match.diffence', ['button_switch' => $button_switch]));
     }
     
     //セットボタン押下時の処理
@@ -67,7 +76,13 @@ class MatchController extends Controller
         return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
       //問題ないときの処理 
       }else{
-        return redirect('shuffleo/match_diffence')->withInput($request->all);
+      //登録ボタンスイッチの活性切り替え
+      $user_id = Auth::id();
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 1;
+      $button_switch->save();
+        
+        return redirect(route('match.diffence', ['button_switch' => $button_switch]))->withInput($request->all);
       }
     }
     
@@ -99,8 +114,14 @@ class MatchController extends Controller
       $diffence_entry->open_card = $replace_after[5];
       $diffence_entry->diffence_entry = 1;
       $diffence_entry->save();
+      
+      //登録ボタンスイッチの非活性切り替え：新たな守備登録、対戦のための初期化
+      $user_id = Auth::id();
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 0;
+      $button_switch->save();
 
-      return redirect('shuffleo/match_make');
+      return redirect(route('match.make', ['button_switch' => $button_switch]));
     }
   }
   
