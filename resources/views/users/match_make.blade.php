@@ -14,7 +14,11 @@
         <div class="p-2 bg-green btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
           <div class="font-o-elg txt-shadow text-left pl-2" style="color: #C9D3F6;">守備で対戦</div>
           <div class="text-right">
-            <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" tabindex="0" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>
+            @if ($term_end_point == 1)
+              <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" tabindex="0" class="btn btn-diffence btn-shadow font-o-esm" dsiabled>新規対戦ルーム登録</a>
+            @else
+              <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" tabindex="0" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>            
+            @endif
           </div>          
         </div>
       </div>
@@ -43,10 +47,15 @@
                   <td class="font-o-md-norm align-middle">0</td>
                   <td>
                     <div class="btn-group-vertical">
+
                       @if ($diffence_user->user_id == $user_id)
                         <a href="{{ action('Users\MatchController@matchMakeDelete', ['id' => $diffence_user->id] ) }}" role="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-2" style="color:#A3002F;">キャンセル</a>
                       @else
-                        <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                        @if ($term_end_point == 0)
+                          <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
+                        @else
+                          <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1" disabled>対戦ルームへ</a>
+                        @endif
                       @endif
                     </div>
                   </td>

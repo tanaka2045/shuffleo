@@ -50,11 +50,16 @@ class HomeController extends Controller
     $card_status = CardStatus::where('user_id', $user_id)->latest()->take(1)->first();
     $tip_count = $card_status->tip_count;
     
+    //タームエンドポイントの確認（0→99試合以下、1→100試合)
+    $max = TermResult::where('user_id', $user_id)->max('term_count');
+    $term_result = TermResult::where('user_id', $user_id)->where('term_count', $max)->first();
+    $term_end_point = $term_result->term_end_point;
+
     //userMatchDetailedAceess()のように書き換えることが望ましいが、書き方の例として残しておいた
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
       'total_win_rate' => $total_win_rate, 'current_term_count' => $current_term_count, 'current_count' => $current_count, 
-      'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count, 'tip_count' => $tip_count
-      ]);
+      'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count, 
+      'tip_count' => $tip_count, 'term_end_point' => $term_end_point ]);
   }  
 
   public function userMatchDetailedAccess(Request $request)

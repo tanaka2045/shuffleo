@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\TermResult;
+use App\MatchResult;
 
 class TermResult extends Model
 {
@@ -282,6 +283,44 @@ class TermResult extends Model
     $diffence_term_result->save();
     
     return array($offence_term_result, $diffence_term_result);
+  }
+  
+  //タームエンドポイントの計算＿攻撃ユーザー（100x試合目かどうかの確認）
+  public static function termEndPointOffenceCalculation($match_result)
+  {
+    $user_id = $match_result->offence_user_id;
+    //実対戦数
+    $current_term_count = self::currentCount($user_id);
+    $max = TermResult::where('user_id', $user_id)->max('term_count');
+    
+    //守備登録中の数
+    $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
+    ($current_term_count+$under_entry_count);
+    
+    if (($current_term_count+$under_entry_count) % 32 == 0.000){
+        $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+        $term_result->term_end_point = 1;
+        $term_result->save();
+    }
+  }
+  
+  //タームエンドポイントの計算＿守備ユーザー（100x試合目かどうかの確認）
+  public static function termEndPointDiffenceCalculation($match_result)
+  {
+    $user_id = $match_result->user_id; //user_id = Diffence_user_idに注意
+    //実対戦数
+    $current_term_count = self::currentCount($user_id);
+    $max = TermResult::where('user_id', $user_id)->max('term_count');
+    $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+    $term_end_point = $term_result->term_end_point;
+    
+    //守備登録中の数
+    $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
+    
+    if (($current_term_count+$under_entry_count) % 100 == 0.000){
+        $term_end_point = 1;
+        $term_end_point->save();
+    }
   }
   
   public static function elorateCalculation($match_result, $win_user)

@@ -17,8 +17,17 @@ class MatchController extends Controller
   public function matchMakeAccess()
   {
     $user_id = Auth::id();
-    $diffence_users= MatchResult::where('diffence_entry',1)->get();
-    return view('users.match_make', ['diffence_users' => $diffence_users, 'user_id' => $user_id]);
+    
+    //対戦エントリーフラグが１（＝守備登録のみ）を抽出
+    $diffence_users = MatchResult::where('diffence_entry',1)->get();
+    
+    //タームエンドポイントの取得
+    $max = TermResult::where('user_id', $user_id)->max('term_count');
+    $current_term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first();
+    $term_end_point = $current_term_result->term_end_point;
+    
+    return view('users.match_make', ['diffence_users' => $diffence_users, 'user_id' => $user_id, 
+      'term_end_point' => $term_end_point]);
   }
 
   public function matchMakeDelete(Request $request)
@@ -197,7 +206,7 @@ class MatchController extends Controller
       }
     }
 
-    //登録ボタン押下時の処理
+    //対戦ボタン押下時の処理
     if ($request->has('entry'))
     {
       $id= $request->diffence_info; //対戦結果id (match_resultのid)
@@ -234,21 +243,27 @@ class MatchController extends Controller
       //勝敗の計算
       list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
       
+      //TermResultへ成績結果を更新
+      TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
+
+      //タームエンドポイントの計算_攻撃ユーザー（100x試合目かどうかの確認）
+      TermResult::termEndPointOffenceCalculation($match_result);
+
+      //タームエンドポイントの計算_守備ユーザー（100x試合目かどうかの確認）
+      TermResult::termEndPointDiffenceCalculation($match_result);
+      
       //レート計算
       TermResult::elorateCalculation($match_result, $win_user);
       
       //チップ計算
       TermResult::tipCalculation($match_result);
       
-      //TermResultへ成績結果を更新
-      TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
-      
       //攻守ニックネームの守ユーザーIDの設定（view引き渡し向け）
       $offence_nickname=$match_result->offence_nickname;
       $diffence_nickname=$match_result->diffence_nickname;
       $diffence_user_id=$match_result->user_id;
       
-      //対戦ボタンスイッチング→0：新たな守備登録、対戦のための初期化
+      //対戦ボタンスイッチング→0：新たな守備登録および対戦のための初期化
       $button_switch = User::find($user_id);
       $button_switch->button_switch = 0;
       $button_switch->save();
