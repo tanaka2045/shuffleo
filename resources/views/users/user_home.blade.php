@@ -74,7 +74,7 @@
               @if ($term_end_point == 0)
                 <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" disabled>次タームへ</button>
               @else
-                <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">次タームへ</button>
+                <a href="{{ action('Users\HomeController@toNextTerm') }}" role="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">次タームへ</a>
               @endif
             </div>
           </div>

@@ -94,5 +94,31 @@ class HomeController extends Controller
       ]);
   }
   
+  public function toNextTerm()
+  {
+    $user_id = Auth::id();
+    
+    //カードポイントのリセット
+    CardStatus::cardReset($user_id);
+    
+    //チップポイントのリセット
+    TermResult::tipReset($user_id);
+    
+    //タームカウントの加算
+    TermResult::termCountAdd($user_id);
+    
+    //現ターム成績のリセット
+    TermResult::curentTermResultReset($user_id);
+    
+    //ターム最高勝率の計算
+    TermResult::bersTermWinRateUpdate($user_id);
+    
+    //ターム終了日時の記録
+    TermResult::termFinishedAtRecord($user_id);
+    
+    //ターム終了フラグの解除
+    TermResult::termEndPointReset($user_id);
+  }
+  
   
 }

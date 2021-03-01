@@ -15,7 +15,7 @@
           <div class="font-o-elg txt-shadow text-left pl-2" style="color: #C9D3F6;">守備で対戦</div>
           <div class="text-right">
             @if ($term_end_point == 1)
-              <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" tabindex="0" class="btn btn-diffence btn-shadow font-o-esm" dsiabled>新規対戦ルーム登録</a>
+              <button class="btn btn-diffence btn-shadow font-o-esm" disabled>新規対戦ルーム登録</button>
             @else
               <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" tabindex="0" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>            
             @endif
@@ -54,7 +54,7 @@
                         @if ($term_end_point == 0)
                           <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
                         @else
-                          <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" tabindex="0" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1" disabled>対戦ルームへ</a>
+                          <button class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1" disabled>対戦ルームへ</button>
                         @endif
                       @endif
                     </div>
