@@ -21,10 +21,10 @@ class MatchController extends Controller
     //対戦エントリーフラグが１（＝守備登録のみ）を抽出
     $diffence_users = MatchResult::where('diffence_entry',1)->get();
     
-    //タームエンドポイントの取得
-    $max = TermResult::where('user_id', $user_id)->max('term_count');
-    $current_term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first();
-    $term_end_point = $current_term_result->term_end_point;
+    //タームエンドポイントの更新
+    TermResult::termEndPointDiffenceEntryCalculation($user_id);
+    $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $term_end_point = $term_result->term_end_point;
     
     return view('users.match_make', ['diffence_users' => $diffence_users, 'user_id' => $user_id, 
       'term_end_point' => $term_end_point]);
@@ -32,9 +32,11 @@ class MatchController extends Controller
 
   public function matchMakeDelete(Request $request)
   {
+    //守備ユーザールームの削除（守備エントリーフラグも消失する）
     $diffence_info = MatchResult::find($request->id);
     $diffence_info->delete();
-    return view('users.match_make');
+    
+    return redirect(route('match.make'));
   }
   
   public function matchDiffenceAccess()
@@ -160,7 +162,6 @@ class MatchController extends Controller
       'offence_card_point_5' => $offence_card_point_5,
     ]);
   }
-  
   
   public function matchOffenceLayout(Request $request)
   {

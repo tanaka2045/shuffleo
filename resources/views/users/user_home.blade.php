@@ -71,10 +71,10 @@
               <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm mb-3 mx-1">対戦成績詳細</a>
             </div>
             <div class="col-6 px-1">
-              @if ($term_end_point == 0)
-                <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" disabled>次タームへ</button>
-              @else
+              @if ($term_end_point == 2)
                 <a href="{{ action('Users\HomeController@toNextTerm') }}" role="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3">次タームへ</a>
+              @else
+                <button type="button" class="btn btn-gray-blue btn-shadow font-o-esm mb-3" disabled>次タームへ</button>
               @endif
             </div>
           </div>

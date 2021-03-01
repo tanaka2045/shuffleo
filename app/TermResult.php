@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\TermResult;
 use App\MatchResult;
+use Carbon\Carbon;
 
 class TermResult extends Model
 {
@@ -285,7 +286,36 @@ class TermResult extends Model
     return array($offence_term_result, $diffence_term_result);
   }
   
-  //タームエンドポイントの計算＿攻撃ユーザー（100x試合目かどうかの確認）
+  //守備登録時のタームエンドポイントの計算＿守備ユーザー（100x試合目かどうかの確認
+  public static function termEndPointDiffenceEntryCalculation($user_id)
+  {
+    //実対戦数
+    $current_term_count = self::currentCount($user_id);
+    $max = TermResult::where('user_id', $user_id)->max('term_count');
+    
+    //守備登録中の数
+    $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
+    ($current_term_count+$under_entry_count);
+    
+    $max_game_count = 35;
+    
+    if ($current_term_count % $max_game_count == 0.000)
+    {
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 2;
+      $term_result->save();
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 1;
+      $term_result->save();
+    }else{
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first();
+      $term_result->term_end_point = 0;
+      $term_result->save();
+    }
+  }
+  
+  //対戦時のタームエンドポイントの計算＿攻撃ユーザー（100x試合目かどうかの確認）
   public static function termEndPointOffenceCalculation($match_result)
   {
     $user_id = $match_result->offence_user_id;
@@ -297,14 +327,25 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    if (($current_term_count+$under_entry_count) % 32 == 0.000){
-        $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
-        $term_result->term_end_point = 1;
-        $term_result->save();
+    $max_game_count = 35;
+    
+    if ($current_term_count % $max_game_count == 0.000)
+    {
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 2;
+      $term_result->save();
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 1;
+      $term_result->save();
+    }else{
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first();
+      $term_result->term_end_point = 0;
+      $term_result->save();
     }
   }
   
-  //タームエンドポイントの計算＿守備ユーザー（100x試合目かどうかの確認）
+  //対戦時のタームエンドポイントの計算＿守備ユーザー（100x試合目かどうかの確認）
   public static function termEndPointDiffenceCalculation($match_result)
   {
     $user_id = $match_result->user_id; //user_id = Diffence_user_idに注意
@@ -317,15 +358,26 @@ class TermResult extends Model
     //守備登録中の数
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     
-    if (($current_term_count+$under_entry_count) % 100 == 0.000){
-        $term_end_point = 1;
-        $term_end_point->save();
+    $max_game_count = 35;
+    
+    if ($current_term_count % $max_game_count == 0.000)
+    {
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 2;
+      $term_result->save();
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
+      $term_result->term_end_point = 1;
+      $term_result->save();
+    }else{
+      $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first();
+      $term_result->term_end_point = 0;
+      $term_result->save();
     }
   }
   
   public static function elorateCalculation($match_result, $win_user)
   {
-
     $k=8; // 係数設定 Kが大きいほど、最適レートに到達しやすいがレートは不安定になる
     
     if($win_user == $match_result->offence_nickname){
@@ -351,13 +403,61 @@ class TermResult extends Model
     $lose_user_all->save();
   }
   
+  //チップ計算(守備対戦によりチップ++)
   public static function tipCalculation($match_result)
   {
-    $card_status = CardStatus::where('user_id', $match_result->user_id)->latest()->take(1)->first();
-    $tip_count = $card_status->tip_count;
+    $user = User::find($match_result->user_id)->first();
+    $tip_count = $user->tip_count;
     $tip_count++;
-    $card_status->tip_count = $tip_count;
-    $card_status->save();
+    $user->tip_count = $tip_count;
+    $user->save();
+  }
+  
+  //次ターム移行時のアクション
+  //チップカウンターリセット
+  public static function tipReset($user_id)
+  {
+    $user = User::find($user_id)->first();
+    $user->tip_count = 0;
+    $user->save();
+  }
+  
+  //過去最高ターム勝率の計算
+  public static function bersTermWinRateUpdate($user_id)
+  {
+    $user = User::find($user_id)->first();
+    $current_win_rate = self::currentWinRate($user_id);
+    
+    if ($current_win_rate > $user->best_term_win_rate){
+      $user->best_term_win_rate = $current_win_rate;
+    }
+
+    $user->save();
+  }
+  
+  //ターム終了日時の記録
+  public static function termFinishedAtRecord($user_id)
+  {
+   $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+   $term_result->finished_at = Carbon::now();
+   $term_result->save();
+  }
+  
+  //ターム成績のリセット（ターム成績マスタのインスタンス作成）
+  public function termResultCreate($user_id)
+  {
+    $old_term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    
+    $term_result = new TermResult;
+    $term_result->user_id = $user_id;
+    $term_result->term_count = $old_term_result++;
+    $term_result->win_count_offence = 0;
+    $term_result->win_count_diffence = 0;
+    $term_result->lose_count_offence = 0 ;
+    $term_result->lose_count_diffence = 0;
+    $term_result->term_end_point = 0;
+    
+    $term_result->save();
   }
   
   protected $table = 'term_results';

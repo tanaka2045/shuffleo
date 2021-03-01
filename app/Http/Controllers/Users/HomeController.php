@@ -47,13 +47,14 @@ class HomeController extends Controller
     $current_win_rate = TermResult::currentWinRate($user_id);
     $residual_count =TermResult::residualCount($user_id);
     
-    $card_status = CardStatus::where('user_id', $user_id)->latest()->take(1)->first();
-    $tip_count = $card_status->tip_count;
+    $tip_count = $user->tip_count;
     
     //タームエンドポイントの確認（0→99試合以下、1→100試合)
     $max = TermResult::where('user_id', $user_id)->max('term_count');
     $term_result = TermResult::where('user_id', $user_id)->where('term_count', $max)->first();
     $term_end_point = $term_result->term_end_point;
+    
+    //dd($term_end_point);
 
     //userMatchDetailedAceess()のように書き換えることが望ましいが、書き方の例として残しておいた
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
@@ -98,26 +99,22 @@ class HomeController extends Controller
   {
     $user_id = Auth::id();
     
-    //カードポイントのリセット
-    CardStatus::cardReset($user_id);
-    
     //チップポイントのリセット
     TermResult::tipReset($user_id);
     
-    //タームカウントの加算
-    TermResult::termCountAdd($user_id);
-    
-    //現ターム成績のリセット
-    TermResult::curentTermResultReset($user_id);
-    
     //ターム最高勝率の計算
-    TermResult::bersTermWinRateUpdate($user_id);
+    TermResult::bestTermWinRateUpdate($user_id);
     
     //ターム終了日時の記録
     TermResult::termFinishedAtRecord($user_id);
     
-    //ターム終了フラグの解除
-    TermResult::termEndPointReset($user_id);
+    //カードポイントのリセット(カードステータスマスタのインスタンス作成)
+    CardStatus::cardReset($user_id);
+    
+    //ターム成績のリセット（ターム成績マスタのインスタンス作成）
+    TermResult::termResultCreate($user_id);
+    
+    return redirect (route('user.home'));
   }
   
   
