@@ -37,7 +37,7 @@
             {{-- 攻撃側のレイアウト開始 --}}
             <div class="col-6 px-0">
               <div class="row mx-0">
-                <div class="col mb-3 font-o-sm txt-shadow">
+                <div class="col mb-3 font-o-sm">
                   {{ $offence_nickname }}
                 </div>
               </div>

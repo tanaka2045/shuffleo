@@ -317,14 +317,14 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 50;
+    $max_game_count = 40;
     
-    if ($current_term_count % $max_game_count == 0.000)
+    if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 2;
       $term_result->save();
-    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000 && $current_term_count !== 0){
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 1;
       $term_result->save();
@@ -347,14 +347,14 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 50;
+    $max_game_count = 40;
     
-    if ($current_term_count % $max_game_count == 0.000)
+    if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 2;
       $term_result->save();
-    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000 && $current_term_count !== 0){
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 1;
       $term_result->save();
@@ -378,14 +378,14 @@ class TermResult extends Model
     //守備登録中の数
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     
-    $max_game_count = 50;
+    $max_game_count = 40;
     
-    if ($current_term_count % $max_game_count == 0.000)
+    if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 2;
       $term_result->save();
-    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000){
+    }elseif (($current_term_count+$under_entry_count) % $max_game_count == 0.000 && $current_term_count !== 0){
       $term_result = TermResult::where('user_id', $user_id)->where('term_count',$max)->first(); 
       $term_result->term_end_point = 1;
       $term_result->save();

@@ -48,13 +48,18 @@ class MatchController extends Controller
     //登録ボタンスイッチング初期値（0=非活性）の呼び出し
     $button_switch = User::find($user_id)->button_switch;
     
+    //タームエンドポイントの取得
+    $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $term_end_point = $term_result->term_end_point;
+    
     return view('users.match_diffence', [
       'diffence_card_point_1' => $diffence_card_point_1,
       'diffence_card_point_2' => $diffence_card_point_2,
       'diffence_card_point_3' => $diffence_card_point_3,
       'diffence_card_point_4' => $diffence_card_point_4,
       'diffence_card_point_5' => $diffence_card_point_5,
-      'button_switch' => $button_switch
+      'button_switch' => $button_switch,
+      'term_end_point' => $term_end_point
     ]);
   }
   
@@ -104,36 +109,46 @@ class MatchController extends Controller
       $user_id = Auth::id();
       $user = User::find($user_id);
       
-      list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
-      $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
-     
-      //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
-      $replace_before = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3,
-        $request->diffenceLayout4, $request->diffenceLayout5, $request->openCard];
-      $search = ['DNo1', 'DNo2', 'DNo3', 'DNo4', 'DNo5', 'openCard1', 'openCard2','openCard3','openCard4','openCard5',];
-      $replace = [$diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, $diffence_card_point_4, $diffence_card_point_5,
-        '1', '2', '3', '4', '5'];
-      $replace_after =str_replace($search, $replace, $replace_before);
+      $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+      $term_end_point = $term_result->term_end_point;
       
-      $diffence_entry = new MatchResult;
-      $diffence_entry->user_id = $user_id;
-      $diffence_entry->diffence_nickname = User::find($user_id)->nickname;
-      $diffence_entry->diffence_layout_1 = $replace_after[0];
-      $diffence_entry->diffence_layout_2 = $replace_after[1];
-      $diffence_entry->diffence_layout_3 = $replace_after[2];
-      $diffence_entry->diffence_layout_4 = $replace_after[3];
-      $diffence_entry->diffence_layout_5 = $replace_after[4];
-      $diffence_entry->open_card = $replace_after[5];
-      $diffence_entry->diffence_entry = 1;
-      $diffence_entry->save();
-      
-      //登録ボタンスイッチング→0：新たな守備登録、対戦のための初期化
-      $user_id = Auth::id();
-      $button_switch = User::find($user_id);
-      $button_switch->button_switch = 0;
-      $button_switch->save();
-
-      return redirect(route('match.make', ['button_switch' => $button_switch]));
+      //term_end_pointが0だった場合は守備登録しmatch_resuluページへ遷移する
+      if ($term_end_point == 0) 
+      {
+        list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+        $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+       
+        //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
+        $replace_before = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3,
+          $request->diffenceLayout4, $request->diffenceLayout5, $request->openCard];
+        $search = ['DNo1', 'DNo2', 'DNo3', 'DNo4', 'DNo5', 'openCard1', 'openCard2','openCard3','openCard4','openCard5',];
+        $replace = [$diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, $diffence_card_point_4, $diffence_card_point_5,
+          '1', '2', '3', '4', '5'];
+        $replace_after =str_replace($search, $replace, $replace_before);
+        
+        $diffence_entry = new MatchResult;
+        $diffence_entry->user_id = $user_id;
+        $diffence_entry->diffence_nickname = User::find($user_id)->nickname;
+        $diffence_entry->diffence_layout_1 = $replace_after[0];
+        $diffence_entry->diffence_layout_2 = $replace_after[1];
+        $diffence_entry->diffence_layout_3 = $replace_after[2];
+        $diffence_entry->diffence_layout_4 = $replace_after[3];
+        $diffence_entry->diffence_layout_5 = $replace_after[4];
+        $diffence_entry->open_card = $replace_after[5];
+        $diffence_entry->diffence_entry = 1;
+        $diffence_entry->save();
+        
+        //登録ボタンスイッチング→0：新たな守備登録、対戦のための初期化
+        $user_id = Auth::id();
+        $button_switch = User::find($user_id);
+        $button_switch->button_switch = 0;
+        $button_switch->save();
+  
+        return redirect(route('match.make'));
+      }else{
+      //term_end_pointが1もしくは2だった場合は守備登録せずにmatch_resultページへ遷移する
+        return redirect(route('match.make')); 
+      }
     }
   }
   

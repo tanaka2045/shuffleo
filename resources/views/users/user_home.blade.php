@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-6 mb-3 px-4">
         <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
-        <div class="bg-nav-base btn-shadow font-o-sm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
+        <div class="bg-status btn-shadow font-o-sm-norm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
           <table class="table table-bordered table-sm mt-3 mb-2">
             <tbody>
               <tr class="table-transparent-ui">

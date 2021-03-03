@@ -38,7 +38,7 @@ class HomeController extends Controller
   {
     $user_id = Auth::id();
     $user = User::find($user_id);
-    
+
     //ユーザーホーム内のテーブル情報の取得
     $total_count = TermResult::totalCount($user_id);
     $total_win_rate =TermResult::totalWinRate($user_id);
@@ -50,7 +50,7 @@ class HomeController extends Controller
     //チップ枚数の取得
     $tip_count = $user->tip_count;
     
-    //タームエンドポイントの確認（0→99試合以下、1→100試合)
+    //タームエンドポイントの確認（99試合以下→0、100試合→1)
     $max = TermResult::where('user_id', $user_id)->max('term_count');
     $term_result = TermResult::where('user_id', $user_id)->where('term_count', $max)->first();
     $term_end_point = $term_result->term_end_point;

@@ -15,7 +15,7 @@ class ChangeTermEndPointBooleanToIntegerOnTermResultsTable extends Migration
     {
         Schema::table('term_results', function (Blueprint $table) {
             //ターム終了フラグの型式をboolean からintegerに変更
-            $table->integer('term_end_point')->change();
+            $table->integer('term_end_point')->default(0)->change();
         });
     }
 
@@ -28,7 +28,7 @@ class ChangeTermEndPointBooleanToIntegerOnTermResultsTable extends Migration
     {
         Schema::table('term_results', function (Blueprint $table) {
             //
-            $table->boorean('term_end_point')->change();
+            $table->boolean('term_end_point')->change();
         });
     }
 }

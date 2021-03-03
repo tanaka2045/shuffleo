@@ -159,7 +159,7 @@
             <div class="col text-center my-4 px-0">
               <button type="submit" id="reset" name="reset" class="btn-green text-center font-o-sm btn-shadow mx-2">{{ __('リセット') }}</button>
               <button type="submit" id="set" name="set" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('セット')  }}</button>
-              @if ($button_switch == 0)
+              @if ($button_switch == 0 || $term_end_point ==1)
                 <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2" disabled>{{  __('　登録　')  }}</button>
               @else
                 <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2">{{  __('　登録　')  }}</button>
