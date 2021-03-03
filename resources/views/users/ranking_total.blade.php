@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-
+    
   <div class="container">
     <div class="row">
       <div class="col font-o-lg txt-shadow text-center my-3">ランキング</div>
@@ -24,9 +24,44 @@
       </div>
     </div>
     
-    @component('layouts.ranking')
-    @endcomponent
-  
+   <div class="row">
+      <div class="col-md-6 offset-md-3 px-0">
+        <table class="table table-sm btn-shadow"  align="center" style="font-size: 0.9em; margin-x: 0px;">
+          <thead class="thead-navcolor text-center">
+            <tr>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">順位</th>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">ユーザー名</th>
+              <th scope="col" class="align-middle" style="border: 1px solid #001F5C;">トータル勝率</th>
+            </tr>
+          </thead>
+          <tbody>
+           @foreach($ranks as $rank)
+            @php
+              $rank_counter++;
+            @endphp
+              <tr class="table-ranking">
+                @if ($rank_counter == 1)
+                  <th scope="row" class="color-gold align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                @elseif ($rank_counter == 2)
+                  <th scope="row" class="color-silver align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                @elseif ($rank_counter == 3)
+                  <th scope="row" class="color-blonze align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                @else
+                  <th scope="row" class="bg-nav-base-gradient text-white">{{ ($rank_counter)  }}</th>
+                @endif
+                <td><a href="{{ action('Users\OtherUserController@otherUserAccess', $rank->id) }}" style="text-decoration:underline; color:#000000;" > 
+                  {{ $rank->nickname }}</a></td>
+                <td>{{ number_format($rank->total_win_rate,1)."%" }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col font-o-esm-norm text-white mb-3">{{ __('トータル勝率は2ターム目開始時から反映されます') }}</div>
+    </div>
+    
   </div>
-  
+                
 @endsection

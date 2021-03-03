@@ -16,9 +16,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ action('Users\StatisticController@rankingTermAccess') }}">ターム勝率</a>
             </li>
-            {{--<li class="nav-item">
+            <li class="nav-item">
              <a class="nav-link" href="{{ action('Users\StatisticController@rankingTotalAccess') }}">トータル勝率</a>
-            </li>--}}
+            </li>
           </ul>
         </div>
       </div>

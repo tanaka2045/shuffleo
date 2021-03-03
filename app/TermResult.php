@@ -286,6 +286,26 @@ class TermResult extends Model
     return array($offence_term_result, $diffence_term_result);
   }
   
+  //トータル勝率をusersテーブルへ反映(Offence)
+  public static function totalWinRateOffenceUpdate($match_result)
+  {
+    $user_id = $match_result->offence_user_id;
+    $total_win_rate = self::totalWinRate($user_id);
+    $user = User::find($user_id);
+    $user->total_win_rate = $total_win_rate;
+    $user->save();
+  }
+
+  //トータル勝率をusersテーブルへ反映(diffence)
+  public static function totalWinRatediffenceUpdate($match_result)
+  {
+    $user_id = $match_result->user_id;
+    $total_win_rate = self::totalWinRate($user_id);
+    $user = User::find($user_id);
+    $user->total_win_rate = $total_win_rate;
+    $user->save();
+  }
+  
   //守備登録時のタームエンドポイントの計算＿守備ユーザー（100x試合目かどうかの確認
   public static function termEndPointDiffenceEntryCalculation($user_id)
   {
@@ -297,7 +317,7 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 35;
+    $max_game_count = 50;
     
     if ($current_term_count % $max_game_count == 0.000)
     {
@@ -327,7 +347,7 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 35;
+    $max_game_count = 50;
     
     if ($current_term_count % $max_game_count == 0.000)
     {
@@ -358,7 +378,7 @@ class TermResult extends Model
     //守備登録中の数
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     
-    $max_game_count = 35;
+    $max_game_count = 50;
     
     if ($current_term_count % $max_game_count == 0.000)
     {

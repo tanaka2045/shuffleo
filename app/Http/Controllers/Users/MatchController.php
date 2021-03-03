@@ -246,6 +246,12 @@ class MatchController extends Controller
       
       //TermResultへ成績結果を更新
       TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
+      
+      //トータル勝率をusersテーブルへ反映(Offence)
+      TermResult::totalWinRateOffenceUpdate($match_result);
+  
+      //トータル勝率をusersテーブルへ反映(diffence)
+      TermResult::totalWinRatediffenceUpdate($match_result);
 
       //タームエンドポイントの計算_攻撃ユーザー（100x試合目かどうかの確認）
       TermResult::termEndPointOffenceCalculation($match_result);

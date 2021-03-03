@@ -25,7 +25,9 @@ class StatisticController extends Controller
   
   public function rankingTotalAccess()
   {
-    return view('users.ranking_total');
+    $ranks = User::orderBy('total_win_rate', 'desc')->take(20)->get();
+    $rank_counter = 0;
+    return view('users.ranking_total', ['ranks' => $ranks, 'rank_counter' => $rank_counter]);
   }
   
   

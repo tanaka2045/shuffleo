@@ -20,7 +20,9 @@ button.bg-base:focus {
 .bg-main {
   /*background: linear-gradient(to top left, #0F0F0F,  #00007A 50%, #0F0F0F);*/
   /*background: linear-gradient(to top, #0E1D55,  #0E1D55 50%, #0E1D55);*/
-  background-color: #0E1D55;
+  /*background-color: #0E1D55;*/
+  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  /*background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
   padding: 0px;
 }
 
@@ -532,7 +534,6 @@ button.bg-base:focus {
   font-weight: bold;
   color: #C1CDD7;
   font-size: 1.3em;
-  font-family: "Meiryo UI";
   line-height: 1.6em;
 }
 

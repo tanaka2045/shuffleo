@@ -47,7 +47,6 @@
                   <td class="font-o-md-norm align-middle">0</td>
                   <td>
                     <div class="btn-group-vertical">
-
                       @if ($diffence_user->user_id == $user_id)
                         <a href="{{ action('Users\MatchController@matchMakeDelete', ['id' => $diffence_user->id] ) }}" role="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-2" style="color:#A3002F;">キャンセル</a>
                       @else
