@@ -11,11 +11,11 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 px-4">
-        <div class="p-2 bg-green btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
-          <div class="font-o-elg txt-shadow text-left pl-2" style="color: #C9D3F6;">守備で対戦</div>
+        <div class="p-2 bg-match-make btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
+          <div class="font-o-elg text-left pl-2" style="color: #0E3181;">守備で対戦</div>
           <div class="text-right">
             @if ($term_end_point == 0)
-              <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" class="btn btn-diffence btn-shadow font-o-esm">新規対戦ルーム登録</a>            
+              <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" class="btn btn-diffence btn-shadow font-o-esm">新規 ルーム登録</a>            
             @else
               <button class="btn btn-diffence btn-shadow font-o-esm" disabled>新規対戦ルーム登録</button>
             @endif
@@ -26,8 +26,8 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 mb-5 px-4">
-         <div class="p-2 bg-green btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
-          <div class="font-o-elg txt-shadow text-left pl-2" style="color:#FFCADC;">攻撃で対戦</div>
+         <div class="p-2 bg-match-make btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
+          <div class="font-o-elg text-left pl-2" style="color:#8D0209;">攻撃で対戦</div>
           
           <table class="table table-sm mb-2">
             <thead>

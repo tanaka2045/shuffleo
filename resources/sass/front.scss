@@ -3,7 +3,7 @@ body {
 }
 
 .bg-base {
-  background-color: #000000;
+  background-color: #1F1F1E;
 }
 
 a.bg-base:hover,
@@ -13,17 +13,19 @@ button.bg-base:focus {
   background-color: #2176bd !important;
 }
 
-.bg-green {
-  background-color: #065F46;
+.bg-black-gradient{
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), 
+  linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply;
 }
 
 .bg-main {
-  /*background: linear-gradient(to top left, #0F0F0F,  #00007A 50%, #0F0F0F);*/
-  /*background: linear-gradient(to top, #0E1D55,  #0E1D55 50%, #0E1D55);*/
-  /*background-color: #0E1D55;*/
-  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-  /*background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
+  background-image: linear-gradient(to bottom, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
   padding: 0px;
+}
+
+.bg-match-make {
+  background-color: #72706E;
 }
 
 .bg-nav-base {
@@ -90,8 +92,7 @@ button.bg-base:focus {
 
 .btn-diffence {
   color: #fff;
-  background: linear-gradient(to bottom, #03124C, #091F70 90%, #1640DC);
-  border-color: #FFFFFF;
+  background-color: #0E3181;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 0.2rem;
@@ -265,8 +266,7 @@ button.bg-base:focus {
 
 .btn-offence {
   color: #fff;
-  background: linear-gradient(to bottom, #70001D, #A3002F 90%, #C3003A);
-  border-color: #FFFFFF;
+  background-color: #8D0209;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 0.2rem;
@@ -410,7 +410,7 @@ button.bg-base:focus {
 .font-o-elg-norm {
   color: #FFFFFF;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .font-o-lg-norm {
@@ -519,8 +519,7 @@ button.bg-base:focus {
 
 .table-transparent-ui {
   background-color: #222A38;
-  /*color: #BFCBD7;*/
-  color: #FFFFFF;
+  color: #BFCBD7;
   text-align: center;
 }
 

@@ -285,6 +285,12 @@ class TermResult extends Model
     
     return array($offence_term_result, $diffence_term_result);
   }
+  //オフェンスアクセスフラグの変更 0->1
+  public static function offneceAccessFlag($match_result)
+  {
+    $match_result->offence_user_access = 1;
+    $match_result->save();
+  }
   
   //トータル勝率をusersテーブルへ反映(Offence)
   public static function totalWinRateOffenceUpdate($match_result)

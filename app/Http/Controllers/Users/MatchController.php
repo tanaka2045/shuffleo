@@ -112,7 +112,7 @@ class MatchController extends Controller
       $term_result = TermResult::where('user_id', $user_id)->latest()->first();
       $term_end_point = $term_result->term_end_point;
       
-      //term_end_pointが0だった場合は守備登録しmatch_resuluページへ遷移する
+      //term_end_pointが0だった場合は守備登録しmatch_resultページへ遷移する
       if ($term_end_point == 0) 
       {
         list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
@@ -227,74 +227,85 @@ class MatchController extends Controller
     {
       $id= $request->diffence_info; //対戦結果id (match_resultのid)
       $match_result = MatchResult::find($id);
+      $offence_user_access = $match_result->offence_user_access; //オフェンスユーザーのアクセス確認（二重送信防止用）
       
       $user_id = Auth::id(); //ログインユーザーID
       $user = User::find($user_id); //ログインユーザーIDからログインユーザー情報の取得
       
-      //MatchResult更新
-      $match_result->offence_user_id = $user_id;
-      $match_result->matched_at = Carbon::now();
-      $match_result->diffence_entry = 0;
-      $match_result->offence_user_access =1;
-      $match_result->diffence_user_access =0; //0 → 0へ変わらず　見返しやすいよう記載
+      //offence_user_accessが0だった場合は対戦しmatch_resultページへ遷移する
+      if ($offence_user_access == 0)
+      {
+        //MatchResult更新
+        $match_result->offence_user_id = $user_id;
+        $match_result->matched_at = Carbon::now();
+        $match_result->diffence_entry = 0;
+        $match_result->offence_user_access =1;
+        $match_result->diffence_user_access =0; //0 → 0へ変わらず　見返しやすいよう記載
+        
+        list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
+        $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
+        
+        //カードNoをカードポイントへ置換
+        $replace_before = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3,
+          $request->offenceLayout4, $request->offenceLayout5];
+        $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
+        $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5,];
+        $replace_after =str_replace($search, $replace, $replace_before);
       
-      list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
-      $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
-      
-      //カードNoをカードポイントへ置換
-      $replace_before = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3,
-        $request->offenceLayout4, $request->offenceLayout5];
-      $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
-      $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5,];
-      $replace_after =str_replace($search, $replace, $replace_before);
+        $match_result->offence_nickname = User::find($user_id)->nickname;
+        $match_result->offence_layout_1 = $replace_after[0];
+        $match_result->offence_layout_2 = $replace_after[1];
+        $match_result->offence_layout_3 = $replace_after[2];
+        $match_result->offence_layout_4 = $replace_after[3];
+        $match_result->offence_layout_5 = $replace_after[4];
+        $match_result->save();
+        
+        //勝敗の計算
+        list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
+        
+        //TermResultへ成績結果を更新
+        TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
+        
+        //トータル勝率をusersテーブルへ反映(Offence)
+        TermResult::totalWinRateOffenceUpdate($match_result);
     
-      $match_result->offence_nickname = User::find($user_id)->nickname;
-      $match_result->offence_layout_1 = $replace_after[0];
-      $match_result->offence_layout_2 = $replace_after[1];
-      $match_result->offence_layout_3 = $replace_after[2];
-      $match_result->offence_layout_4 = $replace_after[3];
-      $match_result->offence_layout_5 = $replace_after[4];
-      $match_result->save();
-      
-      //勝敗の計算
-      list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
-      
-      //TermResultへ成績結果を更新
-      TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
-      
-      //トータル勝率をusersテーブルへ反映(Offence)
-      TermResult::totalWinRateOffenceUpdate($match_result);
+        //トータル勝率をusersテーブルへ反映(diffence)
+        TermResult::totalWinRatediffenceUpdate($match_result);
+        
+        //オフェンスアクセスフラグの変更 0->1
+        TermResult::offneceAccessFlag($match_result);
   
-      //トータル勝率をusersテーブルへ反映(diffence)
-      TermResult::totalWinRatediffenceUpdate($match_result);
-
-      //タームエンドポイントの計算_攻撃ユーザー（100x試合目かどうかの確認）
-      TermResult::termEndPointOffenceCalculation($match_result);
-
-      //タームエンドポイントの計算_守備ユーザー（100x試合目かどうかの確認）
-      TermResult::termEndPointDiffenceCalculation($match_result);
-      
-      //レート計算
-      TermResult::elorateCalculation($match_result, $win_user);
-      
-      //チップ計算
-      TermResult::tipCalculation($match_result);
-      
-      //攻守ニックネームの守ユーザーIDの設定（view引き渡し向け）
-      $offence_nickname=$match_result->offence_nickname;
-      $diffence_nickname=$match_result->diffence_nickname;
-      $diffence_user_id=$match_result->user_id;
-      
-      //対戦ボタンスイッチング→0：新たな守備登録および対戦のための初期化
-      $button_switch = User::find($user_id);
-      $button_switch->button_switch = 0;
-      $button_switch->save();
-      
-      return redirect(route('match.result', ['offence_point' => $offence_point, 
-        'diffence_point' => $diffence_point, 'win_user' => $win_user,
-        'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
-        'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
-        'button_switch' => $button_switch]));
+        //タームエンドポイントの計算_攻撃ユーザー（100x試合目かどうかの確認）
+        TermResult::termEndPointOffenceCalculation($match_result);
+  
+        //タームエンドポイントの計算_守備ユーザー（100x試合目かどうかの確認）
+        TermResult::termEndPointDiffenceCalculation($match_result);
+        
+        //レート計算
+        TermResult::elorateCalculation($match_result, $win_user);
+        
+        //チップ計算
+        TermResult::tipCalculation($match_result);
+        
+        //攻守ニックネームの守ユーザーIDの設定（view引き渡し向け）
+        $offence_nickname=$match_result->offence_nickname;
+        $diffence_nickname=$match_result->diffence_nickname;
+        $diffence_user_id=$match_result->user_id;
+        
+        //対戦ボタンスイッチング→0：新たな守備登録および対戦のための初期化
+        $button_switch = User::find($user_id);
+        $button_switch->button_switch = 0;
+        $button_switch->save();
+        
+        return redirect(route('match.result', ['offence_point' => $offence_point, 
+          'diffence_point' => $diffence_point, 'win_user' => $win_user,
+          'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
+          'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
+          'button_switch' => $button_switch]));
+      }else{
+        //オフェンスユーザーアクセス履歴があれば、何も更新せずにmatch.makeへ遷移
+        return redirect(route('match.make'));
+      }
     }
 
   }

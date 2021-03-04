@@ -5,59 +5,59 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <div class="font-o-lg txt-shadow mt-3 mb-3">ユーザーホーム</div>
+        <div class="font-o-elg txt-shadow mt-3 mb-3">ユーザーホーム</div>
       </div>
     </div>
     
     <div class="row">
-      <div class="col-md-6 mb-3 px-4">
+      <div class="col-md-6 mb-5 px-4">
         <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
-        <div class="bg-status btn-shadow font-o-sm-norm" style="border-radius: 0.25rem; border:1px solid #F2F2F2">
-          <table class="table table-bordered table-sm mt-3 mb-2">
+        <div class="bg-black-gradient btn-shadow font-o-sm-norm" style="border-radius: 0.1rem; border:1px solid transparent">
+          <table class="table table-sm mb-1">
             <tbody>
               <tr class="table-transparent-ui">
-                <th scope="row" >ユーザー名</th>
-                <td class="bg-status">{{ $user->nickname }}</td>
+                <th scope="row" style="font-weight: normal;">ユーザー名</th>
+                <td class="bg-black-gradient">{{ $user->nickname }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >性別</th>
-                <td class="bg-status">{{ $user->gender }}</td>
+                <th scope="row" style="font-weight: normal;" >性別</th>
+                <td class="bg-black-gradient">{{ $user->gender }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >年齢</th>
-                <td class="bg-status">{{ $user->age }}</td>
+                <th scope="row" style="font-weight: normal;" >年齢</th>
+                <td class="bg-black-gradient">{{ $user->age }}</td>
               </tr>
             </tbody>
           </table>
           <table class="table table-bordered table-sm">
             <tbody>            
               <tr class="table-transparent-ui">
-                <th scope="row" >レート</th>
-                <td class="bg-status">{{ str_replace(',','', number_format($user->elorate,0)) }}</td>
+                <th scope="row" style="font-weight: normal;" >レート</th>
+                <td class="bg-black-gradient">{{ str_replace(',','', number_format($user->elorate,0)) }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >トータル対戦数</th>
-                <td class="bg-status">{{ $total_count }}</td>
+                <th scope="row" style="font-weight: normal;" >トータル対戦数</th>
+                <td class="bg-black-gradient">{{ $total_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >トータル勝率</th>
-                <td class="bg-status">{{ number_format($total_win_rate,1)."%" }}</td>
+                <th scope="row" style="font-weight: normal;" >トータル勝率</th>
+                <td class="bg-black-gradient">{{ number_format($total_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >現ターム対戦数</th>
-                <td class="bg-status">{{ $current_count }}</td>
+                <th scope="row" style="font-weight: normal;" >現ターム対戦数</th>
+                <td class="bg-black-gradient">{{ $current_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >現ターム勝率</th>
-                <td class="bg-status">{{ number_format($current_win_rate,1)."%" }}</td>
+                <th scope="row" style="font-weight: normal;" >現ターム勝率</th>
+                <td class="bg-black-gradient">{{ number_format($current_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >現ターム残対戦数</th>
-                <td class="bg-status">{{ $residual_count }}</td>
+                <th scope="row" style="font-weight: normal;" >現ターム残対戦数</th>
+                <td class="bg-black-gradient">{{ $residual_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
-                <th scope="row" >過去最高ターム勝率</th>
-                <td class="bg-status">
+                <th scope="row" style="font-weight: normal;" >過去最高ターム勝率</th>
+                <td class="bg-black-gradient">
                   @if ($current_term_count == 1)
                     {{ __('データ無し') }}
                   @else
@@ -68,7 +68,7 @@
           </table>
           <div class="row text-center mx-0">
             <div class="col-6 px-1">
-              <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm mb-3 mx-1">対戦成績詳細</a>
+              <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm-norm mb-3 mx-1">成績 詳細</a>
             </div>
             <div class="col-6 px-1">
               @if ($term_end_point == 2)
