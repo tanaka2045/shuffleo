@@ -11,21 +11,21 @@
     
     <div class="row">
       <div class="col-md-6 mb-5 px-4">
-        <div class="font-o-md txt-shadow mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
+        <div class="font-o-md mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
         <div class="bg-black-gradient btn-shadow font-o-sm-norm" style="border-radius: 0.1rem; border:1px solid transparent">
           <table class="table table-sm mb-1">
             <tbody>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;">ユーザー名</th>
-                <td class="bg-black-gradient">{{ $user->nickname }}</td>
+                <td class="bg-status">{{ $user->nickname }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >性別</th>
-                <td class="bg-black-gradient">{{ $user->gender }}</td>
+                <td class="bg-status">{{ $user->gender }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >年齢</th>
-                <td class="bg-black-gradient">{{ $user->age }}</td>
+                <td class="bg-status">{{ $user->age }}</td>
               </tr>
             </tbody>
           </table>
@@ -33,31 +33,31 @@
             <tbody>            
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >レート</th>
-                <td class="bg-black-gradient">{{ str_replace(',','', number_format($user->elorate,0)) }}</td>
+                <td class="bg-status">{{ str_replace(',','', number_format($user->elorate,0)) }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >トータル対戦数</th>
-                <td class="bg-black-gradient">{{ $total_count }}</td>
+                <td class="bg-status">{{ $total_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >トータル勝率</th>
-                <td class="bg-black-gradient">{{ number_format($total_win_rate,1)."%" }}</td>
+                <td class="bg-status">{{ number_format($total_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >現ターム対戦数</th>
-                <td class="bg-black-gradient">{{ $current_count }}</td>
+                <td class="bg-status">{{ $current_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >現ターム勝率</th>
-                <td class="bg-black-gradient">{{ number_format($current_win_rate,1)."%" }}</td>
+                <td class="bg-status">{{ number_format($current_win_rate,1)."%" }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >現ターム残対戦数</th>
-                <td class="bg-black-gradient">{{ $residual_count }}</td>
+                <td class="bg-status">{{ $residual_count }}</td>
               </tr>
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >過去最高ターム勝率</th>
-                <td class="bg-black-gradient">
+                <td class="bg-status">
                   @if ($current_term_count == 1)
                     {{ __('データ無し') }}
                   @else
@@ -86,7 +86,7 @@
       </div>
       
       <div class="col-md-6 px-0 mb-3">
-        <div class="font-o-md txt-shadow" style="color:#BFCBD7;">カードステータス</div>
+        <div class="font-o-md" style="color:#BFCBD7;">カードステータス</div>
         <div class="row mx-0">
           {{-- 攻撃カードのレイアウト開始--}}
           <div class="col-5 offset-1 px-0">

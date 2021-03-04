@@ -36,7 +36,7 @@ class ContactSendmail extends Mailable
     public function build()
     {
         return $this
-            ->from('example@gmail.com')
+            ->from('tanaka2045h@gmail.com')
             ->subject('自動送信メール')
             ->view('contact.mail')
             ->with([

@@ -19,7 +19,8 @@ button.bg-base:focus {
 }
 
 .bg-main {
-  background-image: linear-gradient(to bottom, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  /*background-image: linear-gradient(to bottom, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);*/
+  background-image: linear-gradient(to bottom right, #042E6D 0%, #042E6D 1%, #040D21 100%);
   padding: 0px;
 }
 
@@ -37,7 +38,7 @@ button.bg-base:focus {
 
 .bg-status {
   background-color: #222A38;
-  color: #BFCBD7;
+  color: #FFFFFF;
 }
 
 .btn {
@@ -465,7 +466,7 @@ button.bg-base:focus {
 
 .table-o-bordered {
   border: 1px solid #9EA9B5;
-  color: #BFCBD7;
+  color: #FFFFFF;
 }
 
 .table-o-bordered th {

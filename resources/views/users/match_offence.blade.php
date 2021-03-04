@@ -188,8 +188,9 @@
         </form>
         
         <div class="row px-3 mx-0">
-          <div class="col text-left text-warning mt-5" style="font-size:11px;">
-            <span clas="justyfy-content-left text-warning mt-4" style="color:#FFFFFF">必ず対戦ボタンで終了してください
+          <div class="col text-left text-warning mt-5" style="font-size:11px;"><ブラウザバック注意>
+            <span clas="justyfy-content-left text-warning mt-4" style="color:#FFFFFF">本画面からのブラウザバックは,
+            対戦が無効になったうえで攻撃ユーザーの負け数が+1されます
             </span>
           </div>
         </div>
@@ -201,12 +202,12 @@
 @endsection
 
 @section('js')
- <script type="text/javascript">
+  <script type="text/javascript">
     history.pushState(null, null, null);
     $(window).on("popstate", function (event) {
       if (!event.originalEvent.state) {
         history.pushState(null, null, null);
-        window.alert('ブラウザの戻るボタンは使えません');
+        window.alert('ブラウザの戻るボタンは使えません。。。');
         return;
       }
     });

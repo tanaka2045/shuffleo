@@ -166,7 +166,7 @@ class MatchController extends Controller
     list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
       $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
     
-    return view('users.match_offence', [
+    return view ('users.match_offence', [
       'offence_nickname' => $offence_nickname, 
       'diffence_info' => $diffence_info,
       'button_switch' => $button_switch,
