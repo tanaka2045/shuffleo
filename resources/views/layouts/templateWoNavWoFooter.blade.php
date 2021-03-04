@@ -13,6 +13,8 @@
     
     <!-- Script -->
     {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
     
     <!-- fonts -->
@@ -24,17 +26,20 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- オリジナルで作成したCSSを読み込みます --}}
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+    @yield('js')
   </head>
   
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class= "col bg-base px-0">
-          {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
-          <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 100vh;">
-            <div style="text-align: center;">
-              @yield('titleImage')
-              @yield('content')
+    <div id="app">
+      <div class="container-fluid">
+        <div class="row">
+          <div class= "col bg-base px-0">
+            {{-- footerの高さを調整した場合、min-heightの数字を調整する --}}
+            <div class="col-lg-6 offset-lg-3 bg-main text-white" style="min-height: 100vh;">
+              <div style="text-align: center;">
+                @yield('titleImage')
+                @yield('content')
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,7 @@
 @extends('layouts.templateWoNavWoFooter')
 
 @section('content')
-
-  <div class="container-fluid">
+   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6 offset-lg-3 text-center px-0">
         <div class="font-o-lg txt-shadow my-2">対戦ルーム</div>
@@ -200,5 +199,18 @@
     </div>
   </div>
   
+@endsection
+
+@section('js')
+ <script type="text/javascript">
+    history.pushState(null, null, null);
+    $(window).on("popstate", function (event) {
+      if (!event.originalEvent.state) {
+        history.pushState(null, null, null);
+        window.alert('ブラウザの戻るボタンは使えません。。。');
+        return;
+      }
+    });
+  </script>
 @endsection
  
