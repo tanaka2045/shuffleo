@@ -59,7 +59,7 @@
       </div> 
     </div>
     <div class="row">
-      <div class="col font-o-esm-norm text-white mb-3">{{ __('トータル勝率は2ターム目開始時から反映されます') }}</div>
+      <div class="col font-o-esm-norm text-white mb-3">{{ __('トータル勝率は2ターム目から反映されます') }}</div>
     </div>
     
   </div>
