@@ -4,17 +4,27 @@
 
   <div class="container">
     <div class="row">
-      <div class="col font-o-lg txt-shadow text-center my-3">{{ __('対戦履歴') }}
-      
-        @foreach ($target_match_results as $target_match_result)
-          <div class="font-o-sm">
-            {{ $target_match_result->matched_at->format('m/d') }}
-            {{ $target_match_result->offence_nickname }}
-            {{ __('-') }}
-            {{ $target_match_result->diffence_nickname }}
-          </div>
-        @endforeach
-      </div>
+      <div class="col font-o-lg txt-shadow text-center my-3">{{ __('対戦履歴') }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3 font-o-sm-norm px-0" align="center">
+        <table class="table table-borderless table-sm text-center text-white">
+          <tbody>
+            @foreach ($target_match_results as $target_match_result)
+              <tr>
+                <th class="px-0 font-o-sm-norm"> {{ $target_match_result->matched_at->format('m/d') }}</th>
+                <td class="px-0" > 
+                  {{ $target_match_result->offence_nickname }}{{ __(' ') }}
+                  <span style="color:#a1ecff">{{ $target_match_result->win_card_count_offence }}{{ __(' ') }}
+                  {{ __('-') }}{{ __(' ') }}
+                  {{ $target_match_result->win_card_count_diffence }}{{ __(' ') }}</span>
+                  {{ $target_match_result->diffence_nickname }}
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>  
     </div>
   </div>
     

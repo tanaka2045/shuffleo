@@ -57,7 +57,12 @@ class MatchResult extends Model
       $win_user = $match_result->diffence_nickname;
     }
     
-    return array($offence_point, $diffence_point, $win_user);
+    //勝カード数をデータベースへ登録
+    $match_result->win_card_count_offence = $offence_point;
+    $match_result->win_card_count_diffence = $diffence_point;
+    $match_result->save();
+    
+    return array($match_result, $win_user);
   }
     
 }

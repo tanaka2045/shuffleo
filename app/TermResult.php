@@ -265,7 +265,7 @@ class TermResult extends Model
   }
   
   //対戦結果をTermResultの成績へ反映
-  public static function termResultUpdate($match_result, $offence_point, $diffence_point, $win_user)
+  public static function termResultUpdate($match_result, $win_user)
   {
     $max_offence = TermResult::where('user_id',$match_result->offence_user_id)->max('term_count');
     $offence_term_result=TermResult::where('user_id', $match_result->offence_user_id)->where('term_count', $max_offence)->first();
@@ -323,7 +323,7 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 40;
+    $max_game_count = 100;
     
     if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {
@@ -353,7 +353,7 @@ class TermResult extends Model
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     ($current_term_count+$under_entry_count);
     
-    $max_game_count = 40;
+    $max_game_count = 100;
     
     if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {
@@ -384,7 +384,7 @@ class TermResult extends Model
     //守備登録中の数
     $under_entry_count = MatchResult::where('user_id', $user_id)->where('diffence_entry', '1')->get()->count();
     
-    $max_game_count = 40;
+    $max_game_count = 100;
     
     if ($current_term_count % $max_game_count == 0.000 && $current_term_count !== 0)
     {

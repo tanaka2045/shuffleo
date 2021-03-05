@@ -261,10 +261,13 @@ class MatchController extends Controller
         $match_result->save();
         
         //勝敗の計算
-        list($offence_point, $diffence_point, $win_user) = MatchResult::matchResultCalculation($match_result); 
+        list($match_result, $win_user) = MatchResult::matchResultCalculation($match_result);
+        //勝カード数を変数化(view受け渡し用）
+        $win_card_count_offence = $match_result->win_card_count_offence;
+        $win_card_count_diffence = $match_result->win_card_count_diffence;
         
         //TermResultへ成績結果を更新
-        TermResult::termResultUpdate($match_result, $offence_point, $diffence_point, $win_user);
+        TermResult::termResultUpdate($match_result, $win_user);
         
         //トータル勝率をusersテーブルへ反映(Offence)
         TermResult::totalWinRateOffenceUpdate($match_result);
@@ -297,8 +300,8 @@ class MatchController extends Controller
         $button_switch->button_switch = 0;
         $button_switch->save();
         
-        return redirect(route('match.result', ['id' => $id, 'offence_point' => $offence_point, 
-          'diffence_point' => $diffence_point, 'win_user' => $win_user,
+        return redirect(route('match.result', ['id' => $id, 'win_card_count_offence' => $win_card_count_offence, 
+          'win_card_count_diffence' => $win_card_count_diffence, 'win_user' => $win_user,
           'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
           'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
           'button_switch' => $button_switch]));
@@ -307,7 +310,6 @@ class MatchController extends Controller
         return redirect(route('match.make'));
       }
     }
-
   }
   
   public function matchResultAccess(Request $request)

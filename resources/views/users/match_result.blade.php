@@ -41,7 +41,7 @@
         </div>
         
         <div class="font-o-elg my-4" style="background-color: #004C00;">
-          {{  $request->offence_point."-".$request->diffence_point."で".$request->win_user."の勝ち" }}
+          {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."の勝ち" }}
         </div>
       </div>
     </div>
