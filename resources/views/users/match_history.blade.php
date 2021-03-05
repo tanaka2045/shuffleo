@@ -8,12 +8,12 @@
     </div>
     <div class="row">
       <div class="col-md-6 offset-md-3 font-o-sm-norm px-0" align="center">
-        <table class="table table-borderless table-sm text-center text-white">
+        <table class="table table-sm text-center" style="color:#CFCFCF;">
           <tbody>
             @foreach ($target_match_results as $target_match_result)
               <tr>
-                <th class="px-0 font-o-sm-norm"> {{ $target_match_result->matched_at->format('m/d') }}</th>
-                <td class="px-0" > 
+                <th class="px-0 font-o-sm-norm" style="color:#CFCFCF; border-top:1px dotted #72706E; border-bottom:1px dotted #72706E;"> {{ $target_match_result->matched_at->format('m/d') }}</th>
+                <td class="px-0" style="border-top:1px dotted #72706E; border-bottom:1px dotted #72706E;"> 
                   {{ $target_match_result->offence_nickname }}{{ __(' ') }}
                   <span style="color:#a1ecff">{{ $target_match_result->win_card_count_offence }}{{ __(' ') }}
                   {{ __('-') }}{{ __(' ') }}
