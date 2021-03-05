@@ -12,6 +12,9 @@ use Carbon\Carbon;
 
 class MatchResult extends Model
 {
+  protected $dates = [
+    'matched_at'
+  ];
   
   public static function matchResultCalculation($match_result)
   {

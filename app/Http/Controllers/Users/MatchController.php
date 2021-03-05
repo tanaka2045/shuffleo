@@ -297,7 +297,7 @@ class MatchController extends Controller
         $button_switch->button_switch = 0;
         $button_switch->save();
         
-        return redirect(route('match.result', ['offence_point' => $offence_point, 
+        return redirect(route('match.result', ['id' => $id, 'offence_point' => $offence_point, 
           'diffence_point' => $diffence_point, 'win_user' => $win_user,
           'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
           'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
@@ -317,6 +317,11 @@ class MatchController extends Controller
   
   public function matchHistoryAccess()
   {
-    return view('users.match_history');
+    $user_id = Auth::id(); //ログインユーザーID
+    
+    $target_match_results = MatchResult::where('diffence_entry', 0)
+      ->where(function($query) use($user_id) {$query->where('user_id',$user_id)->orWhere('offence_user_id',$user_id);})
+      ->latest()->get();
+    return view('users.match_history', ['target_match_results' => $target_match_results]);
   }
 }
