@@ -46,8 +46,15 @@
                 </div>
                   {{--守1--}}
                   <div class="row mx-0">
-                    <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                      <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
+                    <div class="col d-flex justify-content-center pt-1 px-0 mx-0">
+                        <div id="rotate-area">
+                          <div class="rotate-target omote" id="omote">
+                            <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
+                          </div>
+                          <div class="rotate-target ura" id="ura">
+                            <img src="../images/10_blue.png" style="max-width: 20%; height:auto;">
+                          </div>
+                        </div>
                         @csrf
                         <div class="form-group pr-1 mb-0">
                           <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px;" name="diffenceLayout1" id="diffenceLayout1">
@@ -63,7 +70,7 @@
                         <input class="form-check-input position-static" type="radio" name="openCard" id="openCard1" value="openCard1"
                           checked {{ old('openCard') =='openCard1' ? 'checked' : '' }}>
                       </div>
-                    </div>
+                    </div> 
                   </div>
                   {{--守2--}}
                   <div class="row mx-0">
@@ -172,6 +179,16 @@
       </div>
     </div>
   </div>
-  
+@endsection
+
+@section('js')
+<script>
+  jQuery(function($){
+    $('#set').click(function(){
+        $('#omote').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+    });
+  });
+</script>
 @endsection
  
