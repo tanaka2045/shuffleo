@@ -548,19 +548,15 @@ button.bg-base:focus {
 
 
 /*rotate-js test*/
-.rotate-target {
-    background: #d6e3ff;
+/*.rotate-target {
+    background: #000000;
     border: solid 3px #3f5fce;
     padding: 10px;
-    //display: inline-block;
-    height: 100%;
-}
-.rotate-target p {
-    text-align: center;
-    margin: 0px !important;
-}
+    display: inline-block;
+    height: 50%;
+}*/
 #rotate-area {
-    position: relative;
+    position: absolute;
     min-height: 295px;
 }
 #rotate-area .rotate-target {
