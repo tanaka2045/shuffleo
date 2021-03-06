@@ -54,4 +54,9 @@ class TestController extends Controller
             'age' => $data['age'],
         ]);
     }
+    
+    public function jstest()
+    {
+      return view('users.zzztest');
+    }
 }

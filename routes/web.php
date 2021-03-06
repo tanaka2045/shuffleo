@@ -34,6 +34,7 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   
   Route::get('match_result', 'MatchController@matchResultAccess')->name('match.result');
   Route::get('match_history', 'MatchController@matchHistoryAccess');
+  Route::get('match_past_result/{id}', 'MatchController@matchPastResultAccess');
   Route::get('ranking_total', 'StatisticController@rankingTotalAccess');
   Route::get('ranking_term', 'StatisticController@rankingTermAccess');
   Route::get('ranking_rate', 'StatisticController@rankingRateAccess');
@@ -44,6 +45,8 @@ Route::group(['prefix' => 'shuffleo', 'namespace' => 'Users', 'middleware' => 'a
   Route::get('inquiry', 'InquiryController@inquiryAccess')->name('inquiry');
   Route::post('inquiry/confirm', 'InquiryController@inquiryConfirm')->name('inquiry.confirm');
   Route::post('inquiry/send', 'InquiryController@inquirySend')->name('inquiry.send');
+  
+  Route::get('zzztest', 'TestController@jstest');
 });
 
 Auth::routes();

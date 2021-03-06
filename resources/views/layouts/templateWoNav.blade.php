@@ -26,6 +26,7 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- オリジナルで作成したCSSを読み込みます --}}
     <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+    @yield('js')
   </head>
   
   <body>

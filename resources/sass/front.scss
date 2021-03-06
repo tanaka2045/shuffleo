@@ -545,3 +545,37 @@ button.bg-base:focus {
 .txt-shadow-dark {
   text-shadow: 2px 2px 2px black;
 }
+
+
+/*rotate-js test*/
+.rotate-target {
+    background: #d6e3ff;
+    border: solid 3px #3f5fce;
+    padding: 10px;
+    //display: inline-block;
+    height: 100%;
+}
+.rotate-target p {
+    text-align: center;
+    margin: 0px !important;
+}
+#rotate-area {
+    position: relative;
+    min-height: 295px;
+}
+#rotate-area .rotate-target {
+    position: absolute;
+    transition: all 0.5s ease-out 0s;
+    display: block;
+    left: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+#rotate-area .omote {
+    z-index: 1;
+    transform: rotateY(0deg);
+}
+#rotate-area .ura {
+    z-index: 0;
+    transform: rotateY(-180deg);
+}

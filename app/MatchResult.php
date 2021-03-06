@@ -64,5 +64,17 @@ class MatchResult extends Model
     
     return array($match_result, $win_user);
   }
+  
+  //過去の対戦結果表示用に勝利ユーザーの再計算
+  public static function winUserReCalculation($match_result)
+  {
+    if($match_result->win_card_count_offence > $match_result->win_card_count_diffence){
+      $win_user = $match_result->offence_nickname;
+    }else{
+      $win_user = $match_result->diffence_nickname;
+    }
+    
+    return ($win_user);
+  }
     
 }

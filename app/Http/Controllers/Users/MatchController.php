@@ -326,4 +326,15 @@ class MatchController extends Controller
       ->latest()->get();
     return view('users.match_history', ['target_match_results' => $target_match_results]);
   }
+  
+  public function matchPastResultAccess($id)
+  {
+    $match_result=MatchResult::where('id',$id)->first();
+    
+    //勝利ユーザーの計算（過去結果向け再計算）
+    $win_user = MatchResult::winUserReCalculation($match_result);
+    
+    return view('users.match_past_result', ['match_result' => $match_result, 'win_user' => $win_user]);
+  }
+  
 }
