@@ -79,8 +79,10 @@
             </div>
           </div>
           <div class="mb-3">
-           <a class="border-bottom font-o-esm" href="{{ action('Users\MatchController@matchResultAccess') }}">閲覧していない対戦結果
-           </a>
+            @if ($not_accessed_count > 0)
+            <a class="border-bottom font-o-esm" href="{{ action('Users\MatchController@matchHistoryAccess') }}">閲覧していない対戦結果
+            </a>
+            @endif
           </div>
         </div>
       </div>

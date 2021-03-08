@@ -44,6 +44,13 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col">
+        <a href="{{ action('Users\MatchController@matchHistoryAccess') }}" role="button" id="set" name="set" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('対戦履歴へ')  }}</a>
+      </div>
+    </div>    
+
   </div>
   
 @endsection

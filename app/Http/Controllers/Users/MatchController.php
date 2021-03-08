@@ -275,7 +275,7 @@ class MatchController extends Controller
         //トータル勝率をusersテーブルへ反映(diffence)
         TermResult::totalWinRatediffenceUpdate($match_result);
         
-        //オフェンスアクセスフラグの変更 0->1
+        //オフェンスアクセスフラグの変更 0->1 (1:アクセス済)
         TermResult::offneceAccessFlag($match_result);
   
         //タームエンドポイントの計算_攻撃ユーザー（100x試合目かどうかの確認）
@@ -321,10 +321,27 @@ class MatchController extends Controller
   {
     $user_id = Auth::id(); //ログインユーザーID
     
+    //対象ユーザーの対戦履歴を取得
     $target_match_results = MatchResult::where('diffence_entry', 0)
       ->where(function($query) use($user_id) {$query->where('user_id',$user_id)->orWhere('offence_user_id',$user_id);})
       ->latest()->get();
-    return view('users.match_history', ['target_match_results' => $target_match_results]);
+      
+    //未閲覧試合ならびに試合数の確認
+    list($not_accessed_results, $not_accessed_count) = MatchResult::notAccessedResult($user_id);
+    
+    //未閲覧試合の試合idの配列化（未アクセス数が0の場合、$not_accessed_result_id[]はダミーの0をいれる）、
+    if ($not_accessed_count > 0)
+    {
+      foreach ($not_accessed_results as $not_accessed_result)
+      {
+        $not_accessed_result_id[] = $not_accessed_result->id;
+      }
+    }else{
+      $not_accessed_result_id[] = array(0);
+    }
+      
+    return view('users.match_history', ['target_match_results' => $target_match_results, 
+      'not_accessed_result_id' => $not_accessed_result_id, 'not_accessed_count' => $not_accessed_count]);
   }
   
   public function matchPastResultAccess($id)
@@ -334,7 +351,15 @@ class MatchController extends Controller
     //勝利ユーザーの計算（過去結果向け再計算）
     $win_user = MatchResult::winUserReCalculation($match_result);
     
-    return view('users.match_past_result', ['match_result' => $match_result, 'win_user' => $win_user]);
+    //自分の未閲覧試合を初めて見た場合の処理
+    $user_id = Auth::id(); //ログインユーザーID
+    if ($match_result->user_id == $user_id && $match_result->diffence_user_access == 0)
+    {
+      $match_result->diffence_user_access = 1;
+      $match_result->save();
+    }
+    
+    return view('users.match_past_result', ['match_result' => $match_result, 'win_user' => $win_user, 'user_id' => $user_id]);
   }
   
 }

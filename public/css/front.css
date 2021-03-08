@@ -355,6 +355,10 @@ button.bg-base:focus {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
+.card-layout {
+  max-width: 35%;
+}
+
 .card-shadow {
   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.7);
 }
@@ -545,32 +549,17 @@ button.bg-base:focus {
   text-shadow: 2px 2px 2px black;
 }
 
-/*rotate-js test*/
-
-/*.rotate-target {
-    background: #000000;
-    border: solid 3px #3f5fce;
-    padding: 10px;
-    display: inline-block;
-    height: 50%;
-}*/
-
-#rotate-area .rotate-target {
-  position: absolute;
-  transition: all 0.5s ease-out 0s;
-  display: block;
-  left: 0px;
-  top: 0px;
-  cursor: pointer;
-}
-
 #rotate-area .omote {
+  position: relative;
   z-index: 1;
   transform: rotateY(0deg);
 }
 
 #rotate-area .ura {
+  position: absolute;
   z-index: 0;
   transform: rotateY(-180deg);
+  left: -100px;
+  top: -100px;
 }
 

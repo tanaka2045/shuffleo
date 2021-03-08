@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 use App\TermResult;
+use App\MatchResult;
 use App\Announce;
 use App\CardStatus;
 use Carbon\Carbon;
@@ -54,12 +55,16 @@ class HomeController extends Controller
     $max = TermResult::where('user_id', $user_id)->max('term_count');
     $term_result = TermResult::where('user_id', $user_id)->where('term_count', $max)->first();
     $term_end_point = $term_result->term_end_point;
+    
+    //未閲覧試合ならびに試合数の確認
+    list($not_accessed_results,$not_accessed_count) = MatchResult::notAccessedResult($user_id);
 
     //userMatchDetailedAceess()のように書き換えることが望ましいが、書き方の例として残しておいた
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
       'total_win_rate' => $total_win_rate, 'current_term_count' => $current_term_count, 'current_count' => $current_count, 
       'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count, 
-      'tip_count' => $tip_count, 'term_end_point' => $term_end_point ]);
+      'tip_count' => $tip_count, 'term_end_point' => $term_end_point, 
+      'not_accessed_count' => $not_accessed_count]);
   }  
 
   public function userMatchDetailedAccess(Request $request)

@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+use App\User;
+use App\CardStatus;
+use App\MatchResult;
+use App\TermResult;
+use Carbon\Carbon;
 
 class TestController extends Controller
-
 {
   
   public function test()
@@ -57,6 +63,25 @@ class TestController extends Controller
     
     public function jstest()
     {
-      return view('users.zzztest');
-    }
+    $user_id = Auth::id();
+    list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+      $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+    
+    //登録ボタンスイッチング初期値（0=非活性）の呼び出し
+    $button_switch = User::find($user_id)->button_switch;
+    
+    //タームエンドポイントの取得
+    $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $term_end_point = $term_result->term_end_point;
+    
+    return view('users.zzztest', [
+      'diffence_card_point_1' => $diffence_card_point_1,
+      'diffence_card_point_2' => $diffence_card_point_2,
+      'diffence_card_point_3' => $diffence_card_point_3,
+      'diffence_card_point_4' => $diffence_card_point_4,
+      'diffence_card_point_5' => $diffence_card_point_5,
+      'button_switch' => $button_switch,
+      'term_end_point' => $term_end_point
+    ]);
+  }
 }

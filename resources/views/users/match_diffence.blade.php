@@ -46,47 +46,40 @@
                 </div>
                   {{--守1--}}
                   <div class="row mx-0">
-                    <div class="col d-flex justify-content-center pt-1 px-0 mx-0">
-                        <div id="rotate-area">
-                          <div class="rotate-target omote" id="omote">
-                            <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
-                          </div>
-                          <div class="rotate-target ura" id="ura">
-                            <img src="../images/10_blue.png" style="max-width: 20%; height:auto;">
-                          </div>
-                        </div>
-                        @csrf
-                        <div class="form-group pr-1 mb-0">
-                          <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px;" name="diffenceLayout1" id="diffenceLayout1">
-                            <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                            <option value="DNo1" @if(old('diffenceLayout1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                            <option value="DNo2" @if(old('diffenceLayout1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                            <option value="DNo3" @if(old('diffenceLayout1')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                            <option value="DNo4" @if(old('diffenceLayout1')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                            <option value="DNo5" @if(old('diffenceLayout1')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
-                          </select>
-                        </div>
+                    <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
+                      <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
+                      @csrf
+                      <div class="form-group pr-1 mb-0">
+                        <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px;" name="diffenceLayout1" id="diffenceLayout1">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout1')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout1')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout1')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                        </select>
+                      </div>
                       <div class="form-check">
                         <input class="form-check-input position-static" type="radio" name="openCard" id="openCard1" value="openCard1"
-                          checked {{ old('openCard') =='openCard1' ? 'checked' : '' }}>
+                          checked {{ old('openCard') == 'openCard1' ? 'checked' : '' }}>
                       </div>
-                    </div> 
+                    </div>
                   </div>
                   {{--守2--}}
                   <div class="row mx-0">
                     <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                        <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
-                        @csrf
-                        <div class="form-group pr-1 mb-0">
-                          <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px;" name="diffenceLayout2" id="diffenceLayout2">
-                            <option value="DNo0" disabled selected>{{ ('選択') }}</option>
-                            <option value="DNo1" @if(old('diffenceLayout2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
-                            <option value="DNo2" @if(old('diffenceLayout2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
-                            <option value="DNo3" @if(old('diffenceLayout2')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
-                            <option value="DNo4" @if(old('diffenceLayout2')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
-                            <option value="DNo5" @if(old('diffenceLayout2')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
-                          </select>
-                        </div>
+                      <img src="../images/back_blue.png" style="max-width: 20%; height:auto;">
+                      @csrf
+                      <div class="form-group pr-1 mb-0">
+                        <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px;" name="diffenceLayout2" id="diffenceLayout2">
+                          <option value="DNo0" disabled selected>{{ ('選択') }}</option>
+                          <option value="DNo1" @if(old('diffenceLayout2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
+                          <option value="DNo2" @if(old('diffenceLayout2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
+                          <option value="DNo3" @if(old('diffenceLayout2')=='DNo3') selected @endif>{{ ('守3_'. $diffence_card_point_3) }}</option>
+                          <option value="DNo4" @if(old('diffenceLayout2')=='DNo4') selected @endif>{{ ('守4_'. $diffence_card_point_4) }}</option>
+                          <option value="DNo5" @if(old('diffenceLayout2')=='DNo5') selected @endif>{{ ('守5_'. $diffence_card_point_5) }}</option>
+                        </select>
+                      </div>
                       <div class="form-check">
                         <input class="form-check-input position-static" type="radio" name="openCard" id="openCard2" value="openCard2"
                           {{ old('openCard') == 'openCard2' ? 'checked' : '' }}>
