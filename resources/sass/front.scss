@@ -548,15 +548,25 @@ button.bg-base:focus {
 
 
 /*JS　カード回転対応*/
-#rotate-area {
+.rotate-target {
+    background: #transparent;
+    padding: 0px;
+    display: inline-block;
+    height: 100%;
+}
 
+#rotate-area {
+    position: relative;
 }
 
 #rotate-area .rotate-target {
-
+    position: relative;
+    transition: all 3s ease-out 0s;
+    display: block;
+    left: 0px;
+    top: 0px;
 }
 #rotate-area .omote {
-    position: relative;
     z-index: 1;
     transform: rotateY(0deg);
 }
@@ -564,6 +574,4 @@ button.bg-base:focus {
     position: absolute;
     z-index: 0;
     transform: rotateY(-180deg);
-    left: -100px;
-    top: -100px;
 }

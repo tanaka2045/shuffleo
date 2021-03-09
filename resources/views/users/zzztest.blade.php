@@ -49,8 +49,13 @@
             
             {{--守1--}}
             <div class="row align-items-center justify-content-center">
-              <div class="col-2 offset-2 px-0">
-                <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+              <div id="rotate-area" class="col-2 offset-2 px-0">
+                <div class="rotate-target omote" id="omote_1">
+                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+                </div>
+                <div class="rotate-target ura" id="ura_1">
+                  <img src="../images/10_blue.png" style="max-width:80%; height:auto;">
+                </div>
               </div>
               <div class="col-3 px-0">
                 <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout1" id="diffenceLayout1">
@@ -69,8 +74,13 @@
             </div>
             {{--守2--}}
             <div class="row align-items-center justify-content-center">
-              <div class="col-2 offset-2 px-0">
-                <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+              <div id="rotate-area" class="col-2 offset-2 px-0">
+                <div class="rotate-target omote" id="omote_2">
+                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+                </div>
+                <div class="rotate-target ura" id="ura_2">
+                  <img src="../images/20_blue.png" style="max-width:80%; height:auto;">
+                </div>
               </div>
               <div class="col-3 px-0">
                 <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout2" id="diffenceLayout2">
@@ -89,8 +99,13 @@
             </div>
              {{--守3--}}
             <div class="row align-items-center justify-content-center">
-              <div class="col-2 offset-2 px-0">
-                <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+              <div id="rotate-area" class="col-2 offset-2 px-0">
+                <div class="rotate-target omote" id="omote_3">
+                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+                </div>
+                <div class="rotate-target ura" id="ura_3">
+                  <img src="../images/30_blue.png" style="max-width:80%; height:auto;">
+                </div>
               </div>
               <div class="col-3 px-0">
                 <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout3" id="diffenceLayout3">
@@ -109,8 +124,13 @@
             </div>
             {{--守4--}}
             <div class="row align-items-center justify-content-center">
-              <div class="col-2 offset-2 px-0">
-                <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+              <div id="rotate-area" class="col-2 offset-2 px-0">
+                <div class="rotate-target omote" id="omote_4">
+                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+                </div>
+                <div class="rotate-target ura" id="ura_5">
+                  <img src="../images/40_blue.png" style="max-width:80%; height:auto;">
+                </div>
               </div>
               <div class="col-3 px-0">
                 <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout4" id="diffenceLayout4">
@@ -129,11 +149,16 @@
             </div>
             {{--守5--}}
             <div class="row align-items-center justify-content-center">
-              <div class="col-2 offset-2 px-0">
-                <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+              <div id="rotate-area" class="col-2 offset-2 px-0">
+                <div class="rotate-target omote" id="omote_5">
+                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
+                </div>
+                <div class="rotate-target ura" id="ura_5">
+                  <img src="../images/60_blue.png" style="max-width:80%; height:auto;">
+                </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout2" id="diffenceLayout2">
+                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout5" id="diffenceLayout5">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout5')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout5')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -156,10 +181,11 @@
           <div class="row mx-0">
             <div class="col text-center my-4 px-0">
               <button type="submit" id="reset" name="reset" class="btn-green text-center font-o-sm btn-shadow mx-2">{{ __('リセット') }}</button>
-              <button type="submit" id="set" name="set" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('セット')  }}</button>
+              {{--<button type="submit" id="set" name="set" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('セット')  }}</button>--}}
               {{-- テストなので登録防止対策 --}}
               {{--@if ($button_switch == 0 || $term_end_point ==1)--}}
                 <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2" disabled>{{  __('　登録　')  }}</button>
+
               {{--@else
                 <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2">{{  __('　登録　')  }}</button>
               @endif--}}
@@ -167,6 +193,7 @@
             </div>
           </div>
         </form>
+        <button  id="test" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('test')  }}</button>
    
       </div>
     </div>
@@ -176,9 +203,27 @@
 @section('js')
 <script>
   jQuery(function($){
-    $('#set').click(function(){
-        $('#omote').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+    $('#test').click(function(){
+        setTimeout(function(){
+          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },0);
+        setTimeout(function(){
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },100);
+        setTimeout(function(){
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },200);
+        setTimeout(function(){
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },300);
+        setTimeout(function(){
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },400);
     });
   });
 </script>
