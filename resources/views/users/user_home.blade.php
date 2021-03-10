@@ -29,7 +29,7 @@
               </tr>
             </tbody>
           </table>
-          <table class="table table-bordered table-sm">
+          <table class="table table-bordered table-sm mb-1">
             <tbody>            
               <tr class="table-transparent-ui">
                 <th scope="row" style="font-weight: normal;" >レート</th>
@@ -66,6 +66,11 @@
               </tr>   
             </tbody>
           </table>
+          <div class="row text-center">
+            <div class="col mb-2">
+              {{ __('本日、残り') }}{{ 10-$day_match_count }}{{ __(' 対戦可能です') }}
+            </div>
+          </div>
           <div class="row text-center mx-0">
             <div class="col-6 px-1">
               <a href="{{ action('Users\HomeController@userMatchDetailedAccess') }}" role="button" tabindex="0" class="btn btn-gray-blue btn-shadow font-o-esm-norm mb-3 mx-1">成績 詳細</a>

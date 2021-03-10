@@ -14,7 +14,7 @@
         <div class="p-2 bg-match-make btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
           <div class="font-o-elg text-left pl-2" style="color: #0E3181;">守備で対戦</div>
           <div class="text-right">
-            @if ($term_end_point == 0)
+            @if ($term_end_point == 0 && $day_match_count <10)
               <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" class="btn btn-diffence btn-shadow font-o-esm">新規 ルーム登録</a>            
             @else
               <button class="btn btn-diffence btn-shadow font-o-esm" disabled>新規対戦ルーム登録</button>
@@ -38,6 +38,7 @@
               </tr>
             </thead>             
             <tbody>
+               {{-- $diffence_users　→　対戦エントリーフラグが１（＝守備登録のみ）のMatchResults --}}
               @if (isset($diffence_users))
                @foreach($diffence_users as $diffence_user)
                 <tr>
@@ -50,7 +51,7 @@
                       @if ($diffence_user->user_id == $user_id)
                         <a href="{{ action('Users\MatchController@matchMakeDelete', ['id' => $diffence_user->id] ) }}" role="button" class="btn btn-cancel-red btn-shadow font-o-esm mx-0 px-2" style="color:#A3002F;">キャンセル</a>
                       @else
-                        @if ($term_end_point == 0)
+                        @if ($term_end_point == 0 && $day_match_count <10)
                           <a href="{{ action('Users\MatchController@matchOffenceAccess', ['id' => $diffence_user->id] )}}" role="button" class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1">対戦ルームへ</a>
                         @else
                           <button class="btn btn-offence btn-shadow font-o-esm mx-0 my-1 px-1" disabled>対戦ルームへ</button>

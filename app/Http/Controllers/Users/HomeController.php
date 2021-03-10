@@ -56,6 +56,9 @@ class HomeController extends Controller
     $term_result = TermResult::where('user_id', $user_id)->where('term_count', $max)->first();
     $term_end_point = $term_result->term_end_point;
     
+    //本日の対戦数の確認
+    $day_match_count = $user->day_match_count;
+
     //未閲覧試合ならびに試合数の確認
     list($not_accessed_results,$not_accessed_count) = MatchResult::notAccessedResult($user_id);
 
@@ -63,7 +66,7 @@ class HomeController extends Controller
     return view('users.user_home', ['user' => $user, 'total_count' => $total_count,
       'total_win_rate' => $total_win_rate, 'current_term_count' => $current_term_count, 'current_count' => $current_count, 
       'current_win_rate' => $current_win_rate, 'residual_count' => $residual_count, 
-      'tip_count' => $tip_count, 'term_end_point' => $term_end_point, 
+      'tip_count' => $tip_count, 'term_end_point' => $term_end_point, 'day_match_count' => $day_match_count,
       'not_accessed_count' => $not_accessed_count]);
   }  
 

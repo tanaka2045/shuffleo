@@ -39,17 +39,24 @@ class User extends Authenticatable
     
     public function termResults()
     {
-         return $this->hasMany('App\TermResult');
+      return $this->hasMany('App\TermResult');
     }
     
     public function cardStatuses()
     {
-         return $this->hasMany('App\CardStatus');
+      return $this->hasMany('App\CardStatus');
     }
 
     public function matchResults()
     {
-         return $this->hasMany('App\MatchResult');
+      return $this->hasMany('App\MatchResult');
+    }
+    
+    public static function dayMatchCount($user_id)
+    {
+      $user = User::where('id', $user_id)->first();
+      $user->day_match_count++;
+      $user->save();
     }
     
 }

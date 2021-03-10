@@ -17,6 +17,7 @@ class MatchController extends Controller
   public function matchMakeAccess()
   {
     $user_id = Auth::id();
+    $user = User::find($user_id);
     
     //対戦エントリーフラグが１（＝守備登録のみ）を抽出
     $diffence_users = MatchResult::where('diffence_entry',1)->get();
@@ -26,15 +27,25 @@ class MatchController extends Controller
     $term_result = TermResult::where('user_id', $user_id)->latest()->first();
     $term_end_point = $term_result->term_end_point;
     
+    //本日の対戦数の確認
+    $day_match_count = $user->day_match_count;
+    
     return view('users.match_make', ['diffence_users' => $diffence_users, 'user_id' => $user_id, 
-      'term_end_point' => $term_end_point]);
+      'term_end_point' => $term_end_point, 'day_match_count' => $day_match_count]);
   }
 
   public function matchMakeDelete(Request $request)
   {
-    //守備ユーザールームの削除（守備エントリーフラグも消失する）
+    //守備ユーザールームの削除（対戦エントリーフラグも同時に消失する）
+    //Request->idはMatch_idがgetで送られてきている
     $diffence_info = MatchResult::find($request->id);
     $diffence_info->delete();
+    
+    //本日の対戦数を-1
+    $user_id = Auth::id();
+    $user = User::find($user_id);
+    $user->day_match_count--;
+    $user->save();
     
     return redirect(route('match.make'));
   }
@@ -112,8 +123,8 @@ class MatchController extends Controller
       $term_result = TermResult::where('user_id', $user_id)->latest()->first();
       $term_end_point = $term_result->term_end_point;
       
-      //term_end_pointが0だった場合は守備登録しmatch_resultページへ遷移する
-      if ($term_end_point == 0) 
+      //term_end_pointが0 もしくは 一日の対戦数が10未満だった場合は守備登録しmatch_resultページへ遷移する
+      if ($term_end_point == 0 || $day_match_count <10) 
       {
         list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
         $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
@@ -138,6 +149,9 @@ class MatchController extends Controller
         $diffence_entry->diffence_entry = 1;
         $diffence_entry->save();
         
+        //一日の対戦数を+1
+        User::dayMatchCount($user_id);
+        
         //登録ボタンスイッチング→0：新たな守備登録、対戦のための初期化
         $user_id = Auth::id();
         $button_switch = User::find($user_id);
@@ -146,7 +160,7 @@ class MatchController extends Controller
   
         return redirect(route('match.make'));
       }else{
-      //term_end_pointが1もしくは2だった場合は守備登録せずにmatch_resultページへ遷移する
+      //term_end_pointが1もしくは2だった場合、もしくは一日の対戦数が10だった場合は守備登録せずにmatch_resultページへ遷移する
         return redirect(route('match.make')); 
       }
     }
@@ -242,6 +256,10 @@ class MatchController extends Controller
         $match_result->offence_user_access =1;
         $match_result->diffence_user_access =0; //0 → 0へ変わらず　見返しやすいよう記載
         
+        //一日の対戦数を+1
+        User::dayMatchCount($user_id);
+        
+        //CardStatusから自分のカードポイントの取得
         list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
         $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
         
