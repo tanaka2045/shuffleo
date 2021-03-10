@@ -11,8 +11,8 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 px-4">
-        <div class="p-2 bg-match-make btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
-          <div class="font-o-elg text-left pl-2" style="color: #0E3181;">守備で対戦</div>
+        <div class="p-2 bg-match-make btn-shadow" style="border:2px solid #271D40; border-radius:0.2rem; ">
+          <div class="font-o-md text-center mb-2 fluorescence-blue" style="width:25%; color: #C9D3F6;">守備で対戦</div>
           <div class="text-right">
             @if ($term_end_point == 0 && $day_match_count <10)
               <a href="{{ action('Users\MatchController@matchDiffenceAccess') }}" role="button" class="btn btn-diffence btn-shadow font-o-esm">新規 ルーム登録</a>            
@@ -26,9 +26,8 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 mb-5 px-4">
-         <div class="p-2 bg-match-make btn-shadow" style="border:1px solid #FFFFFF; border-radius:0.2rem; ">
-          <div class="font-o-elg text-left pl-2" style="color:#8D0209;">攻撃で対戦</div>
-          
+         <div class="p-2 bg-match-make btn-shadow" style="border:2px solid #271D40; border-radius:0.2rem; ">
+          <div class="font-o-md text-center mb-2 fluorescence-red" style="width:25%; color:#FFCADC;">攻撃で対戦</div>
           <table class="table table-sm mb-2">
             <thead>
               <tr>

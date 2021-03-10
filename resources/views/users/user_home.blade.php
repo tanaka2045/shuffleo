@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-6 mb-5 px-4">
         <div class="font-o-md mb-2" style="color:#BFCBD7;">ユーザーステータス</div>
-        <div class="bg-black-gradient btn-shadow font-o-sm-norm" style="border-radius: 0.1rem; border:1px solid transparent">
+        <div class="bg-black-gradient btn-shadow font-o-sm-norm px-1 pt-2" style="border-radius: 0.1rem; border:1px solid transparent">
           <table class="table table-sm mb-1">
             <tbody>
               <tr class="table-transparent-ui">

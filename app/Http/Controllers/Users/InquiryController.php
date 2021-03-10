@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactSendmail;
+use App\Mail\ContactSendmailForMe;
 
 class InquiryController extends Controller
 {
@@ -37,7 +38,7 @@ class InquiryController extends Controller
       'title_inquiry' => 'required|max:100',
       'body_inquiry'  => 'required'
       ]);
-
+      
     //フォームから受け取ったactionの値を取得
     $action = $request->input('action');
         
@@ -53,6 +54,8 @@ class InquiryController extends Controller
       } else {
         //入力されたメールアドレスにメールを送信
         \Mail::to($inputs['email_inquiry'])->send(new ContactSendmail($inputs));
+        //自分のメールアドレスに問い合わせフォームの内容を送信(追加）
+        \Mail::to('tanaka2045h@gmail.com')->send(new ContactSendmailForMe($inputs));
 
         //再送信を防ぐためにトークンを再発行
         $request->session()->regenerateToken();

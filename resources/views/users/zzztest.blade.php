@@ -128,7 +128,7 @@
                 <div class="rotate-target omote" id="omote_4">
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
-                <div class="rotate-target ura" id="ura_5">
+                <div class="rotate-target ura" id="ura_4">
                   <img src="../images/40_blue.png" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -204,7 +204,18 @@
 <script>
   jQuery(function($){
     $('#test').click(function(){
-        setTimeout(function(){
+          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+    
+        /*setTimeout(function(){
           $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           },0);
@@ -223,7 +234,7 @@
         setTimeout(function(){
           $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },400);
+          },400);*/
     });
   });
 </script>

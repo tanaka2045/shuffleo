@@ -203,13 +203,10 @@
 
 @section('js')
   <script type="text/javascript">
-    history.pushState(null, null, null);
-    $(window).on("popstate", function (event) {
-      if (!event.originalEvent.state) {
-        history.pushState(null, null, null);
-        window.alert('ブラウザの戻るボタンは使えません。。。');
-        return;
-      }
+    history.pushState(null, null, location.href);
+    window.addEventListener('popstate', (e) => {
+      //alert('ブラウザの戻るボタンは使えません');
+      history.go(1);
     });
   </script>
 @endsection
