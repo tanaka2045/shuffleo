@@ -203,38 +203,28 @@
 @section('js')
 <script>
   jQuery(function($){
-    $('#test').click(function(){
-          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-    
-        /*setTimeout(function(){
-          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },0);
-        setTimeout(function(){
-          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },100);
-        setTimeout(function(){
-          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },200);
-        setTimeout(function(){
-          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },300);
-        setTimeout(function(){
-          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },400);*/
+    //$('#test').click(function(){
+    window.onload=(function(){
+      setTimeout(function(){
+        $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+        },0);
+      setTimeout(function(){
+        $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+        },200);
+      setTimeout(function(){
+        $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+        },400);
+      setTimeout(function(){
+        $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+        },600);
+      setTimeout(function(){
+        $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+        $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+        },800);
     });
   });
 </script>

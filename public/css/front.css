@@ -574,7 +574,7 @@ button.bg-base:focus {
 
 #rotate-area .rotate-target {
   position: relative;
-  transition: all 3s ease-out 0s;
+  transition: all 0.8s ease-out 0s;
   display: block;
   left: 0px;
   top: 0px;

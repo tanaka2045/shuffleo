@@ -177,7 +177,7 @@
 @section('js')
 <script>
   jQuery(function($){
-    $('#set').click(function(){
+    $('#set').(function(){
         $('#omote').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
         $('#ura').css({'z-index':'1', 'transform':'rotateY(0deg)'});
     });
