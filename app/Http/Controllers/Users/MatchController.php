@@ -61,7 +61,7 @@ class MatchController extends Controller
     $button_switch = $user->button_switch = 0;
     $user->save();
     
-    //タームエンドポイントの取得
+    //タームエンドポイントの取得 →不要？
     $term_result = TermResult::where('user_id', $user_id)->latest()->first();
     $term_end_point = $term_result->term_end_point;
     
@@ -76,7 +76,7 @@ class MatchController extends Controller
     ]);
   }
   
-  public function matchDiffenceSetAccess()
+  public function matchDiffenceSetAccess(Request $request)
   {
     $user_id = Auth::id();
     list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
@@ -86,9 +86,16 @@ class MatchController extends Controller
     $user = User::find($user_id);
     $button_switch = $user->button_switch;
     
-    //タームエンドポイントの取得
+    //タームエンドポイントの取得→不要？
     $term_result = TermResult::where('user_id', $user_id)->latest()->first();
     $term_end_point = $term_result->term_end_point;
+    
+    //matchDiffenceLayoutから受けとったRequest内の各レイアウトのカードNoを取得し、Viewへ渡す
+    $diffence_layout_1 = $request->diffence_layout_1;
+    $diffence_layout_2 = $request->diffence_layout_2;
+    $diffence_layout_3 = $request->diffence_layout_3;
+    $diffence_layout_4 = $request->diffence_layout_4;
+    $diffence_layout_5 = $request->diffence_layout_5;
     
     return view('users.match_diffence_set', [
       'diffence_card_point_1' => $diffence_card_point_1,
@@ -96,6 +103,11 @@ class MatchController extends Controller
       'diffence_card_point_3' => $diffence_card_point_3,
       'diffence_card_point_4' => $diffence_card_point_4,
       'diffence_card_point_5' => $diffence_card_point_5,
+      'diffence_layout_1' => $diffence_layout_1,
+      'diffence_layout_2' => $diffence_layout_2,
+      'diffence_layout_3' => $diffence_layout_3,
+      'diffence_layout_4' => $diffence_layout_4,
+      'diffence_layout_5' => $diffence_layout_5,
       'button_switch' => $button_switch,
       'term_end_point' => $term_end_point
     ]);
@@ -121,6 +133,7 @@ class MatchController extends Controller
       //select formのエラーチェック
       $select_array = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3, $request->diffenceLayout4, $request->diffenceLayout5];
       $unique_array = array_unique($select_array);
+      
       //選択されていないカードの有無チェック
       if (in_array(null, $unique_array, true) == true)
       {
@@ -136,8 +149,17 @@ class MatchController extends Controller
       $user = User::find($user_id);
       $button_switch = $user->button_switch = 1;
       $user->save();
-        
-        return redirect(route('match.diffence.set', ['button_switch' => $button_switch]))->withInput($request->all);
+      //Radioボタンでセットした各レイアウトのカードNoを取得（machtDiffenceSetAccessアクションの$requestに渡す）
+      $diffence_layout_1 = $request->diffenceLayout1;
+      $diffence_layout_2 = $request->diffenceLayout2;
+      $diffence_layout_3 = $request->diffenceLayout3;
+      $diffence_layout_4 = $request->diffenceLayout4;
+      $diffence_layout_5 = $request->diffenceLayout5;
+      
+      return redirect(route('match.diffence.set', ['diffence_layout_1' => $diffence_layout_1, 
+        'diffence_layout_2' => $diffence_layout_2, 'diffence_layout_3' => $diffence_layout_3, 
+        'diffence_layout_4' => $diffence_layout_4, 'diffence_layout_5' => $diffence_layout_5]))
+        ->withInput($request->all);
       }
     }
     
@@ -151,7 +173,7 @@ class MatchController extends Controller
       $term_end_point = $term_result->term_end_point;
       
       //term_end_pointが0 もしくは 一日の対戦数が10未満だった場合は守備登録しmatch_resultページへ遷移する
-      if ($term_end_point == 0 || $day_match_count <10) 
+      if ($term_end_point == 0 || $day_match_count <10000) 
       {
         list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
         $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);

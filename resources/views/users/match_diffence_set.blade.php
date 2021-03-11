@@ -54,7 +54,8 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_1">
-                  <img src="../images/10_blue.png" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/'.$diffence_layout_1.'.png' }}" style="max-width:80%; height:auto;">
+                  {{--"<img src=\"$filename\">";--}}
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -79,7 +80,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_2">
-                  <img src="../images/20_blue.png" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/'.$diffence_layout_2.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -104,7 +105,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_3">
-                  <img src="../images/30_blue.png" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/'.$diffence_layout_3.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -129,7 +130,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_4">
-                  <img src="../images/40_blue.png" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/'.$diffence_layout_4.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -154,7 +155,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_5">
-                  <img src="../images/60_blue.png" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/'.$diffence_layout_5.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
