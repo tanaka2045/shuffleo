@@ -432,7 +432,7 @@ class TermResult extends Model
   //チップ計算(守備対戦によりチップ++)
   public static function tipCalculation($match_result)
   {
-    $user = User::find($match_result->user_id)->first();
+    $user = User::find($match_result->user_id);
     $tip_count = $user->tip_count;
     $tip_count++;
     $user->tip_count = $tip_count;
@@ -443,7 +443,7 @@ class TermResult extends Model
   //チップカウンターリセット
   public static function tipReset($user_id)
   {
-    $user = User::find($user_id)->first();
+    $user = User::find($user_id);
     $user->tip_count = 0;
     $user->save();
   }
@@ -451,7 +451,7 @@ class TermResult extends Model
   //過去最高ターム勝率の計算
   public static function bersTermWinRateUpdate($user_id)
   {
-    $user = User::find($user_id)->first();
+    $user = User::find($user_id);
     $current_win_rate = self::currentWinRate($user_id);
     
     if ($current_win_rate > $user->best_term_win_rate){

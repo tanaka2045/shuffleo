@@ -56,14 +56,41 @@ class MatchController extends Controller
     list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
       $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
     
-    //登録ボタンスイッチング初期値（0=非活性）の呼び出し
-    $button_switch = User::find($user_id)->button_switch;
+    //登録ボタンスイッチングの呼び出しおよび初期化（ブラウザバック対策）
+    $user = User::find($user_id);
+    $button_switch = $user->button_switch = 0;
+    $user->save();
     
     //タームエンドポイントの取得
     $term_result = TermResult::where('user_id', $user_id)->latest()->first();
     $term_end_point = $term_result->term_end_point;
     
     return view('users.match_diffence', [
+      'diffence_card_point_1' => $diffence_card_point_1,
+      'diffence_card_point_2' => $diffence_card_point_2,
+      'diffence_card_point_3' => $diffence_card_point_3,
+      'diffence_card_point_4' => $diffence_card_point_4,
+      'diffence_card_point_5' => $diffence_card_point_5,
+      'button_switch' => $button_switch,
+      'term_end_point' => $term_end_point
+    ]);
+  }
+  
+  public function matchDiffenceSetAccess()
+  {
+    $user_id = Auth::id();
+    list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+      $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+    
+    //登録ボタンスイッチングの呼び出し
+    $user = User::find($user_id);
+    $button_switch = $user->button_switch;
+    
+    //タームエンドポイントの取得
+    $term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $term_end_point = $term_result->term_end_point;
+    
+    return view('users.match_diffence_set', [
       'diffence_card_point_1' => $diffence_card_point_1,
       'diffence_card_point_2' => $diffence_card_point_2,
       'diffence_card_point_3' => $diffence_card_point_3,
@@ -81,9 +108,9 @@ class MatchController extends Controller
     {
       //登録ボタンスイッチング→非活性
       $user_id = Auth::id();
-      $button_switch = User::find($user_id);
-      $button_switch->button_switch = 0;
-      $button_switch->save();
+      $user = User::find($user_id);
+      $button_switch=$user->button_switch = 0;
+      $user->save();
       
       return redirect(route('match.diffence', ['button_switch' => $button_switch]));
     }
@@ -106,11 +133,11 @@ class MatchController extends Controller
       }else{
       //登録ボタンスイッチング→活性
       $user_id = Auth::id();
-      $button_switch = User::find($user_id);
-      $button_switch->button_switch = 1;
-      $button_switch->save();
+      $user = User::find($user_id);
+      $button_switch = $user->button_switch = 1;
+      $user->save();
         
-        return redirect(route('match.diffence', ['button_switch' => $button_switch]))->withInput($request->all);
+        return redirect(route('match.diffence.set', ['button_switch' => $button_switch]))->withInput($request->all);
       }
     }
     
@@ -154,9 +181,9 @@ class MatchController extends Controller
         
         //登録ボタンスイッチング→0：新たな守備登録、対戦のための初期化
         $user_id = Auth::id();
-        $button_switch = User::find($user_id);
-        $button_switch->button_switch = 0;
-        $button_switch->save();
+        $user = User::find($user_id);
+        $button_switch = $user->button_switch = 0;
+        $user->save();
   
         return redirect(route('match.make'));
       }else{
