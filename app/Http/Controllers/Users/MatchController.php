@@ -142,8 +142,8 @@ class MatchController extends Controller
       }elseif(count($unique_array) !== count($select_array)) 
       {
         return redirect()->back()->withInput($request->all)->withErrors('重複選択されているカードがあります');
-      //問題ないときの処理 
       }else{
+      //問題ないときの処理 
       //登録ボタンスイッチング→活性
       $user_id = Auth::id();
       $user = User::find($user_id);

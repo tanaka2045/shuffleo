@@ -16,10 +16,11 @@
       <div class="collapse" id="collapseExample">
         <div class="text-left" style=" font-size:11px; color: #FFFFFF;">
           <ul class="pl-3">
-            <li>ドロップダウンメニューから５枚のカードが重複しないよう守備カードを選択（メニューは守No+カードポイントで表示）</li>
-            <li>オープンカードを選択（デフォルトは最上段のカード）</li>
+            <li>ドロップダウンメニューから５枚のカードが重複しないようメニューを選択（メニューは守No+カードポイントで表示）</li>
+            <li>オープンカードを選択</li>
             <li>セットボタンでカード配置</li>
             <li>確定ボタンで登録完了</li>
+            <li class="text-warning">レイアウトやオープンカードの変更を反映させるためには、毎回セットボタンを押す必要があります</li>
           </ul>
         </div>
       </div>
@@ -59,7 +60,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout1" id="diffenceLayout1">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout1" id="diffenceLayout1">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -84,7 +85,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout2" id="diffenceLayout2">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout2" id="diffenceLayout2">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -109,7 +110,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout3" id="diffenceLayout3">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout3" id="diffenceLayout3">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout3')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout3')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -134,7 +135,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout4" id="diffenceLayout4">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout4" id="diffenceLayout4">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout4')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout4')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -159,7 +160,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout5" id="diffenceLayout5">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout5" id="diffenceLayout5">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout5')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout5')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -183,7 +184,11 @@
             <div class="col text-center my-4 px-0">
               <button type="submit" id="reset" name="reset" class="btn-green text-center font-o-sm btn-shadow mx-2">{{ __('リセット') }}</button>
               <button type="submit" id="set" name="set" class="btn-green text-center font-o-sm btn-shadow mx-2">{{  __('セット')  }}</button>
-              <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2">{{  __('　登録　')  }}</button>
+              @if ($errors->any() == false)
+                <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2">{{  __('　登録　')  }}</button>
+              @else
+                <button type="submit" id="entry" name="entry" class="btn-blue text-center font-o-sm btn-shadow mx-2" disabled>{{  __('　登録　')  }}</button>
+              @endif
               <div id="output"></div>
             </div>
           </div>
@@ -195,32 +200,33 @@
 @endsection
 
 @section('js')
-<script>
-  jQuery(function($){
-    //$('#test').click(function(){
-    window.onload=(function(){
-      setTimeout(function(){
-        $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-        },0);
-      setTimeout(function(){
-        $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-        },200);
-      setTimeout(function(){
-        $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-        },400);
-      setTimeout(function(){
-        $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-        },600);
-      setTimeout(function(){
-        $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-        $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-        },800);
+  @if ($errors->any() == false)
+  <script>
+    jQuery(function($){
+      window.onload=(function(){
+        setTimeout(function(){
+          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },0);
+        setTimeout(function(){
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },200);
+        setTimeout(function(){
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },400);
+        setTimeout(function(){
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },600);
+        setTimeout(function(){
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },800);
+      });
     });
-  });
-</script>
+  </script>
+  @endif
 @endsection
  

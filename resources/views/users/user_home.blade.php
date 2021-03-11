@@ -106,7 +106,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_red.png" style="max-width: 40%; height:auto;">
+                <img src="../images/ONo1.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -124,7 +124,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_red.png" style="max-width: 40%; height:auto;">
+                <img src="../images/ONo2.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -142,7 +142,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_red.png" style="max-width: 40%; height:auto;">
+                <img src="../images/ONo3.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -160,7 +160,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_red.png" style="max-width: 40%; height:auto;">
+                <img src="../images/ONo4.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -178,7 +178,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/50_red.png" style="max-width: 40%; height:auto;">
+                <img src="../images/ONo5.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -209,7 +209,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/10_blue.png" style="max-width: 40%; height:auto;">
+                <img src="../images/DNo1.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -227,7 +227,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/20_blue.png" style="max-width: 40%; height:auto;">
+                <img src="../images/DNo2.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -245,7 +245,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/30_blue.png" style="max-width: 40%; height:auto;">
+                <img src="../images/DNo3.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -263,7 +263,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/40_blue.png" style="max-width: 40%; height:auto;">
+                <img src="../images/DNo4.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
@@ -281,7 +281,7 @@
             </div>
             <div class="row mx-0">
               <div class="col-9 offset-1 px-0">
-                <img src="../images/60_blue.png" style="max-width: 40%; height:auto;">
+                <img src="../images/DNo5.png" style="max-width: 40%; height:auto;">
               </div>
                 <div class="col-2 px-0 pt-2">
                   <div class="d-flex flex-column">
