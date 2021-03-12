@@ -49,14 +49,24 @@
             
             {{--守1--}}
             <div class="row align-items-center justify-content-center">
-              <div id="rotate-area" class="col-2 offset-2 px-0">
+              {{--<div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target omote" id="omote_1">
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_1">
-                  <img src="../images/10_blue.png" style="max-width:80%; height:auto;">
+                  <img src="../images/DNo1.png" style="max-width:80%; height:auto;">
                 </div>
-              </div>
+              </div>--}}
+              <div id="rotate-area" class="col-4 px-0">
+               <div class="rotate-target omote" id="omote_1">
+                 <img src="../images/back_red.png" style="max-width: 80%; height:auto;">
+                </div>
+                 <div class="rotate-target ura" id="ura_1">
+                    <img src="../images/ONo1.png" style="max-width: 80%; height:auto;">
+                  </div>
+                </div>
+              
+              
               <div class="col-3 px-0">
                 <select type="text" class="m-0" style="font-size: 13px;" name="diffenceLayout1" id="diffenceLayout1">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
@@ -79,7 +89,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_2">
-                  <img src="../images/20_blue.png" style="max-width:80%; height:auto;">
+                  <img src="../images/DNo2.png" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -104,7 +114,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_3">
-                  <img src="../images/30_blue.png" style="max-width:80%; height:auto;">
+                  <img src="../images/DNo3.png" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -129,7 +139,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_4">
-                  <img src="../images/40_blue.png" style="max-width:80%; height:auto;">
+                  <img src="../images/DNo4.png" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -154,7 +164,7 @@
                   <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_5">
-                  <img src="../images/60_blue.png" style="max-width:80%; height:auto;">
+                  <img src="../images/DNo5.png" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">

@@ -41,11 +41,10 @@
                 </div>
               </div>
               {{--攻1--}}
-              <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
-                {{-- <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0"> --}}
+              <div class="row align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout1" id="offenceLayout1">
+                  <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout1" id="offenceLayout1">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout1')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -54,16 +53,20 @@
                     <option value="ONo5" @if(old('offenceLayout1')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                   </select>
                 </div>
-                <div class="col-4 px-0">
-                  <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                <div id="rotate-area" class="col-4 px-0">
+                  <div class="rotate-target omote" id="omote_1">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_1">
+                    <img src="{{ '../images/'.$offence_layout_1.'.png' }}" style="max-width: 90%; height:auto;">
+                  </div>
                 </div>
-                {{-- </div> --}}
               </div>
               {{--攻2--}}            
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout2" id="offencelayout2">
+                  <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout2" id="offencelayout2">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout2')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -72,15 +75,20 @@
                     <option value="ONo5" @if(old('offenceLayout2')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                   </select>
                 </div>
-                <div class="col-4 px-0">
-                  <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
-                </div>    
+                <div id="rotate-area" class="col-4 px-0">
+                  <div class="rotate-target omote" id="omote_2">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_2">
+                    <img src="{{ '../images/'.$offence_layout_2.'.png' }}" style="max-width: 90%; height:auto;">
+                  </div>
+                </div>
               </div>
               {{--攻3--}}
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout3" id="offenceLayout3">
+                  <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout3" id="offenceLayout3">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout3')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout3')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -89,15 +97,20 @@
                     <option value="ONo5" @if(old('offenceLayout3')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                   </select>
                 </div>
-                <div class="col-4 px-0">
-                  <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                <div id="rotate-area" class="col-4 px-0">
+                  <div class="rotate-target omote" id="omote_3">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_3">
+                    <img src="{{ '../images/'.$offence_layout_3.'.png' }}" style="max-width: 90%; height:auto;">
+                  </div>
                 </div>
               </div> 
               {{--攻4--}}            
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout4" id="offenceLayout4">
+                    <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout4" id="offenceLayout4">
                       <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                       <option value="ONo1" @if(old('offenceLayout4')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                       <option value="ONo2" @if(old('offenceLayout4')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -106,15 +119,20 @@
                       <option value="ONo5" @if(old('offenceLayout4')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                     </select>
                 </div>
-                <div class="col-4 px-0">
-                  <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                <div id="rotate-area" class="col-4 px-0">
+                  <div class="rotate-target omote" id="omote_4">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_4">
+                    <img src="{{ '../images/'.$offence_layout_4.'.png' }}" style="max-width: 90%; height:auto;">
+                  </div>
                 </div>
               </div>
               {{--攻5--}}
               <div class="row d-flex align-items-center justify-content-center mx-0">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout5" id="offenceLayout5">
+                    <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout5" id="offenceLayout5">
                       <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                       <option value="ONo1" @if(old('offenceLayout5')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                       <option value="ONo2" @if(old('offenceLayout5')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -123,8 +141,13 @@
                       <option value="ONo5" @if(old('offenceLayout5')=='ONo5') selected @endif>{{ ('攻5_'. $offence_card_point_5) }}</option>
                     </select>
                 </div>
-                <div class="col-4 px-0">
-                  <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                <div id="rotate-area" class="col-4 px-0">
+                  <div class="rotate-target omote" id="omote_5">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_5">
+                    <img src="{{ '../images/'.$offence_layout_5.'.png' }}" style="max-width: 90%; height:auto;">
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,10 +203,10 @@
               <input type="hidden" name="diffence_info" value="{{ $diffence_info->id }}">
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="reset">{{ __('リセット') }}</button>
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="set">{{  __('セット')  }}</button>
-              @if ($button_switch == 0)
-                <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry" disabled>{{  __('　対戦　')  }}</button>
-              @else
+              @if ($errors->any() == false)
                 <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry">{{  __('　対戦　')  }}</button>
+              @else
+                <button type="submit" class="btn-blue text-center font-o-sm btn-shadow mx-2" name="entry" disabled>{{  __('　対戦　')  }}</button>
               @endif
             </div>
           </div>
@@ -204,12 +227,33 @@
 @endsection
 
 @section('js')
-  <script type="text/javascript">
-    history.pushState(null, null, location.href);
-    window.addEventListener('popstate', (e) => {
-      //alert('ブラウザの戻るボタンは使えません');
-      history.go(1);
+  @if ($errors->any() == false)
+  <script>
+    jQuery(function($){
+      window.onload=(function(){
+        setTimeout(function(){
+          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },0);
+        setTimeout(function(){
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },200);
+        setTimeout(function(){
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },400);
+        setTimeout(function(){
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },600);
+        setTimeout(function(){
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },800);
+      });
     });
   </script>
+  @endif
 @endsection
  

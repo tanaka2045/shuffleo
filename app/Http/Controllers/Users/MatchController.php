@@ -264,7 +264,7 @@ class MatchController extends Controller
     $offence_layout_4 = $request->offence_layout_4;
     $offence_layout_5 = $request->offence_layout_5;
     
-    return view('users.match_offence_set', ['offence_layout_1' => $offence_layout_1, 
+    return view('users.match_offence_set', [
       'offence_nickname' => $offence_nickname, 
       'diffence_info' => $diffence_info,
       'button_switch' => $button_switch,
@@ -273,8 +273,11 @@ class MatchController extends Controller
       'offence_card_point_3' => $offence_card_point_3,
       'offence_card_point_4' => $offence_card_point_4,
       'offence_card_point_5' => $offence_card_point_5,
-      'offence_layout_2' => $offence_layout_2, 'offence_layout_3' => $offence_layout_3, 
-      'offence_layout_4' => $offence_layout_4, 'offence_layout_5' => $offence_layout_5]);
+      'offence_layout_1' => $offence_layout_1,
+      'offence_layout_2' => $offence_layout_2, 
+      'offence_layout_3' => $offence_layout_3, 
+      'offence_layout_4' => $offence_layout_4, 
+      'offence_layout_5' => $offence_layout_5]);
   }
   
   public function matchOffenceLayout(Request $request)
@@ -311,13 +314,27 @@ class MatchController extends Controller
       }else{
         $id= $request->diffence_info;
         
-        //対戦ボタンスイッチング→活性
-        $user_id = Auth::id();
-        $button_switch = User::find($user_id);
-        $button_switch->button_switch = 1;
-        $button_switch->save();
+      //対戦ボタンスイッチング→活性
+      $user_id = Auth::id();
+      $button_switch = User::find($user_id);
+      $button_switch->button_switch = 1;
+      $button_switch->save();
         
-        return redirect(route('match.offence.set', ['id' => $id, 'button_switch' => $button_switch]))->withInput($request->all);
+      //Radioボタンでセットした各レイアウトのカードNoを取得（machtOffenceSetAccessアクションの$requestに渡す）
+      $offence_layout_1 = $request->offenceLayout1;
+      $offence_layout_2 = $request->offenceLayout2;
+      $offence_layout_3 = $request->offenceLayout3;
+      $offence_layout_4 = $request->offenceLayout4;
+      $offence_layout_5 = $request->offenceLayout5;
+        
+      return redirect(route('match.offence.set', [
+        'id' => $id,
+        'button_switch' => $button_switch,
+        'offence_layout_1' => $offence_layout_1,
+        'offence_layout_2' => $offence_layout_2,
+        'offence_layout_3' => $offence_layout_3,
+        'offence_layout_4' => $offence_layout_4,
+        'offence_layout_5' => $offence_layout_5]))->withInput($request->all);
       }
     }
 

@@ -56,7 +56,6 @@
                 </div>
                 <div class="rotate-target ura" id="ura_1">
                   <img src="{{ '../images/'.$diffence_layout_1.'.png' }}" style="max-width:80%; height:auto;">
-                  {{--"<img src=\"$filename\">";--}}
                 </div>
               </div>
               <div class="col-3 px-0">
