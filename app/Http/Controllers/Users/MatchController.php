@@ -56,7 +56,7 @@ class MatchController extends Controller
     list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
       $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
     
-    //登録ボタンスイッチングの呼び出しおよび初期化（ブラウザバック対策）
+    //登録ボタンスイッチングの呼び出しおよび初期化（ブラウザバック対策としてここで必ず0をいれる）
     $user = User::find($user_id);
     $button_switch = $user->button_switch = 0;
     $user->save();
@@ -222,8 +222,10 @@ class MatchController extends Controller
     $offence_nickname = User::find($user_id)->nickname;
     $diffence_info = MatchResult::find($request->id);
     
-    //対戦ボタンスイッチング初期値（0=非活性）の呼び出し
-    $button_switch = User::find($user_id)->button_switch;
+    //対戦ボタンスイッチング呼び出しおよび初期化（ブラウザバック対策としてここで必ず0をいれる)
+    $user = User::find($user_id);
+    $button_switch = $user->button_switch = 0;
+    $user->save();
     
     //攻撃カードポイントの取得
     list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
@@ -241,6 +243,40 @@ class MatchController extends Controller
     ]);
   }
   
+  public function matchOffenceSetAccess(Request $request)
+  {
+    $user_id = Auth::id();
+    //ニックネームの取得
+    $offence_nickname = User::find($user_id)->nickname; //攻撃ユーザーニックネーム
+    $diffence_info = MatchResult::find($request->id);   //守備ユーザー情報まるごと
+    
+    //対戦ボタンスイッチング初期値（0=非活性）の呼び出し
+    $button_switch = User::find($user_id)->button_switch;
+    
+    //攻撃カードポイントの取得
+    list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
+      $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
+      
+    //matchOffenceLayoutから受けとったRequest内の各レイアウトのカードNoを取得し、viewへ渡す
+    $offence_layout_1 = $request->offence_layout_1;
+    $offence_layout_2 = $request->offence_layout_2;
+    $offence_layout_3 = $request->offence_layout_3;
+    $offence_layout_4 = $request->offence_layout_4;
+    $offence_layout_5 = $request->offence_layout_5;
+    
+    return view('users.match_offence_set', ['offence_layout_1' => $offence_layout_1, 
+      'offence_nickname' => $offence_nickname, 
+      'diffence_info' => $diffence_info,
+      'button_switch' => $button_switch,
+      'offence_card_point_1' => $offence_card_point_1,
+      'offence_card_point_2' => $offence_card_point_2,
+      'offence_card_point_3' => $offence_card_point_3,
+      'offence_card_point_4' => $offence_card_point_4,
+      'offence_card_point_5' => $offence_card_point_5,
+      'offence_layout_2' => $offence_layout_2, 'offence_layout_3' => $offence_layout_3, 
+      'offence_layout_4' => $offence_layout_4, 'offence_layout_5' => $offence_layout_5]);
+  }
+  
   public function matchOffenceLayout(Request $request)
   {
     //リセットボタン押下時の処理
@@ -254,7 +290,7 @@ class MatchController extends Controller
       $button_switch->button_switch = 0;
       $button_switch->save();
       
-      return redirect(route('offence.access', ['id' => $id, 'button_switch' => $button_switch]));
+      return redirect(route('match.offence', ['id' => $id, 'button_switch' => $button_switch]));
     }
 
     //セットボタン押下時の処理
@@ -281,7 +317,7 @@ class MatchController extends Controller
         $button_switch->button_switch = 1;
         $button_switch->save();
         
-        return redirect(route('offence.access', ['id' => $id, 'button_switch' => $button_switch]))->withInput($request->all);
+        return redirect(route('match.offence.set', ['id' => $id, 'button_switch' => $button_switch]))->withInput($request->all);
       }
     }
 

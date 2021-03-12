@@ -60,7 +60,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout1" id="diffenceLayout1">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#FFFFFF;" name="diffenceLayout1" id="diffenceLayout1">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout1')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout1')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -85,7 +85,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout2" id="diffenceLayout2">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#FFFFFF;" name="diffenceLayout2" id="diffenceLayout2">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout2')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout2')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -110,7 +110,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout3" id="diffenceLayout3">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#FFFFFF;" name="diffenceLayout3" id="diffenceLayout3">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout3')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout3')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -135,7 +135,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout4" id="diffenceLayout4">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#FFFFFF;" name="diffenceLayout4" id="diffenceLayout4">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout4')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout4')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
@@ -160,7 +160,7 @@
                 </div>
               </div>
               <div class="col-3 px-0">
-                <select type="text" class="m-0" style="font-size: 13px; background-color:#000000; color:#FFFFFF;" name="diffenceLayout5" id="diffenceLayout5">
+                <select type="text" class="m-0" style="font-size: 13px; background-color:#FFFFFF;" name="diffenceLayout5" id="diffenceLayout5">
                   <option value="DNo0" disabled selected>{{ ('選択') }}</option>
                   <option value="DNo1" @if(old('diffenceLayout5')=='DNo1') selected @endif>{{ ('守1_'. $diffence_card_point_1) }}</option>
                   <option value="DNo2" @if(old('diffenceLayout5')=='DNo2') selected @endif>{{ ('守2_'. $diffence_card_point_2) }}</option>
