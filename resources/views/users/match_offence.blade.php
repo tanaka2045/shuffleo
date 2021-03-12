@@ -45,7 +45,7 @@
                 {{-- <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0"> --}}
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout1" id="offenceLayout1">
+                  <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout1" id="offenceLayout1">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout1')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout1')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -63,7 +63,7 @@
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout2" id="offencelayout2">
+                  <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout2" id="offencelayout2">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout2')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout2')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -80,7 +80,7 @@
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                  <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout3" id="offenceLayout3">
+                  <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout3" id="offenceLayout3">
                     <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                     <option value="ONo1" @if(old('offenceLayout3')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                     <option value="ONo2" @if(old('offenceLayout3')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -97,7 +97,7 @@
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout4" id="offenceLayout4">
+                    <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout4" id="offenceLayout4">
                       <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                       <option value="ONo1" @if(old('offenceLayout4')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                       <option value="ONo2" @if(old('offenceLayout4')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -114,7 +114,7 @@
               <div class="row d-flex align-items-center justify-content-center mx-0">
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
-                    <select type="text" style="font-size: 11px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout5" id="offenceLayout5">
+                    <select type="text" style="font-size: 13px; margin: 0px 0px 10px 10px; background-color:#FFFFFF;" name="offenceLayout5" id="offenceLayout5">
                       <option value="ONo0" disabled selected>{{ ('選択') }}</option>
                       <option value="ONo1" @if(old('offenceLayout5')=='ONo1') selected @endif>{{ ('攻1_'. $offence_card_point_1) }}</option>
                       <option value="ONo2" @if(old('offenceLayout5')=='ONo2') selected @endif>{{ ('攻2_'. $offence_card_point_2) }}</option>
@@ -140,31 +140,51 @@
               {{--守1--}}
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center px-0 mx-0">
-                  <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @if ($open_card == 1)
+                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_1.'.png' }}" style="max-width: 30%; height:auto;">
+                  @else
+                    <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @endif
                 </div>
               </div>
               {{--守2--}}            
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                  <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">
+                  @if ($open_card == 2)
+                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_2.'.png' }}" style="max-width: 30%; height:auto;">
+                  @else
+                    <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @endif
                 </div>
               </div>
               {{--守3--}}
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                  <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">
+                  @if ($open_card == 3)
+                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_3.'.png' }}" style="max-width: 30%; height:auto;">
+                  @else
+                    <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @endif
                 </div>
               </div> 
               {{--守4--}}            
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                  <img src="../images/DNo2.png" style="max-width: 30%; height:auto;">
+                  @if ($open_card == 4)
+                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_4.'.png' }}" style="max-width: 30%; height:auto;">
+                  @else
+                    <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @endif
                 </div>
               </div>
               {{--守5--}}
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
-                  <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">
+                    @if ($open_card == 5)
+                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_5.'.png' }}" style="max-width: 30%; height:auto;">
+                  @else
+                    <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
+                  @endif
                 </div>
               </div>
             </div>
@@ -174,9 +194,6 @@
           {{-- ボタン設定 --}}
           <div class="row mx-0">
             <div class="col text-center mt-4 px-0">
-              {{--@php
-              dd($diffence_info);
-              @endphp--}}
               <input type="hidden" name="diffence_info" value="{{ $diffence_info->id }}">
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="reset">{{ __('リセット') }}</button>
               <button type="submit" class="btn-green text-center font-o-sm btn-shadow mx-2" name="set">{{  __('セット')  }}</button>

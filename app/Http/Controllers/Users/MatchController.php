@@ -189,11 +189,16 @@ class MatchController extends Controller
         $diffence_entry = new MatchResult;
         $diffence_entry->user_id = $user_id;
         $diffence_entry->diffence_nickname = User::find($user_id)->nickname;
-        $diffence_entry->diffence_layout_1 = $replace_after[0];
-        $diffence_entry->diffence_layout_2 = $replace_after[1];
-        $diffence_entry->diffence_layout_3 = $replace_after[2];
-        $diffence_entry->diffence_layout_4 = $replace_after[3];
-        $diffence_entry->diffence_layout_5 = $replace_after[4];
+        $diffence_entry->diffence_layout_1 = str_replace('DNo', '', $replace_before[0]); //diffence_layout_1にカードNoを格納
+        $diffence_entry->diffence_layout_2 = str_replace('DNo', '', $replace_before[1]); //diffence_layout_1にカードNoを格納
+        $diffence_entry->diffence_layout_3 = str_replace('DNo', '', $replace_before[2]); //diffence_layout_1にカードNoを格納
+        $diffence_entry->diffence_layout_4 = str_replace('DNo', '', $replace_before[3]); //diffence_layout_1にカードNoを格納
+        $diffence_entry->diffence_layout_5 = str_replace('DNo', '', $replace_before[4]); //diffence_layout_1にカードNoを格納
+        $diffence_entry->diffence_layout_1_pt = $replace_after[0]; //diffence_layout_1_ptにポイントを格納
+        $diffence_entry->diffence_layout_2_pt = $replace_after[1]; //diffence_layout_2_ptにポイントを格納
+        $diffence_entry->diffence_layout_3_pt = $replace_after[2]; //diffence_layout_3_ptにポイントを格納
+        $diffence_entry->diffence_layout_4_pt = $replace_after[3]; //diffence_layout_4_ptにポイントを格納
+        $diffence_entry->diffence_layout_5_pt = $replace_after[4]; //diffence_layout_5_ptにポイントを格納
         $diffence_entry->open_card = $replace_after[5];
         $diffence_entry->diffence_entry = 1;
         $diffence_entry->save();
@@ -219,8 +224,8 @@ class MatchController extends Controller
   {
     $user_id = Auth::id();
     //ニックネームの取得
-    $offence_nickname = User::find($user_id)->nickname;
-    $diffence_info = MatchResult::find($request->id);
+    $offence_nickname = User::find($user_id)->nickname; //攻撃ユーザーニックネームの取得
+    $diffence_info = MatchResult::find($request->id);   //守備ユーザー情報まるごと取得
     
     //対戦ボタンスイッチング呼び出しおよび初期化（ブラウザバック対策としてここで必ず0をいれる)
     $user = User::find($user_id);
@@ -230,6 +235,9 @@ class MatchController extends Controller
     //攻撃カードポイントの取得
     list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
       $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
+      
+    //オープンカード情報の取得
+    $open_card = $diffence_info->open_card; // 1~5で取得
     
     return view ('users.match_offence', [
       'offence_nickname' => $offence_nickname, 
@@ -240,6 +248,7 @@ class MatchController extends Controller
       'offence_card_point_3' => $offence_card_point_3,
       'offence_card_point_4' => $offence_card_point_4,
       'offence_card_point_5' => $offence_card_point_5,
+      'open_card' => $open_card
     ]);
   }
   
@@ -247,8 +256,8 @@ class MatchController extends Controller
   {
     $user_id = Auth::id();
     //ニックネームの取得
-    $offence_nickname = User::find($user_id)->nickname; //攻撃ユーザーニックネーム
-    $diffence_info = MatchResult::find($request->id);   //守備ユーザー情報まるごと
+    $offence_nickname = User::find($user_id)->nickname; //攻撃ユーザーニックネームの取得
+    $diffence_info = MatchResult::find($request->id);   //守備ユーザー情報まるごと取得
     
     //対戦ボタンスイッチング初期値（0=非活性）の呼び出し
     $button_switch = User::find($user_id)->button_switch;
@@ -264,6 +273,9 @@ class MatchController extends Controller
     $offence_layout_4 = $request->offence_layout_4;
     $offence_layout_5 = $request->offence_layout_5;
     
+    //オープンカード情報の取得
+    $open_card = $diffence_info->open_card; // 1~5で取得
+    
     return view('users.match_offence_set', [
       'offence_nickname' => $offence_nickname, 
       'diffence_info' => $diffence_info,
@@ -277,7 +289,8 @@ class MatchController extends Controller
       'offence_layout_2' => $offence_layout_2, 
       'offence_layout_3' => $offence_layout_3, 
       'offence_layout_4' => $offence_layout_4, 
-      'offence_layout_5' => $offence_layout_5]);
+      'offence_layout_5' => $offence_layout_5,
+      'open_card' => $open_card]);
   }
   
   public function matchOffenceLayout(Request $request)
@@ -373,11 +386,16 @@ class MatchController extends Controller
         $replace_after =str_replace($search, $replace, $replace_before);
       
         $match_result->offence_nickname = User::find($user_id)->nickname;
-        $match_result->offence_layout_1 = $replace_after[0];
-        $match_result->offence_layout_2 = $replace_after[1];
-        $match_result->offence_layout_3 = $replace_after[2];
-        $match_result->offence_layout_4 = $replace_after[3];
-        $match_result->offence_layout_5 = $replace_after[4];
+        $match_result->offence_layout_1 = str_replace('ONo', '', $replace_before[0]); //offence_layout_1にカードNoを格納
+        $match_result->offence_layout_2 = str_replace('ONo', '', $replace_before[1]); //offence_layout_2にカードNoを格納
+        $match_result->offence_layout_3 = str_replace('ONo', '', $replace_before[2]); //offence_layout_3にカードNoを格納
+        $match_result->offence_layout_4 = str_replace('ONo', '', $replace_before[3]); //offence_layout_4にカードNoを格納
+        $match_result->offence_layout_5 = str_replace('ONo', '', $replace_before[4]); //offence_layout_5にカードNoを格納
+        $match_result->offence_layout_1_pt = $replace_after[0]; //offence_layout_1_ptにポイントを格納
+        $match_result->offence_layout_2_pt = $replace_after[1]; //offence_layout_2_ptにポイントを格納
+        $match_result->offence_layout_3_pt = $replace_after[2]; //offence_layout_3_ptにポイントを格納
+        $match_result->offence_layout_4_pt = $replace_after[3]; //offence_layout_4_ptにポイントを格納
+        $match_result->offence_layout_5_pt = $replace_after[4]; //offence_layout_5_ptにポイントを格納
         $match_result->save();
         
         //勝敗の計算

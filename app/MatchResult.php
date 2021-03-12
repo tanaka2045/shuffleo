@@ -21,33 +21,33 @@ class MatchResult extends Model
     $offence_point=0;
     $diffence_point=0;
     
-    if ($match_result->offence_layout_1 > $match_result->diffence_layout_1){
+    if ($match_result->offence_layout_1_pt > $match_result->diffence_layout_1_pt){
       $offence_point++;
-    }elseif ($match_result->diffence_layout_1 > $match_result->offence_layout_1){
+    }elseif ($match_result->diffence_layout_1_pt > $match_result->offence_layout_1_pt){
       $diffence_point++;
     }
     
-    if ($match_result->offence_layout_2 > $match_result->diffence_layout_2){
+    if ($match_result->offence_layout_2_pt > $match_result->diffence_layout_2_pt){
       $offence_point++;
-    }elseif ($match_result->diffence_layout_2 > $match_result->offence_layout_2){
+    }elseif ($match_result->diffence_layout_2_pt > $match_result->offence_layout_2_pt){
       $diffence_point++;
     }
     
-    if ($match_result->offence_layout_3 > $match_result->diffence_layout_3){
+    if ($match_result->offence_layout_3_pt > $match_result->diffence_layout_3_pt){
       $offence_point++;
-    }elseif ($match_result->diffence_layout_3 > $match_result->offence_layout_3){
+    }elseif ($match_result->diffence_layout_3_pt > $match_result->offence_layout_3_pt){
       $diffence_point++;
     }
     
-    if ($match_result->offence_layout_4 > $match_result->diffence_layout_4){
+    if ($match_result->offence_layout_4_pt > $match_result->diffence_layout_4_pt){
       $offence_point++;
-    }elseif ($match_result->diffence_layout_4 > $match_result->offence_layout_4){
+    }elseif ($match_result->diffence_layout_4_pt > $match_result->offence_layout_4_pt){
       $diffence_point++;
     }
     
-    if ($match_result->offence_layout_5 > $match_result->diffence_layout_5){
+    if ($match_result->offence_layout_5_pt > $match_result->diffence_layout_5_pt){
       $offence_point++;
-    }elseif ($match_result->diffence_layout_5 > $match_result->offence_layout_5){
+    }elseif ($match_result->diffence_layout_5_pt > $match_result->offence_layout_5_pt){
       $diffence_point++;
     }
     
