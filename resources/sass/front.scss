@@ -583,30 +583,17 @@ button.bg-base:focus {
     z-index: 1;
     transform: rotateY(0deg);
 }
+
 #rotate-area .ura {
     position: absolute;
     z-index: 0;
     transform: rotateY(-180deg);
 }
 
-/* match.resultのdiffence向け*/
-#rotate-area-d {
-    position: relative;
-}
-
-#rotate-area-d .rotate-target-d {
-    position: relative;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: block;
-    left: 0px;
-    top: 0px;
-}
-#rotate-area-d .omote_d {
-    z-index: 1;
-    transform: rotateY(0deg);
-}
-#rotate-area-d .ura_d {
+#rotate-area .win {
     position: absolute;
     z-index: 0;
     transform: rotateY(-180deg);
+    bottom:10px;
+    right:20px;
 }
