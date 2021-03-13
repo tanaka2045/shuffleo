@@ -573,7 +573,7 @@ button.bg-base:focus {
 
 #rotate-area .rotate-target {
     position: relative;
-    transition: all 0.8s ease-out 0s;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: block;
     left: 0px;
     top: 0px;
@@ -589,14 +589,14 @@ button.bg-base:focus {
     transform: rotateY(-180deg);
 }
 
-//match.resultのdiffence向けs
+/* match.resultのdiffence向け*/
 #rotate-area-d {
     position: relative;
 }
 
 #rotate-area-d .rotate-target-d {
     position: relative;
-    transition: all 0.8s ease-out 0s;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: block;
     left: 0px;
     top: 0px;

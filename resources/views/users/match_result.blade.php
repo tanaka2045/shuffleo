@@ -11,6 +11,7 @@
           <div class="col-6 text-center">
             <a class="border-bottom font-o-esm" href="{{ action('Users\OtherUserController@otherUserAccess', $request->offence_user_id) }}">
               {{ $request->offence_nickname }}</a>
+            {{-- 攻撃1 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area" class="col-5 mt-2 px-0">
                 <div class="rotate-target omote" id="omote_1">
@@ -21,6 +22,7 @@
                 </div>
               </div>
             </div>
+            {{-- 攻撃2 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area" class="col-5 px-0">
                 <div class="rotate-target omote" id="omote_2">
@@ -31,6 +33,7 @@
                 </div>
               </div>
             </div>
+            {{-- 攻撃3 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area" class="col-5 px-0">
                 <div class="rotate-target omote" id="omote_3">
@@ -41,6 +44,7 @@
                 </div>
               </div>
             </div>
+            {{-- 攻撃4 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area" class="col-5 px-0">
                 <div class="rotate-target omote" id="omote_4">
@@ -51,7 +55,8 @@
                 </div>
               </div>
             </div>
-            <div class="row align-items-center justify-content-center mx-0 mb-1">
+            {{-- 攻撃5 --}}
+            <div class="row align-items-center justify-content-center mx-0 mb-3">
               <div id="rotate-area" class="col-5 px-0">
                 <div class="rotate-target omote" id="omote_5">
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
@@ -68,6 +73,7 @@
           <div class="col-6 text-center">
             <a class="border-bottom font-o-esm mb-2" href="{{ action('Users\OtherUserController@otherUserAccess', $request->diffence_user_id) }}">
               {{ $request->diffence_nickname }}</a>
+            {{-- 守備 1 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area-d" class="col-5 mt-2 px-0">
                 <div class="rotate-target-d omote_d" id="omote_d_1">
@@ -78,6 +84,7 @@
                 </div>
               </div>
             </div>
+            {{-- 守備 2 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area-d" class="col-5 px-0">
                 <div class="rotate-target-d omote_d" id="omote_d_2">
@@ -88,6 +95,7 @@
                 </div>
               </div>
             </div>
+            {{-- 守備 3 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area-d" class="col-5 px-0">
                 <div class="rotate-target-d omote_d" id="omote_d_3">
@@ -98,6 +106,7 @@
                 </div>
               </div>
             </div>
+            {{-- 守備 4 --}}
             <div class="row align-items-center justify-content-center mx-0 mb-1">
               <div id="rotate-area-d" class="col-5 px-0">
                 <div class="rotate-target-d omote_d" id="omote_d_4">
@@ -108,7 +117,8 @@
                 </div>
               </div>
             </div>
-            <div class="row align-items-center justify-content-center mx-0 mb-1">
+            {{-- 守備 5 --}}
+            <div class="row align-items-center justify-content-center mx-0 mb-3">
               <div id="rotate-area-d" class="col-5 px-0">
                 <div class="rotate-target-d omote_d" id="omote_d_5">
                   <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
@@ -120,12 +130,16 @@
             </div>
           </div>
         {{-- 守備側のレイアウト終了 --}}
-        
         </div>
-        
-        <div class="font-o-elg-norm my-4" style="color: #DEEBF7;">
-          {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."の勝ち" }}
-        </div>
+        @if ($request->win_card_count_offence > $request->win_card_count_diffence)
+          <span id="winner" class="font-o-elg-norm fluorescence-red my-4" style="display:none; color: #DEEBF7;">
+            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."さんの勝ち" }}
+          </span>
+        @else
+          <span id="winner" class="font-o-elg-norm fluorescence-blue my-4" style="display:none; color: #DEEBF7;">
+            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."さんの勝ち" }}
+          </span>
+        @endif
       </div>
     </div>
   </div>
@@ -140,43 +154,36 @@
         setTimeout(function(){
           $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },0);
-        setTimeout(function(){
-          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },200);
-        setTimeout(function(){
-          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },400);
-        setTimeout(function(){
-          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },600);
-        setTimeout(function(){
-          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },800);
-        setTimeout(function(){
           $('#omote_d_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_d_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           },0);
         setTimeout(function(){
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           $('#omote_d_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_d_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },200);
+          },1000);
         setTimeout(function(){
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           $('#omote_d_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_d_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },400);
+          },2000);
         setTimeout(function(){
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           $('#omote_d_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_d_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },600);
+          },3000);
         setTimeout(function(){
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
           $('#omote_d_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
           $('#ura_d_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },800);
+          },4000);
+        setTimeout(function(){
+          $('#winner').fadeIn(100);
+          },5000);  
       });
     });
   </script>
