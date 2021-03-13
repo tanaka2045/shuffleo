@@ -20,7 +20,7 @@
             <li>オープンカードを選択</li>
             <li>セットボタンでカード配置</li>
             <li>確定ボタンで登録完了</li>
-            <li class="text-warning">レイアウトやオープンカードの変更を反映させるためには、毎回セットボタンを押す必要があります</li>
+            <li class="text-warning">レイアウトやオープンカードを変更する場合、再度セットボタンを押すことで変更が反映されます</li>
           </ul>
         </div>
       </div>
@@ -51,10 +51,7 @@
             {{--守1--}}
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
-                <div class="rotate-target omote" id="omote_1">
-                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
-                </div>
-                <div class="rotate-target ura" id="ura_1">
+                <div class="rotate-target">
                   <img src="{{ '../images/'.$diffence_layout_1.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -76,10 +73,7 @@
             {{--守2--}}
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
-                <div class="rotate-target omote" id="omote_2">
-                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
-                </div>
-                <div class="rotate-target ura" id="ura_2">
+                <div class="rotate-target">
                   <img src="{{ '../images/'.$diffence_layout_2.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -101,10 +95,7 @@
              {{--守3--}}
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
-                <div class="rotate-target omote" id="omote_3">
-                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
-                </div>
-                <div class="rotate-target ura" id="ura_3">
+                <div class="rotate-target">
                   <img src="{{ '../images/'.$diffence_layout_3.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -126,10 +117,7 @@
             {{--守4--}}
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
-                <div class="rotate-target omote" id="omote_4">
-                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
-                </div>
-                <div class="rotate-target ura" id="ura_4">
+                <div class="rotate-target">
                   <img src="{{ '../images/'.$diffence_layout_4.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -151,10 +139,7 @@
             {{--守5--}}
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
-                <div class="rotate-target omote" id="omote_5">
-                  <img src="../images/back_blue.png" style="max-width:80%; height:auto;">
-                </div>
-                <div class="rotate-target ura" id="ura_5">
+                <div class="rotate-target">
                   <img src="{{ '../images/'.$diffence_layout_5.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
@@ -196,36 +181,5 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('js')
-  @if ($errors->any() == false)
-  <script>
-    jQuery(function($){
-      window.onload=(function(){
-        setTimeout(function(){
-          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },0);
-        setTimeout(function(){
-          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },200);
-        setTimeout(function(){
-          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },400);
-        setTimeout(function(){
-          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },600);
-        setTimeout(function(){
-          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
-          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
-          },800);
-      });
-    });
-  </script>
-  @endif
 @endsection
  

@@ -54,7 +54,10 @@
                   </select>
                 </div>
                 <div id="rotate-area" class="col-4 px-0">
-                  <div class="rotate-target">
+                  <div class="rotate-target omote" id="omote_1">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_1">
                     <img src="{{ '../images/'.$offence_layout_1.'.png' }}" style="max-width: 90%; height:auto;">
                   </div>
                 </div>
@@ -73,7 +76,10 @@
                   </select>
                 </div>
                 <div id="rotate-area" class="col-4 px-0">
-                  <div class="rotate-target">
+                  <div class="rotate-target omote" id="omote_2">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_2">
                     <img src="{{ '../images/'.$offence_layout_2.'.png' }}" style="max-width: 90%; height:auto;">
                   </div>
                 </div>
@@ -92,7 +98,10 @@
                   </select>
                 </div>
                 <div id="rotate-area" class="col-4 px-0">
-                  <div class="rotate-target">
+                  <div class="rotate-target omote" id="omote_3">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_3">
                     <img src="{{ '../images/'.$offence_layout_3.'.png' }}" style="max-width: 90%; height:auto;">
                   </div>
                 </div>
@@ -111,7 +120,10 @@
                     </select>
                 </div>
                 <div id="rotate-area" class="col-4 px-0">
-                  <div class="rotate-target">
+                  <div class="rotate-target omote" id="omote_4">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_4">
                     <img src="{{ '../images/'.$offence_layout_4.'.png' }}" style="max-width: 90%; height:auto;">
                   </div>
                 </div>
@@ -130,7 +142,10 @@
                     </select>
                 </div>
                 <div id="rotate-area" class="col-4 px-0">
-                  <div class="rotate-target">
+                  <div class="rotate-target omote" id="omote_5">
+                    <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
+                  </div>
+                  <div class="rotate-target ura" id="ura_5">
                     <img src="{{ '../images/'.$offence_layout_5.'.png' }}" style="max-width: 90%; height:auto;">
                   </div>
                 </div>
@@ -229,5 +244,36 @@
     </div>
   </div>
   
+@endsection
+
+@section('js')
+  @if ($errors->any() == false)
+  <script>
+    jQuery(function($){
+      window.onload=(function(){
+        setTimeout(function(){
+          $('#omote_1').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_1').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },0);
+        setTimeout(function(){
+          $('#omote_2').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_2').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },200);
+        setTimeout(function(){
+          $('#omote_3').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_3').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },400);
+        setTimeout(function(){
+          $('#omote_4').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_4').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },600);
+        setTimeout(function(){
+          $('#omote_5').css({'z-index':'0', 'transform':'rotateY(-180deg)'});
+          $('#ura_5').css({'z-index':'1', 'transform':'rotateY(0deg)'});
+          },800);
+      });
+    });
+  </script>
+  @endif
 @endsection
  
