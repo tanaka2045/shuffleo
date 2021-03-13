@@ -230,6 +230,7 @@
             {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."さんの勝ち" }}
           </span>
         @endif
+        <div class="my-3"></div>
       </div>
     </div>
   </div>
