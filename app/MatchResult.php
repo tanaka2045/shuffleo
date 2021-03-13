@@ -65,6 +65,50 @@ class MatchResult extends Model
     return array($match_result, $win_user);
   }
   
+  //カードレイアウトの取得
+  public static function cardLayoutGet($id)
+  {
+    $offence_layout_1 =MatchResult::find($id)->offence_layout_1;
+    $offence_layout_2 =MatchResult::find($id)->offence_layout_2;
+    $offence_layout_3 =MatchResult::find($id)->offence_layout_3;
+    $offence_layout_4 =MatchResult::find($id)->offence_layout_4;
+    $offence_layout_5 =MatchResult::find($id)->offence_layout_5;
+    $diffence_layout_1 =MatchResult::find($id)->diffence_layout_1;
+    $diffence_layout_2 =MatchResult::find($id)->diffence_layout_2;
+    $diffence_layout_3 =MatchResult::find($id)->diffence_layout_3;
+    $diffence_layout_4 =MatchResult::find($id)->diffence_layout_4;
+    $diffence_layout_5 =MatchResult::find($id)->diffence_layout_5;
+    
+    return array($offence_layout_1, $offence_layout_2, $offence_layout_3, $offence_layout_4, $offence_layout_5,
+          $diffence_layout_1, $diffence_layout_2, $diffence_layout_3, $diffence_layout_4, $diffence_layout_5);
+  }
+  
+  //レイアウト毎カードポイントの取得
+  public static function cardPointForEachLayoutGet($id)
+  {
+    $offence_layout_1_pt =MatchResult::find($id)->offence_layout_1_pt;
+    $offence_layout_2_pt =MatchResult::find($id)->offence_layout_2_pt;
+    $offence_layout_3_pt =MatchResult::find($id)->offence_layout_3_pt;
+    $offence_layout_4_pt =MatchResult::find($id)->offence_layout_4_pt;
+    $offence_layout_5_pt =MatchResult::find($id)->offence_layout_5_pt;
+    $diffence_layout_1_pt =MatchResult::find($id)->diffence_layout_1_pt;
+    $diffence_layout_2_pt =MatchResult::find($id)->diffence_layout_2_pt;
+    $diffence_layout_3_pt =MatchResult::find($id)->diffence_layout_3_pt;
+    $diffence_layout_4_pt =MatchResult::find($id)->diffence_layout_4_pt;
+    $diffence_layout_5_pt =MatchResult::find($id)->diffence_layout_5_pt;
+    
+    return array($offence_layout_1_pt, $offence_layout_2_pt, $offence_layout_3_pt, $offence_layout_4_pt, $offence_layout_5_pt,
+          $diffence_layout_1_pt, $diffence_layout_2_pt, $diffence_layout_3_pt, $diffence_layout_4_pt, $diffence_layout_5_pt);
+  }
+  
+  //オープンカード情報
+  public static function openCardGet($id)
+  {
+    $open_card = MatchResult::find($id)->open_card;
+    
+    return ($open_card);
+  }
+  
   //過去の対戦結果表示用に勝利ユーザーの再計算
   public static function winUserReCalculation($match_result)
   {

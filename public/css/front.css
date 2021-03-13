@@ -591,3 +591,26 @@ button.bg-base:focus {
   transform: rotateY(-180deg);
 }
 
+#rotate-area-d {
+  position: relative;
+}
+
+#rotate-area-d .rotate-target-d {
+  position: relative;
+  transition: all 0.8s ease-out 0s;
+  display: block;
+  left: 0px;
+  top: 0px;
+}
+
+#rotate-area-d .omote_d {
+  z-index: 1;
+  transform: rotateY(0deg);
+}
+
+#rotate-area-d .ura_d {
+  position: absolute;
+  z-index: 0;
+  transform: rotateY(-180deg);
+}
+

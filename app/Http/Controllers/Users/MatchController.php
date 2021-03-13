@@ -400,6 +400,20 @@ class MatchController extends Controller
         
         //勝敗の計算
         list($match_result, $win_user) = MatchResult::matchResultCalculation($match_result);
+        
+        //カードレイアウトの取得
+        list($offence_layout_1, $offence_layout_2, $offence_layout_3, $offence_layout_4, $offence_layout_5,
+          $diffence_layout_1, $diffence_layout_2, $diffence_layout_3, $diffence_layout_4, $diffence_layout_5)
+          =MatchResult::cardLayoutGet($id);
+
+        //レイアウト毎カードポイントの取得
+        list($offence_layout_1_pt, $offence_layout_2_pt, $offence_layout_3_pt, $offence_layout_4_pt, $offence_layout_5_pt,
+          $diffence_layout_1_pt, $diffence_layout_2_pt, $diffence_layout_3_pt, $diffence_layout_4_pt, $diffence_layout_5_pt)
+          =MatchResult::cardPointForEachLayoutGet($id);
+        
+        //オープンカード情報
+        $open_card = MatchResult::openCardGet($id);
+        
         //勝カード数を変数化(view受け渡し用）
         $win_card_count_offence = $match_result->win_card_count_offence;
         $win_card_count_diffence = $match_result->win_card_count_diffence;
@@ -442,7 +456,29 @@ class MatchController extends Controller
           'win_card_count_diffence' => $win_card_count_diffence, 'win_user' => $win_user,
           'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
           'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
-          'button_switch' => $button_switch]));
+          'button_switch' => $button_switch,
+          'offence_layout_1' => $offence_layout_1,
+          'offence_layout_2' => $offence_layout_2,
+          'offence_layout_3' => $offence_layout_3,
+          'offence_layout_4' => $offence_layout_4,
+          'offence_layout_5' => $offence_layout_5,
+          'diffence_layout_1' => $diffence_layout_1,
+          'diffence_layout_2' => $diffence_layout_2,
+          'diffence_layout_3' => $diffence_layout_3,
+          'diffence_layout_4' => $diffence_layout_4,
+          'diffence_layout_5' => $diffence_layout_5,
+          'offence_layout_1_pt' => $offence_layout_1_pt,
+          'offence_layout_2_pt' => $offence_layout_2_pt,
+          'offence_layout_3_pt' => $offence_layout_3_pt,
+          'offence_layout_4_pt' => $offence_layout_4_pt,
+          'offence_layout_5_pt' => $offence_layout_5_pt,
+          'diffence_layout_1_pt' => $diffence_layout_1_pt,
+          'diffence_layout_2_pt' => $diffence_layout_2_pt,
+          'diffence_layout_3_pt' => $diffence_layout_3_pt,
+          'diffence_layout_4_pt' => $diffence_layout_4_pt,
+          'diffence_layout_5_pt' => $diffence_layout_5_pt,
+          'open_card' => $open_card        
+          ]));
       }else{
         //オフェンスユーザーアクセス履歴があれば、何も更新せずにmatch.makeへ遷移
         return redirect(route('match.make'));
