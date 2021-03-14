@@ -25,27 +25,27 @@
             <tbody>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">勝ち数</th>
-                <td class="bg-black-gradient">{{  $total_win_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $total_win_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $total_win_count  }}</td>
+                <td class="bg-match-make">{{  $total_win_count_offence  }}</td>
+                <td class="bg-match-make">{{  $total_win_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $total_win_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">負け数</th>
-                <td class="bg-black-gradient">{{  $total_lose_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $total_lose_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $total_lose_count  }}</td>
+                <td class="bg-match-make">{{  $total_lose_count_offence  }}</td>
+                <td class="bg-match-make">{{  $total_lose_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $total_lose_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">計</th>
-                <td class="bg-black-gradient">{{  $total_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $total_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $total_count  }}</td>
+                <td class="bg-match-make">{{  $total_count_offence  }}</td>
+                <td class="bg-match-make">{{  $total_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $total_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">勝率</th>
-                <td class="bg-black-gradient" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_offence,1)."%"  }}</td>
-                <td class="bg-black-gradient" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_diffence,1)."%"  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($total_win_rate,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_offence,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-bottom-color: #dee2e6;">{{  number_format($total_win_rate_diffence,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($total_win_rate,1)."%"  }}</td>
               </tr>            
             </tbody>
           </table>
@@ -67,27 +67,27 @@
             <tbody>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">勝ち数</th>
-                <td class="bg-black-gradient">{{  $current_win_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $current_win_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $current_win_count  }}</td>
+                <td class="bg-match-make">{{  $current_win_count_offence  }}</td>
+                <td class="bg-match-make">{{  $current_win_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $current_win_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">負け数</th>
-                <td class="bg-black-gradient">{{  $current_lose_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $current_lose_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $current_lose_count  }}</td>
+                <td class="bg-match-make">{{  $current_lose_count_offence  }}</td>
+                <td class="bg-match-make">{{  $current_lose_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $current_lose_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">計</th>
-                <td class="bg-black-gradient">{{  $current_count_offence  }}</td>
-                <td class="bg-black-gradient">{{  $current_count_diffence  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6;">{{  $current_count  }}</td>
+                <td class="bg-match-make">{{  $current_count_offence  }}</td>
+                <td class="bg-match-make">{{  $current_count_diffence  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6;">{{  $current_count  }}</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-status font-o-sm-norm">勝率</th>
-                <td class="bg-black-gradient" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_offence,1)."%"  }}</td>
-                <td class="bg-black-gradient" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_diffence,1)."%"  }}</td>
-                <td class="bg-black-gradient" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($current_win_rate,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_offence,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-bottom-color: #dee2e6;">{{  number_format($current_win_rate_diffence,1)."%"  }}</td>
+                <td class="bg-match-make" style="border-right-color: #dee2e6; border-bottom-color: #dee2e6;">{{  number_format($current_win_rate,1)."%"  }}</td>
               </tr>            
             </tbody>
           </table>

@@ -18,9 +18,9 @@
         
           {{-- ニックネームの登録 --}}
           <div class="form-group row mx-0">
-            <label for="nickname">{{ __('ニックネーム' ) }}</label>
+            <label for="nickname">{{ __('ニックネーム（10文字以内）' ) }}</label>
             <input id="nickname" type="text" class="form-control  @error('nickname') is-invalid @enderror" maxlength="10" name="nickname" value="{{ old('nickname') }}" required autocomplete="nickname" autofocus 
-            placeholder="10文字以内で入力" style="height: 1.5em; background-color:#000000; color:#FFFFFF">
+              style="height: 1.5em; background-color:#000000; color:#FFFFFF">
             @error('nickname')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -73,8 +73,8 @@
         
           {{-- ログインIDの登録 --}}
           <div class="form-group row mx-0">
-            <label for="name">{{ __('ログインID' ) }}</label>
-            <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="半角英数字6文字以上で入力" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
+            <label for="name">{{ __('ログインID（半角英数字6文字以上）' ) }}</label>
+            <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
             @error('name')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -84,8 +84,8 @@
         
           {{-- パスワードの登録 --}}
           <div class="form-group row mx-0">
-            <label for="password">{{ __('パスワード' ) }}</label>
-            <input id="password" type="text" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="半角英数字6文字以上で入力" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
+            <label for="password">{{ __('パスワード（半角英数字6文字以上）' ) }}</label>
+            <input id="password" type="text" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
             @error('password')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
           {{-- メールアドレスの登録 --}}
           <div class="form-group row mx-0">
             <label for="email">{{ __('メールアドレス' ) }}</label>
-            <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
+            <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="height: 1.5em; background-color:#000000; color:#FFFFFF;">
             @error('email')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
