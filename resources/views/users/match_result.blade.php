@@ -18,7 +18,7 @@
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_1">
-                  <img src="{{ '../images/ONo'.$request->offence_layout_1.'.png' }}" style="max-width: 100%; height:auto;">
+                  <img src="{{ '../images/red_'.$request->offence_layout_1_pt.'.png' }}" style="max-width: 100%; height:auto;">
                 </div>
                 @if ($request->offence_layout_1_pt > $request->diffence_layout_1_pt)
                   <div class="rotate-target ura win" id="win_o_1">
@@ -34,7 +34,7 @@
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_2">
-                  <img src="{{ '../images/ONo'.$request->offence_layout_2.'.png' }}" style="max-width: 100%; height:auto;">
+                  <img src="{{ '../images/red_'.$request->offence_layout_2_pt.'.png' }}" style="max-width: 100%; height:auto;">
                 </div>
                 @if ($request->offence_layout_2_pt > $request->diffence_layout_2_pt)
                   <div class="rotate-target ura win" id="win_o_2">
@@ -50,7 +50,7 @@
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_3">
-                  <img src="{{ '../images/ONo'.$request->offence_layout_3.'.png' }}" style="max-width: 100%; height:auto;">
+                  <img src="{{ '../images/red_'.$request->offence_layout_3_pt.'.png' }}" style="max-width: 100%; height:auto;">
                 </div>
                 @if ($request->offence_layout_3_pt > $request->diffence_layout_3_pt)
                   <div class="rotate-target ura win" id="win_o_3">
@@ -66,7 +66,7 @@
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_4">
-                  <img src="{{ '../images/ONo'.$request->offence_layout_4.'.png' }}" style="max-width: 100%; height:auto;">
+                  <img src="{{ '../images/red_'.$request->offence_layout_4_pt.'.png' }}" style="max-width: 100%; height:auto;">
                 </div>
                 @if ($request->offence_layout_4_pt > $request->diffence_layout_4_pt)
                   <div class="rotate-target ura win" id="win_o_4">
@@ -82,7 +82,7 @@
                   <img src="../images/back_red.png" style="max-width: 100%; height:auto;">
                 </div>
                 <div class="rotate-target ura" id="ura_5">
-                  <img src="{{ '../images/ONo'.$request->offence_layout_5.'.png' }}" style="max-width: 100%; height:auto;">
+                  <img src="{{ '../images/red_'.$request->offence_layout_5_pt.'.png' }}" style="max-width: 100%; height:auto;">
                 </div>
                   @if ($request->offence_layout_5_pt > $request->diffence_layout_5_pt)
                     <div class="rotate-target ura win" id="win_o_5">
@@ -103,7 +103,7 @@
               @if ($request->open_card == 1)
                 <div id="rotate-area" class="col-5 mt-2 px-0">
                   <div class="rotate-target">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_1.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_1_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                 </div>
               @else
@@ -112,7 +112,7 @@
                     <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
                   </div>
                   <div class="rotate-target ura" id="ura_d_1">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_1.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_1_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                   @if ($request->offence_layout_1_pt < $request->diffence_layout_1_pt)
                     <div class="rotate-target ura win" id="win_d_1">
@@ -127,7 +127,7 @@
               @if ($request->open_card == 2)
                 <div id="rotate-area" class="col-5 px-0">
                   <div class="rotate-target">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_2.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_2_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                 </div>
               @else
@@ -136,7 +136,7 @@
                     <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
                   </div>
                   <div class="rotate-target ura" id="ura_d_2">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_2.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_2_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                   @if ($request->offence_layout_2_pt < $request->diffence_layout_2_pt)
                     <div class="rotate-target ura win" id="win_d_2">
@@ -151,7 +151,7 @@
               @if ($request->open_card == 3)
                 <div id="rotate-area" class="col-5 px-0">
                   <div class="rotate-target">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_3.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_3_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                 </div>
               @else
@@ -160,7 +160,7 @@
                     <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
                   </div>
                   <div class="rotate-target ura" id="ura_d_3">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_3.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_3_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                   @if ($request->offence_layout_3_pt < $request->diffence_layout_3_pt)
                     <div class="rotate-target ura win" id="win_d_3">
@@ -175,7 +175,7 @@
               @if ($request->open_card == 4)
                 <div id="rotate-area" class="col-5 px-0">
                   <div class="rotate-target">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_4.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_4_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                 </div>
               @else
@@ -184,7 +184,7 @@
                     <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
                   </div>
                   <div class="rotate-target ura" id="ura_d_4">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_4.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_4_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                   @if ($request->offence_layout_4_pt < $request->diffence_layout_4_pt)
                     <div class="rotate-target ura win" id="win_d_4">
@@ -199,7 +199,7 @@
               @if ($request->open_card == 5)
                 <div id="rotate-area" class="col-5 px-0">
                   <div class="rotate-target">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_5.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_5_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                 </div>
               @else
@@ -208,7 +208,7 @@
                     <img src="../images/back_blue.png" style="max-width: 100%; height:auto;">
                   </div>
                   <div class="rotate-target ura" id="ura_d_5">
-                    <img src="{{ '../images/DNo'.$request->diffence_layout_5.'.png' }}" style="max-width: 100%; height:auto;">
+                    <img src="{{ '../images/blue_'.$request->diffence_layout_5_pt.'.png' }}" style="max-width: 100%; height:auto;">
                   </div>
                    @if ($request->offence_layout_5_pt < $request->diffence_layout_5_pt)
                     <div class="rotate-target ura win" id="win_d_5">

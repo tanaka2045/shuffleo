@@ -83,7 +83,7 @@ class MatchController extends Controller
     $user = User::find($user_id);
     $button_switch = $user->button_switch;
     
-    //レイアウト毎カードNoとカードポイントの紐づけ（この時点でMatchMakeモデルに対応するレコードができていないのでコントローラで計算する）
+    //レイアウト毎カードNoとカードポイントの紐づけ
     $replace_before = [$request->diffence_layout_1, $request->diffence_layout_2, $request->diffence_layout_3,
         $request->diffence_layout_4, $request->diffence_layout_5];
       $search = ['DNo1', 'DNo2', 'DNo3', 'DNo4', 'DNo5'];
@@ -167,7 +167,7 @@ class MatchController extends Controller
       //term_end_pointが0 もしくは 一日の対戦数が10未満だった場合は守備登録しmatch_resultページへ遷移する
       if ($term_end_point == 0 || $day_match_count <10000) 
       {
-        //守備登録（MatchResultオブジェクトの作成）
+        //MatchResultオブジェクトの作成(新規守備登録）
         MatchResult::createNewMatchResult($user_id, $request);
         
         //一日の対戦数を+1
@@ -197,12 +197,12 @@ class MatchController extends Controller
     $button_switch = $user->button_switch = 0;
     $user->save();
     
-    //攻撃カードポイントの取得
+    //攻撃カードポイントの取得 (viewのselect boxの値の中で使用)
     list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
       $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
       
     //オープンカード情報の取得
-    $open_card = $diffence_info->open_card; // 1~5で取得
+    $open_card = $diffence_info->open_card; // int(1~5)で取得
     
     return view ('users.match_offence', [
       'offence_nickname' => $offence_nickname, 
@@ -237,6 +237,13 @@ class MatchController extends Controller
     $offence_layout_3 = $request->offence_layout_3;
     $offence_layout_4 = $request->offence_layout_4;
     $offence_layout_5 = $request->offence_layout_5;
+
+    //レイアウト毎カードNoとカードポイントの紐づけ（offence_card)
+    $replace_before = [$request->offence_layout_1, $request->offence_layout_2, $request->offence_layout_3,
+        $request->offence_layout_4, $request->offence_layout_5];
+      $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
+      $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5];
+      $replace_after =str_replace($search, $replace, $replace_before);
     
     //オープンカード情報の取得
     $open_card = $diffence_info->open_card; // 1~5で取得
@@ -250,11 +257,11 @@ class MatchController extends Controller
       'offence_card_point_3' => $offence_card_point_3,
       'offence_card_point_4' => $offence_card_point_4,
       'offence_card_point_5' => $offence_card_point_5,
-      'offence_layout_1' => $offence_layout_1,
-      'offence_layout_2' => $offence_layout_2, 
-      'offence_layout_3' => $offence_layout_3, 
-      'offence_layout_4' => $offence_layout_4, 
-      'offence_layout_5' => $offence_layout_5,
+      'offence_layout_1_pt' => $replace_after[0],
+      'offence_layout_2_pt' => $replace_after[1],
+      'offence_layout_3_pt' => $replace_after[2],
+      'offence_layout_4_pt' => $replace_after[3],
+      'offence_layout_5_pt' => $replace_after[4],
       'open_card' => $open_card]);
   }
   
@@ -339,29 +346,8 @@ class MatchController extends Controller
         //一日の対戦数を+1
         User::dayMatchCount($user_id);
         
-        //CardStatusから自分のカードポイントの取得
-        list($offence_card_point_1, $offence_card_point_2, $offence_card_point_3,
-        $offence_card_point_4, $offence_card_point_5) = CardStatus::offenceCardStatus($user_id);
-        
-        //カードNoをカードポイントへ置換
-        $replace_before = [$request->offenceLayout1, $request->offenceLayout2, $request->offenceLayout3,
-          $request->offenceLayout4, $request->offenceLayout5];
-        $search = ['ONo1', 'ONo2', 'ONo3', 'ONo4', 'ONo5'];
-        $replace = [$offence_card_point_1, $offence_card_point_2, $offence_card_point_3, $offence_card_point_4, $offence_card_point_5,];
-        $replace_after =str_replace($search, $replace, $replace_before);
-      
-        $match_result->offence_nickname = User::find($user_id)->nickname;
-        $match_result->offence_layout_1 = str_replace('ONo', '', $replace_before[0]); //offence_layout_1にカードNoを格納
-        $match_result->offence_layout_2 = str_replace('ONo', '', $replace_before[1]); //offence_layout_2にカードNoを格納
-        $match_result->offence_layout_3 = str_replace('ONo', '', $replace_before[2]); //offence_layout_3にカードNoを格納
-        $match_result->offence_layout_4 = str_replace('ONo', '', $replace_before[3]); //offence_layout_4にカードNoを格納
-        $match_result->offence_layout_5 = str_replace('ONo', '', $replace_before[4]); //offence_layout_5にカードNoを格納
-        $match_result->offence_layout_1_pt = $replace_after[0]; //offence_layout_1_ptにポイントを格納
-        $match_result->offence_layout_2_pt = $replace_after[1]; //offence_layout_2_ptにポイントを格納
-        $match_result->offence_layout_3_pt = $replace_after[2]; //offence_layout_3_ptにポイントを格納
-        $match_result->offence_layout_4_pt = $replace_after[3]; //offence_layout_4_ptにポイントを格納
-        $match_result->offence_layout_5_pt = $replace_after[4]; //offence_layout_5_ptにポイントを格納
-        $match_result->save();
+        //攻撃カード情報(レイアウト、レイアウト毎カードポイント）をデータベースへ登録
+        MatchResult::updateMatchReslut($user_id, $request, $match_result);
         
         //勝敗の計算
         list($match_result, $win_user) = MatchResult::matchResultCalculation($match_result);
@@ -413,15 +399,14 @@ class MatchController extends Controller
         $diffence_user_id=$match_result->user_id;
         
         //対戦ボタンスイッチング→0：新たな守備登録および対戦のための初期化
-        $button_switch = User::find($user_id);
-        $button_switch->button_switch = 0;
-        $button_switch->save();
+        $user->button_switch = 0;
+        $user->save();
         
         return redirect(route('match.result', ['id' => $id, 'win_card_count_offence' => $win_card_count_offence, 
           'win_card_count_diffence' => $win_card_count_diffence, 'win_user' => $win_user,
           'offence_user_id' => $user_id, 'diffence_user_id' => $diffence_user_id, 
           'offence_nickname' => $offence_nickname, 'diffence_nickname' => $diffence_nickname, 
-          'button_switch' => $button_switch,
+          'button_switch' => $user->button_switch,
           'offence_layout_1' => $offence_layout_1,
           'offence_layout_2' => $offence_layout_2,
           'offence_layout_3' => $offence_layout_3,

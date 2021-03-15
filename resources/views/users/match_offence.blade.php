@@ -42,7 +42,6 @@
               </div>
               {{--攻1--}}
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
-                {{-- <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0"> --}}
                 @csrf
                 <div class="col-6 form-group px-0 mx-0">
                   <select type="text" style="font-size: 13px; margin: 0px; background-color:#FFFFFF;" name="offenceLayout1" id="offenceLayout1">
@@ -57,7 +56,6 @@
                 <div class="col-4 px-0">
                   <img src="../images/back_red.png" style="max-width: 90%; height:auto;">
                 </div>
-                {{-- </div> --}}
               </div>
               {{--攻2--}}            
               <div class="row d-flex align-items-center justify-content-center mx-0 mb-1">
@@ -141,7 +139,7 @@
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center px-0 mx-0">
                   @if ($open_card == 1)
-                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_1.'.png' }}" style="max-width: 30%; height:auto;">
+                    <img src="{{ '../images/blue_'.$diffence_info->diffence_layout_1_pt.'.png' }}" style="max-width: 30%; height:auto;">
                   @else
                     <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
                   @endif
@@ -151,7 +149,7 @@
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                   @if ($open_card == 2)
-                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_2.'.png' }}" style="max-width: 30%; height:auto;">
+                    <img src="{{ '../images/blue_'.$diffence_info->diffence_layout_2_pt.'.png' }}" style="max-width: 30%; height:auto;">
                   @else
                     <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
                   @endif
@@ -161,7 +159,7 @@
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                   @if ($open_card == 3)
-                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_3.'.png' }}" style="max-width: 30%; height:auto;">
+                    <img src="{{ '../images/blue_'.$diffence_info->diffence_layout_3_pt.'.png' }}" style="max-width: 30%; height:auto;">
                   @else
                     <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
                   @endif
@@ -171,7 +169,7 @@
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                   @if ($open_card == 4)
-                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_4.'.png' }}" style="max-width: 30%; height:auto;">
+                    <img src="{{ '../images/blue_'.$diffence_info->diffence_layout_4_pt.'.png' }}" style="max-width: 30%; height:auto;">
                   @else
                     <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
                   @endif
@@ -181,7 +179,7 @@
               <div class="row mx-0">
                 <div class="col d-flex align-items-center justify-content-center pt-1 px-0 mx-0">
                     @if ($open_card == 5)
-                    <img src="{{ '../images/DNo'.$diffence_info->diffence_layout_5.'.png' }}" style="max-width: 30%; height:auto;">
+                    <img src="{{ '../images/blue_'.$diffence_info->diffence_layout_5_pt.'.png' }}" style="max-width: 30%; height:auto;">
                   @else
                     <img src="../images/back_blue.png" style="max-width: 30%; height:auto;">  
                   @endif
