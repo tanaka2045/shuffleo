@@ -223,11 +223,11 @@
         </div>
         @if ($request->win_card_count_offence > $request->win_card_count_diffence)
           <span id="winner" class="font-o-elg-norm fluorescence-red my-4" style="display:none; color: #DEEBF7;">
-            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で".$request->win_user."さんの勝ち" }}
+            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で ".$request->win_user." の勝ち" }}
           </span>
         @else
           <span id="winner" class="font-o-elg-norm fluorescence-blue my-4" style="display:none; color: #DEEBF7;">
-            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で ".$request->win_user." さんの勝ち" }}
+            {{  $request->win_card_count_offence."-".$request->win_card_count_diffence."で ".$request->win_user." の勝ち" }}
           </span>
         @endif
         <div class="my-3"></div>
@@ -284,7 +284,7 @@
           },4000);
         setTimeout(function(){
           $('#winner').fadeIn(300);
-          },4500);  
+          },5500);  
       });
     });
   </script>

@@ -11,7 +11,7 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 px-4">
-        <div class="p-2 bg-match-make btn-shadow" style="border:3px solid #484B52; border-radius:0.2rem; ">
+        <div class="p-2 bg-match-make btn-shadow" style="border:3px solid #28453A; border-radius:0.2rem; ">
           <div class="font-o-md text-center mb-2 fluorescence-blue" style="width:25%; color: #C9D3F6;">守備で対戦</div>
           <div class="text-right">
             @if ($term_end_point == 0 && $day_match_count <10000)
@@ -26,7 +26,7 @@
     
     <div class="row">
       <div class="col-lg-8 offset-lg-2 mt-2 mb-5 px-4">
-         <div class="p-2 bg-match-make btn-shadow" style="border:3px solid #484B52; border-radius:0.2rem; ">
+         <div class="p-2 bg-match-make btn-shadow" style="border:3px solid #28453A; border-radius:0.2rem; ">
           <div class="font-o-md text-center mb-2 fluorescence-red" style="width:25%; color:#FFCADC;">攻撃で対戦</div>
           <table class="table table-sm mb-2">
             <thead>

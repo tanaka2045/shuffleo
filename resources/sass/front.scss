@@ -30,7 +30,8 @@ button.bg-base:focus {
 }
 
 .bg-match-make {
-  background-color: #8C8F96;
+  background-color: #5A7D75;
+  /*background-color: #8C8F96;*/
 }
 
 .bg-nav-base {
@@ -42,8 +43,12 @@ button.bg-base:focus {
 }
 
 .bg-status {
-  /*background-color: #222A38;*/
   background-color: #484B52;
+  color: #FFFFFF;
+}
+
+.bg-status-tr {
+  background-color: #222A38;
   color: #FFFFFF;
 }
 
