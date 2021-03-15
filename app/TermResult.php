@@ -149,14 +149,15 @@ class TermResult extends Model
   //現ターム＆攻撃＆勝回数の計算
   public static function currentWinCountOffnece($user_id)
   {
-    $current_win_count_offence = TermResult::where('user_id', $user_id)->sum("win_count_offence");
+    $current_win_count_offence = self::currentTermResult($user_id)->win_count_offence;
+    
     return($current_win_count_offence);
   }
   
   //現ターム＆攻撃＆負回数の計算
   public static function currentLoseCountOffnece($user_id)
   {
-    $current_lose_count_offence = TermResult::where('user_id', $user_id)->sum("lose_count_offence");
+    $current_lose_count_offence = self::currentTermResult($user_id)->lose_count_offence;
    
     return($current_lose_count_offence);
   }
@@ -185,7 +186,7 @@ class TermResult extends Model
   //現ターム＆守備＆勝回数の計算
   public static function currentWinCountDiffnece($user_id)
   {
-    $current_win_count_diffence = TermResult::where('user_id', $user_id)->sum("win_count_diffence");
+    $current_win_count_diffence = self::currentTermResult($user_id)->win_count_diffence;
    
     return($current_win_count_diffence);
   }
@@ -193,7 +194,7 @@ class TermResult extends Model
   //現ターム＆守備＆負回数の計算
   public static function currentLoseCountDiffnece($user_id)
   {
-    $current_lose_count_diffence = TermResult::where('user_id', $user_id)->sum("lose_count_diffence");
+    $current_lose_count_diffence = self::currentTermResult($user_id)->lose_count_diffence;
    
     return($current_lose_count_diffence);
   }
@@ -223,7 +224,7 @@ class TermResult extends Model
   public static function currentWinCount($user_id)
   {
     $current_win_count = self::currentWinCountOffnece($user_id) + self::currentWinCountDiffnece($user_id);
-   
+
     return($current_win_count);
   }
   
@@ -252,7 +253,6 @@ class TermResult extends Model
     }else{
     $current_win_rate = (self::currentWinCount($user_id)*100)/ self::currentCount($user_id);
     }
-    
    return($current_win_rate);
   }
   
@@ -449,7 +449,7 @@ class TermResult extends Model
   }
   
   //過去最高ターム勝率の計算
-  public static function bersTermWinRateUpdate($user_id)
+  public static function bestTermWinRateUpdate($user_id)
   {
     $user = User::find($user_id);
     $current_win_rate = self::currentWinRate($user_id);
@@ -470,13 +470,15 @@ class TermResult extends Model
   }
   
   //ターム成績のリセット（ターム成績マスタのインスタンス作成）
-  public function termResultCreate($user_id)
+  public static function termResultCreate($user_id)
   {
     $old_term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $old_term_count = $old_term_result->term_count;
+    $old_term_count++;
     
-    $term_result = new TermResult;
+    $term_result = new TermResult; 
     $term_result->user_id = $user_id;
-    $term_result->term_count = $old_term_result++;
+    $term_result->term_count = $old_term_count;
     $term_result->win_count_offence = 0;
     $term_result->win_count_diffence = 0;
     $term_result->lose_count_offence = 0 ;

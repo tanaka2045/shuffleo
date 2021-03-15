@@ -120,9 +120,22 @@ class HomeController extends Controller
     
     //ターム成績のリセット（ターム成績マスタのインスタンス作成）
     TermResult::termResultCreate($user_id);
+    /*$old_term_result = TermResult::where('user_id', $user_id)->latest()->first();
+    $old_term_count = $old_term_result->term_count;
+    $old_term_count++;
+    
+    $term_result = new TermResult; 
+    $term_result->user_id = $user_id;
+    $term_result->term_count = $old_term_count;
+    $term_result->win_count_offence = 0;
+    $term_result->win_count_diffence = 0;
+    $term_result->lose_count_offence = 0 ;
+    $term_result->lose_count_diffence = 0;
+    $term_result->term_end_point = 0;
+    
+    $term_result->save();*/
     
     return redirect (route('user.home'));
   }
-  
   
 }

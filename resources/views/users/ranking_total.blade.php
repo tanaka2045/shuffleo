@@ -7,14 +7,14 @@
       <div class="col font-o-lg txt-shadow text-center my-3">ランキング</div>
     </div>
     <div class="row">
-      <div class="col-md-6 offset-md-3 font-o-md px-0">
+      <div class="col-md-6 offset-md-3 font-o-sm px-0">
         <div class="d-flex justify-content-start">
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link" href="{{ action('Users\StatisticController@rankingRateAccess') }}">レート</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ action('Users\StatisticController@rankingTermAccess') }}">ターム勝率</a>
+              <a class="nav-link" href="{{ action('Users\StatisticController@rankingTermAccess') }}">過去ターム勝率</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="{{ action('Users\StatisticController@rankingTotalAccess') }}">トータル勝率</a>
@@ -41,17 +41,17 @@
             @endphp
               <tr class="table-ranking">
                 @if ($rank_counter == 1)
-                  <th scope="row" class="color-gold align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                  <th scope="row" class="color-gold align-middle font-o-lg-norm txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
                 @elseif ($rank_counter == 2)
-                  <th scope="row" class="color-silver align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                  <th scope="row" class="color-silver align-middle font-o-lg-norm txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
                 @elseif ($rank_counter == 3)
-                  <th scope="row" class="color-blonze align-middle font-o-lg txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
+                  <th scope="row" class="color-blonze align-middle font-o-lg-norm txt-shadow-dark p-0">{{ ($rank_counter)  }}</th>
                 @else
                   <th scope="row" class="bg-nav-base-gradient text-white">{{ ($rank_counter)  }}</th>
                 @endif
-                <td><a href="{{ action('Users\OtherUserController@otherUserAccess', $rank->id) }}" style="text-decoration:underline; color:#000000;" > 
+                <td><a href="{{ action('Users\OtherUserController@otherUserAccess', $rank->id) }}" class="font-o-sm-norm" style="text-decoration:underline; color:#FFFFFF;" > 
                   {{ $rank->nickname }}</a></td>
-                <td>{{ number_format($rank->total_win_rate,1)."%" }}</td>
+                <td class="font-o-sm-norm" style="color:#FFFFFF;">{{ number_format($rank->total_win_rate,1)."%" }}</td>
               </tr>
             @endforeach
           </tbody>
