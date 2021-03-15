@@ -52,7 +52,7 @@
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target">
-                  <img src="{{ '../images/'.$diffence_layout_1.'.png' }}" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/blue_'.$diffence_layout_1_pt.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -74,7 +74,7 @@
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target">
-                  <img src="{{ '../images/'.$diffence_layout_2.'.png' }}" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/blue_'.$diffence_layout_2_pt.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -96,7 +96,7 @@
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target">
-                  <img src="{{ '../images/'.$diffence_layout_3.'.png' }}" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/blue_'.$diffence_layout_3_pt.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -118,7 +118,7 @@
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target">
-                  <img src="{{ '../images/'.$diffence_layout_4.'.png' }}" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/blue_'.$diffence_layout_4_pt.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -140,7 +140,7 @@
             <div class="row align-items-center justify-content-center mb-1">
               <div id="rotate-area" class="col-2 offset-2 px-0">
                 <div class="rotate-target">
-                  <img src="{{ '../images/'.$diffence_layout_5.'.png' }}" style="max-width:80%; height:auto;">
+                  <img src="{{ '../images/blue_'.$diffence_layout_5_pt.'.png' }}" style="max-width:80%; height:auto;">
                 </div>
               </div>
               <div class="col-3 px-0">
@@ -161,7 +161,6 @@
            
           </div>
            {{-- 守備側のレイアウト終了 --}}
-      
           
           {{-- ボタン設定 --}}
           <div class="row mx-0">

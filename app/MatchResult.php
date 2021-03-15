@@ -16,6 +16,41 @@ class MatchResult extends Model
     'matched_at'
   ];
   
+  //守備登録（MatchResultオブジェクトの作成）
+  public static function createNewMatchResult($user_id, $request)
+  {
+    //カードステータスの取得
+    list($diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3,
+    $diffence_card_point_4, $diffence_card_point_5) = CardStatus::diffenceCardStatus($user_id);
+   
+    //カードNoをカードポイントへ置換、オープンカードをカードナンバーへ置換（int型へ）
+    $replace_before = [$request->diffenceLayout1, $request->diffenceLayout2, $request->diffenceLayout3,
+      $request->diffenceLayout4, $request->diffenceLayout5, $request->openCard];
+    $search = ['DNo1', 'DNo2', 'DNo3', 'DNo4', 'DNo5', 'openCard1', 'openCard2','openCard3','openCard4','openCard5'];
+    $replace = [$diffence_card_point_1, $diffence_card_point_2, $diffence_card_point_3, $diffence_card_point_4, $diffence_card_point_5,
+      '1', '2', '3', '4', '5'];
+    $replace_after =str_replace($search, $replace, $replace_before);
+    
+    //MatchResultオブジェクトの作成
+    $diffence_entry = new MatchResult;
+    $diffence_entry->user_id = $user_id;
+    $diffence_entry->diffence_nickname = User::find($user_id)->nickname;
+    $diffence_entry->diffence_layout_1 = str_replace('DNo', '', $replace_before[0]); //diffence_layout_1にカードNoを格納
+    $diffence_entry->diffence_layout_2 = str_replace('DNo', '', $replace_before[1]); //diffence_layout_1にカードNoを格納
+    $diffence_entry->diffence_layout_3 = str_replace('DNo', '', $replace_before[2]); //diffence_layout_1にカードNoを格納
+    $diffence_entry->diffence_layout_4 = str_replace('DNo', '', $replace_before[3]); //diffence_layout_1にカードNoを格納
+    $diffence_entry->diffence_layout_5 = str_replace('DNo', '', $replace_before[4]); //diffence_layout_1にカードNoを格納
+    $diffence_entry->diffence_layout_1_pt = $replace_after[0]; //diffence_layout_1_ptにポイントを格納
+    $diffence_entry->diffence_layout_2_pt = $replace_after[1]; //diffence_layout_2_ptにポイントを格納
+    $diffence_entry->diffence_layout_3_pt = $replace_after[2]; //diffence_layout_3_ptにポイントを格納
+    $diffence_entry->diffence_layout_4_pt = $replace_after[3]; //diffence_layout_4_ptにポイントを格納
+    $diffence_entry->diffence_layout_5_pt = $replace_after[4]; //diffence_layout_5_ptにポイントを格納
+    $diffence_entry->open_card = $replace_after[5];
+    $diffence_entry->diffence_entry = 1;
+    $diffence_entry->save();
+  }
+  
+  
   public static function matchResultCalculation($match_result)
   {
     $offence_point=0;
